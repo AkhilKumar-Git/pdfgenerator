@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microbiome Analysis</title>
+  </head>
+  <body>
+    <button id="generate">Generate PDF</button>
+    <iframe
+      id="pdf-viewer"
+      width="100%"
+      height="600px"
+      type="application/pdf"
+    ></iframe>
+
+    <script>
+      document
+        .getElementById("generate")
+        .addEventListener("click", async () => {
+          try {
+            const response = await fetch("/generate-pdf");
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            const viewer = document.getElementById("pdf-viewer");
+            viewer.src = url;
+            viewer.contentType = "application/pdf";
+          } catch (error) {
+            console.error("Error generating PDF:", error);
+          }
+        });
+    </script>
+  </body>
+</html>
