@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Data Charts and PDF Generator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .chart-container {
+        position: relative;
+        height: 50vh;
+        width: 100%;
+      }
+      @media (min-width: 768px) {
+        .chart-container {
+          height: 60vh;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 p-10">
+    <div class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold mb-4">Health Data Visualization</h2>
+
+      <!-- Chart containers -->
+      <div id="donutChart" class="chart-container mb-8"></div>
+      <canvas id="rangePlot" class="chart-container mb-8"></canvas>
+      <div id="speedometerChart" class="chart-container mb-8"></div>
+      <div id="stackedBarChart" class="chart-container mb-8"></div>
+      <div id="bubbleChart" class="chart-container mb-8"></div>
+      <canvas id="linearCurve" class="chart-container mb-8"></canvas>
+      <div id="pieChart" class="chart-container mb-8"></div>
+
+      <!-- New charts -->
+      <h2 class="text-2xl font-bold mb-4">
+        Lipid Profile with Anomaly Markers
+      </h2>
+      <canvas id="cholesterolRange" class="chart-container mb-8"></canvas>
+      <div id="scatterPlotWithMarkers" class="chart-container mb-8"></div>
+
+      <!-- Generate PDF button -->
+      <button
+        id="generate"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4"
+      >
+        Generate PDF
+      </button>
+
+      <!-- PDF viewer -->
+      <iframe
+        id="pdf-viewer"
+        width="100%"
+        height="600px"
+        type="application/pdf"
+      ></iframe>
+    </div>
+
+    <script src="/js/charts.js"></script>
+    <script>
+      document
+        .getElementById("generate")
+        .addEventListener("click", async () => {
+          try {
+            const response = await fetch("/generate-pdf");
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            const viewer = document.getElementById("pdf-viewer");
+            viewer.src = url;
+            viewer.contentType = "application/pdf";
+          } catch (error) {
+            console.error("Error generating PDF:", error);
+          }
+        });
+    </script>
+  </body>
+</html>
