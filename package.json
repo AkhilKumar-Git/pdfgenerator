@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^18.0.6",
+    "@types/node": "^18.19.44",
     "axios": "^1.7.3",
     "canvas": "^2.11.2",
     "chart.js": "^3.9.1",
