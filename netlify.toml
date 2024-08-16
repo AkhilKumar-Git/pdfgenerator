@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build"
-  publish = "build"
+  command = "npm install && npm run start"
+  publish = "."
 
 [context.production.environment]
   NODE_VERSION = "14"  # or the version your project requires
@@ -9,3 +9,8 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
