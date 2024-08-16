@@ -5,7 +5,7 @@ const { createCharts } = require("./src/services/createGraphs");
 const { createPDF } = require("./src/services/createPDF");
 
 const app = express();
-const port = process.env.PORT || 3009;
+const port = process.env.PORT || 3000;
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "src", "public")));
@@ -29,16 +29,10 @@ app.get("/chart-data", (req, res) => {
 // Route to generate PDF
 app.get("/generate-pdf", async (req, res) => {
   try {
-    await createCharts();
-    const pdfPath = await createPDF();
-    // Convert relative path to absolute path
-    const absolutePdfPath = path.resolve(__dirname, pdfPath);
-    res.sendFile(absolutePdfPath, (err) => {
-      if (err) {
-        console.error("Error sending PDF:", err);
-        res.status(500).send("Error sending PDF");
-      }
-    });
+    const userId = req.query.userId || "demo-user"; // In a real app, get this from authentication
+    const chartUrls = await createCharts(userId);
+    const pdfUrl = await createPDF(userId, chartUrls);
+    res.json({ pdfUrl, chartUrls });
   } catch (error) {
     console.error("Error generating PDF:", error);
     res.status(500).send("Error generating PDF");

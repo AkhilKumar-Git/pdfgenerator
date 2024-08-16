@@ -1,49 +1,43 @@
 const PDFDocument = require("pdfkit");
-const fs = require("fs");
-const path = require("path");
+const AWS = require("aws-sdk");
+const s3 = new AWS.S3();
 
-function createPDF() {
+async function createPDF(userId, chartUrls) {
   return new Promise((resolve, reject) => {
     const doc = new PDFDocument();
-    const pdfPath = "src/data/generatedPDFs/output.pdf";
+    const chunks = [];
 
-    const stream = fs.createWriteStream(pdfPath);
-    doc.pipe(stream);
+    doc.on("data", (chunk) => chunks.push(chunk));
+    doc.on("end", async () => {
+      const pdfBuffer = Buffer.concat(chunks);
+      const s3Params = {
+        Bucket: process.env.S3_BUCKET_NAME,
+        Key: `users/${userId}/pdfs/${Date.now()}.pdf`,
+        Body: pdfBuffer,
+        ContentType: "application/pdf",
+        ACL: "public-read",
+      };
 
-    const charts = [
-      "donutChart",
-      "rangePlot",
-      "speedometerChart",
-      "stackedBarChart",
-      "bubbleChart",
-      "linearCurve",
-      "pieChart",
-      "cholesterolRange",
-      "scatterPlotWithMarkers",
-    ];
-
-    charts.forEach((chart, index) => {
-      if (index > 0) {
-        doc.addPage();
+      try {
+        const data = await s3.upload(s3Params).promise();
+        console.log("PDF uploaded successfully. URL:", data.Location);
+        resolve(data.Location);
+      } catch (err) {
+        console.error("Error uploading PDF to S3:", err);
+        reject(err);
       }
-      doc.image(`src/data/charts/${chart}.png`, {
+    });
+
+    for (const [chartName, chartUrl] of Object.entries(chartUrls)) {
+      doc.addPage();
+      doc.image(chartUrl, {
         fit: [500, 300],
         align: "center",
         valign: "center",
       });
-    });
+    }
 
     doc.end();
-
-    stream.on("finish", () => {
-      console.log("PDF created with charts.");
-      resolve(pdfPath);
-    });
-
-    stream.on("error", (err) => {
-      console.error("Error creating PDF:", err);
-      reject(err);
-    });
   });
 }
 

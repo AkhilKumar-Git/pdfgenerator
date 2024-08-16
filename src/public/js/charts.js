@@ -224,3 +224,25 @@ async function renderCharts() {
 }
 
 window.addEventListener("load", renderCharts);
+
+document.getElementById("generate").addEventListener("click", async () => {
+  try {
+    const response = await fetch("/generate-pdf?userId=demo-user");
+    const data = await response.json();
+
+    // Display PDF
+    const pdfViewer = document.getElementById("pdf-viewer");
+    pdfViewer.src = data.pdfUrl;
+    pdfViewer.contentType = "application/pdf";
+
+    // Display individual charts
+    for (const [chartName, chartUrl] of Object.entries(data.chartUrls)) {
+      const imgElement = document.createElement("img");
+      imgElement.src = chartUrl;
+      imgElement.alt = chartName;
+      document.body.appendChild(imgElement);
+    }
+  } catch (error) {
+    console.error("Error generating PDF:", error);
+  }
+});
