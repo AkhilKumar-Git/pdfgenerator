@@ -1,5 +1,6 @@
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
+const path = require("path");
 
 function createPDF() {
   return new Promise((resolve, reject) => {
@@ -9,16 +10,27 @@ function createPDF() {
     const stream = fs.createWriteStream(pdfPath);
     doc.pipe(stream);
 
-    doc.image("src/data/charts/normal.png", {
-      fit: [500, 300],
-      align: "center",
-      valign: "center",
-    });
+    const charts = [
+      "donutChart",
+      "rangePlot",
+      "speedometerChart",
+      "stackedBarChart",
+      "bubbleChart",
+      "linearCurve",
+      "pieChart",
+      "cholesterolRange",
+      "scatterPlotWithMarkers",
+    ];
 
-    doc.addPage().image("src/data/charts/yours.png", {
-      fit: [500, 300],
-      align: "center",
-      valign: "center",
+    charts.forEach((chart, index) => {
+      if (index > 0) {
+        doc.addPage();
+      }
+      doc.image(`src/data/charts/${chart}.png`, {
+        fit: [500, 300],
+        align: "center",
+        valign: "center",
+      });
     });
 
     doc.end();
