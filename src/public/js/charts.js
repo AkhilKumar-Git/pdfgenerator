@@ -223,9 +223,7 @@ async function renderCharts() {
   });
 }
 
-window.addEventListener("load", renderCharts);
-
-document.getElementById("generate").addEventListener("click", async () => {
+async function generatePDF() {
   try {
     const response = await fetch("/generate-pdf?userId=demo-user");
     const data = await response.json();
@@ -245,4 +243,8 @@ document.getElementById("generate").addEventListener("click", async () => {
   } catch (error) {
     console.error("Error generating PDF:", error);
   }
-});
+}
+
+window.addEventListener("load", renderCharts);
+
+document.getElementById("generate").addEventListener("click", generatePDF);

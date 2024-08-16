@@ -61,21 +61,5 @@
     </div>
 
     <script src="/js/charts.js"></script>
-    <script>
-      document
-        .getElementById("generate")
-        .addEventListener("click", async () => {
-          try {
-            const response = await fetch("/generate-pdf");
-            const blob = await response.blob();
-            const url = URL.createObjectURL(blob);
-            const viewer = document.getElementById("pdf-viewer");
-            viewer.src = url;
-            viewer.contentType = "application/pdf";
-          } catch (error) {
-            console.error("Error generating PDF:", error);
-          }
-        });
-    </script>
   </body>
 </html>
