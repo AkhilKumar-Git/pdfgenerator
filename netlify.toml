@@ -1,0 +1,11 @@
+[build]
+  command = "npm install && npm run build"
+  publish = "public"
+
+[context.production.environment]
+  NODE_VERSION = "14"  # or the version your project requires
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
