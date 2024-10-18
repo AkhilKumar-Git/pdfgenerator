@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --key-color: rgba(23, 23, 23, 0.6); /* New color with reduced opacity */
+}
+
+/* Add Montserrat font with multiple weights */
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400; /* Italic */
+  font-style: italic;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Montserrat", sans-serif; /* Ensure fallback */
+}
+
+.a4-page {
+  page-break-inside: avoid;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  orphans: 3;
+  widows: 3;
+}
+
+p {
+  orphans: 2;
+  widows: 2;
+}
+
+.blood-parameters-container {
+  width: 210mm; /* A4 width */
+  margin: 0 auto;
+  page-break-inside: avoid;
+}
+
+.blood-parameters-card {
+  width: 100%;
+  overflow: visible;
+  page-break-inside: auto;
+  border: none;
+  box-shadow: none;
+}
+
+.blood-parameters-card > * {
+  page-break-inside: avoid;
+}
+
+@media print {
+  .blood-parameters-container {
+    width: 100%;
+  }
+
+  .blood-parameters-card {
+    box-shadow: none;
+    border: none;
+  }
+}
