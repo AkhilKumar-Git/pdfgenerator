@@ -394,8 +394,6 @@ const dynamicData = {
 };
 
 const IntegratedReport = () => {
-  const currentCount = 1;
-  const totalCount = 40;
   return (
     <div className="integrated-report">
       <div className="component w-[210mm] bg-white">
@@ -408,12 +406,17 @@ const IntegratedReport = () => {
       <div className="component bg-white">
         <TraitHealthReportComponent
           personal_info={dynamicData.personal_info}
-          pageNumber={currentCount}
-          total={totalCount}
+          pageNumber={1}
+          total={41}
         />
       </div>
       <div className="component w-[210mm] bg-white">
-        <PreReport />
+        <PreReport
+          name={dynamicData.personal_info.name}
+          report_date={dynamicData.personal_info.report_date}
+          pageNumber={2}
+          total={41}
+        />
       </div>
       <div className="component w-[210mm] bg-white">
         <HealthReportComponent />
@@ -542,7 +545,7 @@ const TotalPDFConverter = () => {
   };
 
   return (
-    <div className="max-w-[210mm] mx-auto">
+    <div className="w-[210mm] mx-auto">
       <button
         onClick={generatePDF}
         className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
