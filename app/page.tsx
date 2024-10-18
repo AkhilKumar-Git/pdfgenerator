@@ -11,6 +11,7 @@ import TestParameters from "@/components/test-parameters-template";
 import MicrobiomeStatic from "@/components/microbiome-static";
 import HealthReportComponent from "@/components/health-report";
 import { TraitHealthReportComponent } from "@/components/trait-health-report";
+import TableOfContents from "@/components/table-of-contents";
 
 const dynamicData = {
   personal_info: {
@@ -393,6 +394,19 @@ const dynamicData = {
   },
 };
 
+const contentlist = [
+  "Snapshot",
+  "Blood Parameters",
+  "Microbiome Analysis: Intro",
+  "What is Gut Microbiome",
+  "Importance of gut microbiome",
+  "Taxonomic Classification",
+  "Microbiome Report",
+  "Strains and composition",
+  "Disclaimer",
+  "References",
+];
+
 const IntegratedReport = () => {
   return (
     <div className="integrated-report">
@@ -410,8 +424,18 @@ const IntegratedReport = () => {
           total={41}
         />
       </div>
-      <div className="component w-[210mm] bg-white">
+
+      <div className="component  bg-white">
         <PreReport
+          name={dynamicData.personal_info.name}
+          report_date={dynamicData.personal_info.report_date}
+          pageNumber={2}
+          total={41}
+        />
+      </div>
+      <div className="component w-[210mm] bg-white">
+        <TableOfContents
+          contentList={contentlist}
           name={dynamicData.personal_info.name}
           report_date={dynamicData.personal_info.report_date}
           pageNumber={2}
