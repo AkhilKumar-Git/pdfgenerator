@@ -419,6 +419,7 @@ const IntegratedReport = () => {
         />
       </div>
       <div className="component w-[210mm] bg-white">
+        {/* Only Static Component, logic needed for biome score and other things */}
         <HealthReportComponent />
       </div>
       <div className="component w-[210mm] bg-white">

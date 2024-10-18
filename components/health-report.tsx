@@ -6,6 +6,7 @@ import { FileText } from "lucide-react";
 import Image from "next/image";
 import { curveCardinal } from "d3-shape";
 import React, { FC } from "react";
+
 const barData = [
   { name: "Gut & Microbiome", value: 90 },
   { name: "Metabolic fitness", value: 95 },
@@ -46,15 +47,13 @@ const areaData = [
 
 const HealthReportComponent = () => {
   return (
-    <div className="w-[210mm] max-h-[297mm] bg-white px-[48px] pt-[72px]">
-      <div className="max-w-[504px] mx-auto">
-        {" "}
-        {/* 600px - 48px*2 = 504px */}
-        <h2 className="text-gray-500 mb-2 text-xs">Your health snapshot on</h2>
+    <div className="bg-white px-[48px] pt-[72px]">
+      <div className="mx-6">
+        <h2 className="text-[#777777] mb-2 text-xs">Your health snapshot on</h2>
         <h1 className="text-xl font-bold mb-4">15 Aug 2024</h1>
-        <Card className="mb-4 rounded-xl shadow-lg border-border1">
+        <Card className="mb-4 rounded-xl">
           <CardContent className="p-4">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center align-middle gap-4">
               <FileText className="text-gray-400 w-4 h-4" />
 
               <div>
@@ -69,53 +68,55 @@ const HealthReportComponent = () => {
             </div>
           </CardContent>
         </Card>
-        <p className="my-4 text-[10px]">
+        <p className="my-6 text-[10px]">
           Following is your integrated health score, combining microbiome and
           blood analysis.
         </p>
-        <Card className="mb-4 rounded-xl shadow-lg">
+        <Card className="mb-8 rounded-xl shadow-lg">
           <CardContent className="p-4">
             <div className="flex items-start">
               <div className="w-1/3 pr-4">
-                <div className="flex items-center">
+                <div className="flex items-center align-middle mb-4">
                   <img src="/microbe_logo.png" className="mr-[2px]" />
 
-                  <h3 className="font-semibold text-xs">Your evaluation:</h3>
+                  <h3 className="font-semibold align-middle text-xs">
+                    Your evaluation:
+                  </h3>
                 </div>
 
-                <div className="relative mb-3">
+                <div className="relative">
                   <Image
                     src="/image.svg"
                     alt="Human silhouette"
-                    width={50}
+                    width={40}
                     height={100}
                     className="w-full"
                   />
                 </div>
 
-                <div className="flex rounded-xl overflow-hidden text-score border-border2 border-[0.5px]">
-                  <div className="flex-1 bg-score-f1 pl-2 pt-2 pb-1 border-r">
-                    <div className="text-[5.52px]">BODY SCORE</div>
+                <div className="flex rounded-xl align-middle text-score border-border2 border-[0.5px]">
+                  <div className="flex-1 bg-score-f1 pl-4 pb-2 border-r">
+                    <div className="text-[8px]">BODY SCORE</div>
 
-                    <div className="text-xl font-bold ">80</div>
+                    <div className="text-2xl font-bold ">80</div>
                   </div>
 
-                  <div className="flex-1 bg-score-f2 text-right pr-2 pt-2 pb-1">
-                    <div className="text-[5.52px]">BIOME SCORE</div>
+                  <div className="flex-1 bg-score-f2 text-right pr-4 pb-2">
+                    <div className="text-[8px]">BIOME SCORE</div>
 
-                    <div className="text-xl font-bold ">84</div>
+                    <div className="text-2xl font-bold ">84</div>
                   </div>
                 </div>
               </div>
 
               <div className="w-2/3 pl-3">
-                <div className="text-right">
+                <div className="text-right px-6">
                   <span className="text-[8px] font-semibold text-gray-500">
                     IDEAL
                   </span>
                 </div>
 
-                <div className="space-y-1 mb-2">
+                <div className="space-y-1 mb-2 px-6">
                   {barData.map((item, index) => (
                     <div key={index} className="flex flex-col">
                       <div className="text-[9px] text-gray-600 mb-1">
@@ -142,7 +143,7 @@ const HealthReportComponent = () => {
           </CardContent>
         </Card>
         <h2 className="text-xs font-bold mb-2">Microbiome Analysis</h2>
-        <Card className="mb-4 rounded-xl shadow-lg">
+        <Card className="mb-8 rounded-xl shadow-lg">
           <CardContent className="p-4">
             <div className="flex">
               <div className="flex-1 mr-6">
@@ -194,7 +195,7 @@ const HealthReportComponent = () => {
               </div>
 
               <div className="w-1/2 ml-6">
-                <h4 className="text-[6px] text-gray-400 font-semibold mb-2">
+                <h4 className="text-[6px] text-black/50 font-semibold mb-2">
                   BACTERIAL PHYLA KEY
                 </h4>
 
@@ -206,7 +207,7 @@ const HealthReportComponent = () => {
                         style={{ backgroundColor: item.color }}
                       />
 
-                      <span className="text-[6px] text-gray-400">
+                      <span className="text-[6px] text-black/50">
                         {item.name}
                       </span>
                     </div>
@@ -223,48 +224,49 @@ const HealthReportComponent = () => {
               You are in the top <span className="font-bold">50%</span> of the
               users for your Biome score.
             </p>
+            <div className="ml-20">
+              <AreaChart width={450} height={100} data={areaData}>
+                <defs>
+                  <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#73CCA4" stopOpacity={0.3} />
 
-            <AreaChart width={450} height={100} data={areaData}>
-              <defs>
-                <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#73CCA4" stopOpacity={0.3} />
+                    <stop offset="100%" stopColor="#73CCA4" stopOpacity={0} />
+                  </linearGradient>
 
-                  <stop offset="100%" stopColor="#73CCA4" stopOpacity={0} />
-                </linearGradient>
+                  <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#35CC87" stopOpacity={0.3} />
 
-                <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#35CC87" stopOpacity={0.3} />
+                    <stop offset="100%" stopColor="#35CC87" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
 
-                  <stop offset="100%" stopColor="#35CC87" stopOpacity={0} />
-                </linearGradient>
-              </defs>
+                <Area
+                  type={cardinal}
+                  dataKey="y"
+                  stroke="#73CCA4"
+                  fillOpacity={1}
+                  fill="url(#colorUv)"
+                  isAnimationActive={false}
+                />
 
-              <Area
-                type={cardinal}
-                dataKey="y"
-                stroke="#73CCA4"
-                fillOpacity={1}
-                fill="url(#colorUv)"
-                isAnimationActive={false}
-              />
+                <Area
+                  type={cardinal}
+                  dataKey="y"
+                  stroke="#35CC87"
+                  fillOpacity={1}
+                  fill="url(#colorPv)"
+                  clipPath="url(#clip-path-score)"
+                  dot={<CustomizedDot cx={0} cy={0} />}
+                  isAnimationActive={false}
+                />
 
-              <Area
-                type={cardinal}
-                dataKey="y"
-                stroke="#35CC87"
-                fillOpacity={1}
-                fill="url(#colorPv)"
-                clipPath="url(#clip-path-score)"
-                dot={<CustomizedDot cx={0} cy={0} />}
-                isAnimationActive={false}
-              />
-
-              <defs>
-                <clipPath id="clip-path-score">
-                  <rect x="50%" y="0" width="50%" height="100%" />
-                </clipPath>
-              </defs>
-            </AreaChart>
+                <defs>
+                  <clipPath id="clip-path-score">
+                    <rect x="50%" y="0" width="50%" height="100%" />
+                  </clipPath>
+                </defs>
+              </AreaChart>
+            </div>
 
             <p className="text-[7px] text-gray-500 mt-2">
               Compared with the users of same age and gender
