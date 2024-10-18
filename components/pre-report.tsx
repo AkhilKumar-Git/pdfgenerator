@@ -5,12 +5,12 @@ import React from "react";
 const PreReport = () => {
   return (
     <div className="w-[210mm] max-h-[297mm] bg-white px-[48px] pt-[72px]">
-      <h1 className="text-2xl font-bold mb-6">
+      <h1 className="text-2xl font-medium leading-[24px] mb-6">
         Before looking at your results
       </h1>
 
-      <div className="bg-gray-200 p-4 mb-6 rounded">
-        <p className="text-xs">
+      <div className="bg-gray-200 mb-6 rounded">
+        <p className="text-[11px] font-medium p-5">
           This report is provided to you for informational and educational
           purposes only, and does not replace a visit to a physician, nor does
           it replace the advice or services of a physician.

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -30,29 +30,29 @@ const bloodData = [
 ];
 
 export default function TestParameters() {
-  const [dynamicData, setDynamicData] = useState(null);
+  // const [dynamicData, setDynamicData] = useState(null);
 
-  useEffect(() => {
-    const fetchDynamicData = async () => {
-      try {
-        const response = await fetch("/api/dynamicData.json");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log(data);
-        setDynamicData(data);
-      } catch (error) {
-        console.error("Failed to fetch dynamic data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchDynamicData = async () => {
+  //     try {
+  //       const response = await fetch("/api/dynamicData.json");
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! status: ${response.status}`);
+  //       }
+  //       const data = await response.json();
+  //       console.log(data);
+  //       setDynamicData(data);
+  //     } catch (error) {
+  //       console.error("Failed to fetch dynamic data:", error);
+  //     }
+  //   };
 
-    fetchDynamicData();
-  }, []);
+  //   fetchDynamicData();
+  // }, []);
 
-  if (!dynamicData) {
-    return <div>Loading...</div>;
-  }
+  // if (!dynamicData) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div className="blood-parameters-container w-[210mm] min-h-[297mm] bg-white px-[48px] pt-[72px]">

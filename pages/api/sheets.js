@@ -385,7 +385,7 @@ export default async function handler(req, res) {
     const filePath = path.join(process.cwd(), "pages/api/dynamicData.json");
     fs.writeFileSync(filePath, JSON.stringify(dynamicData, null, 2));
 
-    res.status(200).json({ data });
+    res.status(200).json({ dynamicData });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Error fetching Google Sheets data" });
