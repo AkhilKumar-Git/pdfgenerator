@@ -74,7 +74,7 @@ export function TraitHealthReportComponent({
 
           <div className="flex justify-between">
             <span className="opacity-50">Type of biomaterial:</span>
-            <span>{personal_info.sample_types}</span>
+            <span>{personal_info.sample_types.join(", ")}</span>
           </div>
           <hr className="my-1" />
 

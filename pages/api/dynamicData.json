@@ -1,7 +1,7 @@
 {
   "personal_info": {
     "report_type": "intro",
-    "name": "Tejinder Sharma",
+    "name": "Akhil Sharma",
     "age": "24",
     "gender": "male",
     "sample_types": [
@@ -17,6 +17,44 @@
       "about": "About your raw data"
     }
   },
+  "Lipid": [
+    [
+      "mg/dl",
+      "Desirable: <= 200\nBorderline High: 201-239\nHigh: > 239\nRef: The National Cholesterol\nEducation Program (NCEP) Adult\nTreatment Panel III Report.\n                                                                                       ."
+    ],
+    [
+      "mg/dl",
+      "High Risk: < 40\nOptimal: 40 - 60\nLow Risk: > 60\n                                                                                       ."
+    ],
+    [
+      "mg/dl",
+      "Optimal: < 100\nNear optimal/above optimal: 100 - 129\nBorderline high: 130 - 159\nHigh: 160 - 189\nVery High: >= 190\n                                                                                       ."
+    ],
+    [
+      "mg/dl",
+      "Normal: < 150\nBorderline High: 150 - 199\nHigh: 200 - 499\nVery High: >= 500\n                                                                                       ."
+    ],
+    [
+      "mg/dl",
+      "Desirable: < 130\nBorderline High: 130 - 159\nHigh: 160 - 189\nVery High: >= 190\n                                                                                       ."
+    ],
+    [
+      "mg/dl",
+      "10 - 30"
+    ]
+  ],
+  "toc": [
+    "Snapshot",
+    "Blood Parameters",
+    "Microbiome Analysis: Intro",
+    "What is Gut Microbiome",
+    "Importance of gut microbiome",
+    "Taxonomic Classification",
+    "Microbiome Report",
+    "Strains and composition",
+    "Disclaimer",
+    "References"
+  ],
   "overall_summary": {
     "page_type": "snapshot",
     "body_score": 80,
@@ -71,8 +109,7 @@
           "value": "5800",
           "unit": "cells/cmm",
           "range": [
-            4000,
-            10000
+            null
           ]
         },
         {
@@ -80,8 +117,7 @@
           "value": "1.78",
           "unit": "lakhs/cmm",
           "range": [
-            1.5,
-            4.1
+            null
           ]
         },
         {
@@ -98,8 +134,7 @@
           "value": "89.6",
           "unit": "fL",
           "range": [
-            83,
-            101
+            null
           ]
         },
         {
@@ -107,8 +142,7 @@
           "value": "29.5",
           "unit": "pg",
           "range": [
-            27,
-            32
+            null
           ]
         },
         {
@@ -128,9 +162,7 @@
             0,
             30
           ]
-        }
-      ],
-      "differential_count": [
+        },
         {
           "name": "Neutrophils",
           "value": "40",
@@ -222,9 +254,10 @@
           "value": "10.7",
           "unit": "mg/dL",
           "range": [
-            "Infant/Child: 5-18",
-            "Adult: 6-20",
-            ">60.0 Years: 8-23"
+            null,
+            null,
+            null,
+            23
           ]
         },
         {
@@ -250,7 +283,9 @@
           "value": "0.65",
           "unit": "mg/dL",
           "range": [
-            0
+            null,
+            null,
+            0.7
           ]
         },
         {
@@ -258,8 +293,7 @@
           "value": "35.23",
           "unit": "",
           "range": [
-            "40:1",
-            "110:1"
+            null
           ]
         },
         {
@@ -267,8 +301,7 @@
           "value": "16.46",
           "unit": "",
           "range": [
-            "10:1",
-            "20:1"
+            null
           ]
         },
         {
@@ -310,7 +343,7 @@
       ],
       "static": {
         "heading": "Renal (Kidney) Function Tests",
-        "why_test_is_important": "Why is this test important?"
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              \n             <p >\n              The Kidney Function Test Panel, also known as the Basic Metabolic Panel\n              (BMP), provides crucial information about the health and functionality of\n              the kidneys and the body&apos;s overall metabolic state. This panel of tests\n              helps doctors assess kidney function, fluid and electrolyte balance, and\n              certain aspects of metabolism. Here&apos;s why each test in the panel is\n              important:\n              </p>\n            <ol >\n              <li>\n                Blood Urea Nitrogen (BUN): BUN levels indicate how well the kidneys are\n                filtering waste products from the blood. Elevated levels can suggest\n                kidney dysfunction or dehydration.\n              </li>\n              <li>\n                Creatinine: Creatinine levels reflect how effectively the kidneys are\n                filtering waste from the bloodstream. Elevated levels may signal impaired\n                kidney function.\n              </li>\n              <li>\n                Urea Creatinine Ratio: This ratio helps evaluate the balance between urea\n                and creatinine. Abnormal values might indicate issues with kidney function\n                or hydration status.\n              </li>\n              <li>\n                BUN Creatinine Ratio: This ratio provides additional insight into kidney\n                function, helping differentiate between different causes of kidney issues.\n              </li>\n              <li>\n                Uric Acid: Uric acid levels can impact kidney health, and elevated levels\n                might indicate gout or other kidney-related conditions.\n              </li>\n              <li>\n                Calcium: Calcium is important for various bodily functions, including\n                kidney function and bone health. Abnormal calcium levels can indicate\n                kidney dysfunction.\n              </li>\n              <li>\n                Sodium, Potassium, Chloride: These electrolytes are essential for\n                maintaining fluid balance, nerve function, and overall health. Imbalances\n                can indicate kidney problems or other issues.\n              </li>\n            </ol>\n            <p\">\n              Together, these tests help healthcare professionals assess kidney health,\n              hydration status, and the body's ability to maintain a proper balance of\n              electrolytes. The results aid in diagnosing conditions like kidney disease,\n              dehydration, electrolyte imbalances, and certain metabolic disorders.\n              Interpretation of the panel, along with the patient's medical history and\n              other clinical factors, guides medical decisions and treatment plans.\n            </p>\n\n            <p>\n              <i>\n                Note: The blood parameters testing is powered by our testing facility:\n                Previa Labs.\n              </i>\n            </p>\n          </div>\n"
       }
     },
     {
@@ -319,7 +352,7 @@
         {
           "name": "Bilirubin - Total",
           "value": "0.88",
-          "unit": "mg/dL (Serum, Jendrassik Grof)",
+          "unit": "mg/dL",
           "range": [
             0.3,
             1.2
@@ -328,16 +361,15 @@
         {
           "name": "Bilirubin - Direct",
           "value": "0.37",
-          "unit": "mg/dL (Serum, Diazotization)",
+          "unit": "mg/dL",
           "range": [
-            0,
-            0.4
+            null
           ]
         },
         {
           "name": "Bilirubin - Indirect",
           "value": "0.51",
-          "unit": "mg/L (Serum, Calculated)",
+          "unit": "mg/dL",
           "range": [
             0.1,
             1
@@ -346,25 +378,23 @@
         {
           "name": "Aspartate Aminotransferase (AST/SGOT)",
           "value": "20",
-          "unit": "U/L (UV without P5P (IFCC))",
+          "unit": "U/L",
           "range": [
-            0,
-            31
+            null
           ]
         },
         {
           "name": "Alanine Transaminase (ALT/SGPT)",
           "value": "19",
-          "unit": "U/L (UV without P5P (IFCC))",
+          "unit": "U/L",
           "range": [
-            0,
-            34
+            null
           ]
         },
         {
           "name": "SGOT/SGPT",
           "value": "1.05",
-          "unit": "ratio (calculated)",
+          "unit": "ratio",
           "range": [
             0.7,
             1.4
@@ -373,7 +403,7 @@
         {
           "name": "GGT-Gamma-glutamyl transpeptidase",
           "value": "21",
-          "unit": "U/L (G-glutamyl-carboxy-Nitroanilide)",
+          "unit": "U/L",
           "range": [
             12,
             73
@@ -382,7 +412,7 @@
         {
           "name": "Alkaline Phosphatase-ALPI",
           "value": "89",
-          "unit": "U/L (PNPP, AMP Buffer, IFCC)",
+          "unit": "U/L",
           "range": [
             39,
             118
@@ -391,7 +421,7 @@
         {
           "name": "Total Protein",
           "value": "7.6",
-          "unit": "g/L (Biuret)",
+          "unit": "g/dL",
           "range": [
             6.6,
             8.7
@@ -400,7 +430,7 @@
         {
           "name": "Albumin",
           "value": "4.6",
-          "unit": "g/dL (Bromocresol Green)",
+          "unit": "g/dL",
           "range": [
             3.5,
             5.2
@@ -409,7 +439,7 @@
         {
           "name": "Globulin",
           "value": "3",
-          "unit": "g/dL (Calculated)",
+          "unit": "g/dL",
           "range": [
             2,
             3.5
@@ -418,7 +448,7 @@
         {
           "name": "A/G Ratio",
           "value": "1.53",
-          "unit": "ratio (Calculated)",
+          "unit": "ratio",
           "range": [
             1.2,
             2.2
@@ -427,19 +457,85 @@
       ],
       "static": {
         "heading": "Liver Function Tests",
-        "why_test_is_important": "Why is this test important?"
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Liver Function Test (LFT) or Hepatic Panel is a group of blood tests\n                that provide insights into the health and functioning of the liver. These\n                tests collectively assess various aspects of liver function, enzymes, and\n                protein levels. <br/>Here's why each test in the panel is important when\n                considered together:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  Bilirubin - Total, Direct, and Indirect: Bilirubin is a waste product from\n                  the breakdown of hemoglobin. Elevated levels might suggest liver\n                  dysfunction or other health conditions.\n                </li>\n                <li>\n                  Aspartate Aminotransferase (AST/SGOT) and Alanine Transaminase (ALT/SGPT):\n                  These enzymes are released when liver cells are damaged. Elevated levels\n                  can indicate liver injury or disease.\n                </li>\n                <li>\n                  SGOT/SGPT: This ratio can provide additional insights into liver health,\n                  aiding in diagnosing certain liver disorders.\n                </li>\n                <li>\n                  GGT-Gamma-glutamyl transpeptidase: GGT levels can indicate liver or bile\n                  duct issues, alcohol consumption, or certain medications' effects on the\n                  liver.\n                </li>\n                <li>\n                  Alkaline Phosphatase-ALPI: Alkaline phosphatase levels can help diagnose\n                  liver or bone disorders. Elevated levels might indicate liver or bone\n                  issues.\n                </li>\n                <li>\n                  Total Protein, Albumin, and Globulin: These assess overall protein levels\n                  and liver's ability to produce proteins. Abnormal levels can point to\n                  liver or kidney problems.\n                </li>\n                <li>\n                  A/G Ratio: The ratio of albumin to globulin helps assess liver and immune\n                  system health. Imbalances might indicate various health conditions.\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Collectively, the LFT panel aids in diagnosing liver diseases, assessing\n                liver function, and monitoring treatment effectiveness. It's crucial for\n                detecting liver inflammation, damage, or dysfunction. Interpretation of the\n                panel, combined with clinical context, guides medical decisions and\n                treatment plans.\n              </p>\n              <br/>\n              <br/>\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>\n"
+      }
+    },
+    {
+      "page_type": "blood_parameters",
+      "lipid_profile": [
+        {
+          "name": "Cholesterol-Total",
+          "value": "253",
+          "unit": "mg/dl",
+          "range": [
+            null,
+            null
+          ]
+        },
+        {
+          "name": "Cholesterol-HDL Direct",
+          "value": "64",
+          "unit": "mg/dl",
+          "range": [
+            null,
+            null
+          ]
+        },
+        {
+          "name": "LDL Cholesterol",
+          "value": "175.6",
+          "unit": "mg/dl",
+          "range": [
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "Triglycerides",
+          "value": "67",
+          "unit": "mg/dl",
+          "range": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "Non - HDL Cholesterol, Serum",
+          "value": "189",
+          "unit": "mg/dl",
+          "range": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "VLDL Cholesterol",
+          "value": "13.4",
+          "unit": "mg/dl",
+          "range": [
+            10,
+            30
+          ]
+        }
+      ],
+      "static": {
+        "heading": "Lipid Profile",
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Lipid Profile is a group of blood tests that assess different types of\n                cholesterol and triglycerides in the blood. These tests collectively provide\n                insights into a person's lipid levels, which are crucial for heart health\n                and cardiovascular disease risk assessment.\n                <vr></vr>\n                Here's why these tests, when considered together, are important:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  Cholesterol-Total: Total cholesterol levels help assess overall\n                  cholesterol in the blood. Elevated levels might indicate an increased risk\n                  of heart disease.\n                </li>\n                <li>\n                  Cholesterol-HDL Direct: HDL cholesterol is considered \"good\" cholesterol\n                  that helps remove excess cholesterol from the bloodstream. Low levels can\n                  be associated with an increased risk of heart disease.\n                </li>\n                <li>\n                  LDL Cholesterol: LDL cholesterol is often referred to as \"bad\"\n                  cholesterol. Elevated levels might lead to the accumulation of cholesterol\n                  in arteries, increasing heart disease risk.\n                </li>\n                <li>\n                  LDL Cholesterol: LDL cholesterol is often referred to as \"bad\"\n                  cholesterol. Elevated levels might lead to the accumulation of cholesterol\n                  in arteries, increasing heart disease risk.\n                </li>\n                <li>\n                  Non - HDL Cholesterol, Serum: Non-HDL cholesterol includes all forms of\n                  cholesterol except HDL. It's considered a better predictor of heart\n                  disease risk than total cholesterol alone.\n                </li>\n                <li>\n                  VLDL Cholesterol: VLDL cholesterol is a type of lipoprotein that carries\n                  triglycerides. Elevated levels can contribute to heart disease risk.\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Collectively, the Lipid Profile provides valuable information about an\n                individual's risk for heart disease and cardiovascular issues.\n                Interpretation of these lipid levels, combined with other risk factors and\n                clinical context, guides medical decisions for preventing or managing heart\n                disease.\n              </p>\n              <br />\n              <br />\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>\n"
       }
     },
     {
       "page_type": "blood_parameters",
       "glucose_fasting": 85,
       "static": {
-        "heading": "Blood Sugar Indicator",
+        "heading": "Blood Sugar Indicators",
         "why_test_is_important": "Why is this test important?"
       }
     },
     {
-      "page_type": "iron_profile",
       "iron": 87,
       "uibc": 246,
       "tibc": 333,
@@ -466,6 +562,24 @@
         "heading": "Urine Examination",
         "why_test_is_important": "Why is this test important?"
       }
+    }
+  ],
+  "microbiome_static_content": [
+    {
+      "title": "Intro",
+      "content": "Microbes are everywhere, they live in and on all animals and plants and they fill our oceans. Right now, they are on your phone, your hands (even if you wash them), in your drinking water (about a million per one milliliter!), in aerosols around you and present at any moment in time. In fact, the ecosystem of planet earth, which is composed of a multitude of habitats, contains different sets of microbes that are essential for proper ecosystem functioning. As the ecosystems of planet Earth have a series of habitats with specific organisms that are essential for a proper ecosystem functioning, so does the human body. On a smaller scale, the human body is also an ecosystem, with different body sites providing different habitats for microbial communities. The microbial communities living in and on our body are collectively called the microbiome and we have distinct microbiomes at each of our body sites."
+    },
+    {
+      "title": "What is the Gut Microbiome?",
+      "content": "The gut microbiome is a collective name for the 40 trillion cells and up to 1000 microbial species that include bacteria, viruses, fungi, parasites and archaea and reside in our gut. The number of gut bacterial cells is approximately equal to the total number of human cells in our body, so if we consider only cell counts, we are only about half human. In terms of gene counts, the microbiome contains about 200 times more genes than the human genome, making bacterial genes responsible for over 99% of our bodies’ gene content! Of all the microbial communities in the human body, the gut microbiome is by far the most dense, diverse and physiologically important ecosystem to our overall health."
+    },
+    {
+      "title": "The importance of your Gut Microbiome",
+      "content": "\n          <p>Our body lives in a symbiotic relationship with the microbes within us, which are significant contributors to our health and overall wellness</p> <br/> <br/>\n\n          <p><strong>Health:</strong> In recent years science has discovered various associations between the microbiome and various health conditions including obesity(1), allergies and autoimmune conditions(2-4), vascular diseases(5), gastrointestinal diseases and disorders (IBS, IBD, Crohn's, colitis)(6-8) and even neurodegenerative disorders and mental conditions(9-10).</p> <br/> <br/>\n\n          <p><strong>Energy:</strong> Bacterial breakdown of food provides approximately 10-20% of our energy supplies(11). The extent of energy extracted from foods depends on the microbiome, and it can differ dramatically between people(12).</p><br/> <br/>\n\n          <p><strong>Essential Nutrients:</strong> The human body cannot produce all the nutrients required for its proper functioning, so some nutrients must be either acquired from diet, or produced by the gut microbiome. For example, the gut microbiome is a key producer of essential  vitamins, <br/><br/><br/><br/><br/><br/><br/><br/> like vitamin K and many vitamin B derivatives(13-14). Additionally, while many food components are absorbed early in our digestive tract (i.e the small intestine), some kinds of dietary fiber can only be broken down in the large intestines by specific members of the gut microbiome. Important products of this process include short chain fatty acids (SCFA) that are important for energizing colon cells, have anti-inflammatory properties and are even associated with hunger levels and the release of the hunger hormone, Leptin(15-16). </p> <br/> <br/>\n\n          <p><strong>Immunity:</strong> There is growing evidence that the microbiome is regulating our immune system(17). Our microbiome is important in developing our immune system, helps by making our body tolerate food molecules and harmless substances, helps in recognizing invaders and protects against pathogens by constantly communicating with the immune system in the intestines(18).</p>"
+    },
+    {
+      "title": "Taxonomic Classification",
+      "content": "Taxonomy is the science of organisms classification into groups based on shared characteristics or evolutionary relatedness. All living organisms are classified using taxonomic classifications.\n\nRanks or Levels of Microbial Taxonomy\nTaxonomic classification is a hierarchical grouping of organisms in ranks of decreasing similarity. Organism groups can be aggregated with other relatively similar groups of the same rank, to create a super-group of higher rank. In bacterial taxonomy, the most commonly used ranks or levels in their ascending order are: strains, species, genera, families, orders, classes, phyla and kingdom (see table). Species is the basic taxonomic group in bacterial taxonomy. Groups of species are then collected into genera. Groups of genera are collected into families (sing. family), families into orders, orders into classes, classes into phyla (sing., phylum), and phyla into kingdom (the highest rank or level). Groups of bacteria at each rank or level have names with endings or suffixes characteristic to that rank or level."
     }
   ],
   "gut_microbiome": {
