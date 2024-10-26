@@ -166,6 +166,80 @@ const IntegratedReport = () => {
           }}
         />
       </div>
+      <div className="component w-[210mm] bg-white">
+        <TestParameters
+          testData={dynamicData["Tests"][4]["metrics"]}
+          static_text={{
+            title: dynamicData["Tests"][4]["static"]["heading"],
+            content: (
+              <div>
+                <h3 className="text-[11px] font-semibold mb-2">
+                  Why is this test important?
+                </h3>
+                <div
+                  className="text-[10px] text-gray-500 leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      dynamicData["Tests"][4]["static"][
+                        "why_test_is_important"
+                      ],
+                  }}
+                />
+              </div>
+            ),
+          }}
+        />
+      </div>
+
+      <div className="component w-[210mm] bg-white">
+        <TestParameters
+          testData={dynamicData["Tests"][5]["metrics"]}
+          static_text={{
+            title: dynamicData["Tests"][5]["static"]["heading"],
+            content: (
+              <div>
+                <h3 className="text-[11px] font-semibold mb-2">
+                  Why is this test important?
+                </h3>
+                <div
+                  className="text-[10px] text-gray-500 leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      dynamicData["Tests"][5]["static"][
+                        "why_test_is_important"
+                      ],
+                  }}
+                />
+              </div>
+            ),
+          }}
+        />
+      </div>
+
+      <div className="component w-[210mm] bg-white">
+        <TestParameters
+          testData={dynamicData["Tests"][6]["metrics"]}
+          static_text={{
+            title: dynamicData["Tests"][6]["static"]["heading"],
+            content: (
+              <div>
+                <h3 className="text-[11px] font-semibold mb-2">
+                  Why is this test important?
+                </h3>
+                <div
+                  className="text-[10px] text-gray-500 leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      dynamicData["Tests"][6]["static"][
+                        "why_test_is_important"
+                      ],
+                  }}
+                />
+              </div>
+            ),
+          }}
+        />
+      </div>
 
       <div className="component w-[210mm] bg-white">
         <div className="flex flex-col justify-between w-[210mm] bg-white px-[48px] pt-[72px]">

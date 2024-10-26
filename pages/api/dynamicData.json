@@ -17,30 +17,18 @@
       "about": "About your raw data"
     }
   },
-  "Lipid": [
+  "Vitamins": [
     [
-      "mg/dl",
-      "Desirable: <= 200\nBorderline High: 201-239\nHigh: > 239\nRef: The National Cholesterol\nEducation Program (NCEP) Adult\nTreatment Panel III Report.\n                                                                                       ."
+      "pg/mL",
+      "200 - 900"
     ],
     [
-      "mg/dl",
-      "High Risk: < 40\nOptimal: 40 - 60\nLow Risk: > 60\n                                                                                       ."
+      "ng/mL",
+      "Deficiency: < 20\nInsufficiency: 20 - <30\nSufficiency: 30 - 100"
     ],
     [
-      "mg/dl",
-      "Optimal: < 100\nNear optimal/above optimal: 100 - 129\nBorderline high: 130 - 159\nHigh: 160 - 189\nVery High: >= 190\n                                                                                       ."
-    ],
-    [
-      "mg/dl",
-      "Normal: < 150\nBorderline High: 150 - 199\nHigh: 200 - 499\nVery High: >= 500\n                                                                                       ."
-    ],
-    [
-      "mg/dl",
-      "Desirable: < 130\nBorderline High: 130 - 159\nHigh: 160 - 189\nVery High: >= 190\n                                                                                       ."
-    ],
-    [
-      "mg/dl",
-      "10 - 30"
+      "mg/dL",
+      "0.2 - 2.0"
     ]
   ],
   "toc": [
@@ -529,10 +517,134 @@
     },
     {
       "page_type": "blood_parameters",
-      "glucose_fasting": 85,
+      "metrics": [
+        {
+          "name": "Glucose (Fasting Blood Sugar)",
+          "value": "80",
+          "unit": "mg/dl",
+          "range": [
+            70,
+            100
+          ]
+        },
+        {
+          "name": "Glucose (Fasting Blood Sugar)",
+          "value": "80",
+          "unit": "%",
+          "range": [
+            null
+          ]
+        }
+      ],
       "static": {
         "heading": "Blood Sugar Indicators",
-        "why_test_is_important": "Why is this test important?"
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Diabetes Profile, consisting of Fasting Blood Glucose and HbA1c tests,\n                plays a crucial role in assessing and managing diabetes. These tests provide\n                key insights into blood sugar control and long-term glycemic management.\n\n                <br />\n                Here's why this profile is important:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  Fasting Blood Glucose: This test measures the blood glucose level after an\n                  overnight fast. Abnormal levels can indicate impaired fasting glucose or\n                  diabetes, helping in early detection and monitoring of blood sugar\n                  control.\n                </li>\n                <li>\n                  HbA1c (Glycated Hemoglobin): HbA1c reflects the average blood glucose\n                  levels over the past few months. It's a vital indicator of long-term\n                  glycemic control and diabetes management.\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Collectively, the Diabetes Profile aids healthcare professionals in\n                assessing blood sugar levels, evaluating glycemic control, and making\n                informed decisions regarding diabetes management. Regular monitoring of\n                fasting blood glucose and HbA1c allows for timely adjustments in treatment\n                plans, lifestyle modifications, and interventions to achieve and maintain\n                optimal blood sugar levels. By keeping blood sugar within the target range,\n                individuals with diabetes can reduce the risk of complications and improve\n                their overall quality of life.\n              </p>\n            </div>"
+      }
+    },
+    {
+      "page_type": "blood_parameters",
+      "metrics": [
+        {
+          "name": "T3 (Triiodothyronine)",
+          "value": "0.86",
+          "unit": "ng/ml",
+          "range": [
+            1,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "T4 (Thyroxine)",
+          "value": "7.21",
+          "unit": "μg/dL",
+          "range": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "TSH (Thyroid-Stimulating Hormone)",
+          "value": "4.79",
+          "unit": "uIU/mL",
+          "range": [
+            1,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      ],
+      "static": {
+        "heading": "Thryroid Profile",
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Thyroid Function Test panel includes three essential tests that assess\n                the health and functioning of the thyroid gland. The thyroid plays a crucial\n                role in regulating metabolism, energy production, and hormone balance. These\n                tests provide valuable information about thyroid hormone levels and help\n                diagnose various thyroid-related conditions.\n\n                <br />\n                Here's why these tests, when considered together, are important:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  T3 (TRI-IODOTHYRONINE): T3 is a key thyroid hormone that influences\n                  metabolism and growth. Different age groups and stages of life have\n                  specific reference ranges, helping to identify thyroid dysfunction and\n                  guide treatment.\n                </li>\n                <li>\n                  T4 (THYROXINE): T4 is another vital thyroid hormone responsible for\n                  regulating metabolism. Its levels vary based on age, and deviations can\n                  indicate thyroid disorders.\n                </li>\n                <li>\n                  TSH (THYROID STIMULATING HORMONE): TSH is produced by the pituitary gland\n                  and stimulates the thyroid to produce hormones. Elevated TSH might\n                  indicate an underactive thyroid (hypothyroidism), while low TSH could\n                  suggest an overactive thyroid (hyperthyroidism).\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Collectively, the Thyroid Function Test panel provides a comprehensive\n                assessment of thyroid health. Interpretation of these values, combined with\n                clinical context, guides medical decisions for diagnosing and managing\n                thyroid disorders. Proper thyroid function is essential for maintaining\n                overall health, energy levels, and metabolism.\n              </p>\n              <br />\n              <br />\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>"
+      }
+    },
+    {
+      "page_type": "blood_parameters",
+      "metrics": [
+        {
+          "name": "T3 (Triiodothyronine)",
+          "value": "0.86",
+          "unit": "pg/mL",
+          "range": [
+            200,
+            900
+          ]
+        },
+        {
+          "name": "T4 (Thyroxine)",
+          "value": "7.21",
+          "unit": "ng/mL",
+          "range": [
+            null,
+            null,
+            100
+          ]
+        }
+      ],
+      "static": {
+        "heading": "Vitamin Profile",
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n            <p className=\"text-[10px] text-gray-500\">\n              The panel of tests consisting of Vitamin B12, Vitamin C, and Vitamin D plays\n              a crucial role in assessing and monitoring the status of essential vitamins\n              in the body. Collectively, these tests provide insights into nutritional\n              health, bone health, and immune function. Here's why this panel is\n              important:\n            </p>\n            <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n              <li>\n                Vitamin B12: Vitamin B12 is essential for red blood cell formation,\n                neurological function, and DNA synthesis. Low B12 levels can lead to\n                anemia, nerve damage, and other health issues. Monitoring B12 levels is\n                crucial for diagnosing deficiencies and guiding supplementation.\n              </li>\n              <li>\n                Vitamin C: Also known as ascorbic acid, Vitamin C is an antioxidant that\n                supports immune function, skin health, and wound healing. Adequate Vitamin\n                C intake is essential to prevent scurvy and maintain overall health.\n              </li>\n              <li>\n                Vitamin D: Vitamin D is vital for calcium absorption, bone health, and\n                immune system function. Low Vitamin D levels can lead to conditions like\n                rickets and osteomalacia. Monitoring Vitamin D levels is important for\n                assessing deficiency, guiding replacement therapy, and preventing\n                bone-related disorders.\n              </li>\n            </ul>\n            <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n              Interpretation of Vitamin D: Vitamin D testing is useful for various\n              purposes, including:\n              <li>\n                Diagnosis of Vitamin D Deficiency: Low Vitamin D levels can indicate a\n                deficiency, which is associated with various health issues.\n              </li>\n              <li>\n                Differential Diagnosis of Causes of Rickets and Osteomalacia: Vitamin D\n                plays a key role in bone health, and its deficiency can lead to conditions\n                like rickets and osteomalacia. Testing helps in identifying the underlying\n                cause.\n              </li>\n              <li>\n                Monitoring Vitamin D Replacement Therapy: For individuals receiving\n                Vitamin D supplementation, regular monitoring ensures that levels are\n                within the target range.\n              </li>\n              <li>\n                Diagnosis of Hypervitaminosis D: Excessive Vitamin D intake can lead to\n                hypervitaminosis D, which can have adverse effects. Testing helps in\n                identifying this condition.\n              </li>\n            </ul>\n            <p className=\"text-[10px] text-gray-500 mb-10\">\n              It's important to note that Vitamin D levels can vary based on several\n              factors, including geography, season, diet, age, and supplementation.\n              Additionally, certain substances in the patient's sample may interfere with\n              immunoassays, so results should be evaluated carefully. Healthcare providers\n              use these results to guide dietary recommendations, supplementation, and\n              treatments tailored to individual needs.\n            </p>\n          </div>"
       }
     },
     {

@@ -77,6 +77,39 @@ export default async function handler(req, res) {
     });
     const Lipid_metrics = Lipid.data.values.map((item) => [item[2], item[1]]);
 
+    //Diabetes Import
+    const Diabetes_grid = "Diabetes!A2:C3";
+    const Diabetes = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: Diabetes_grid,
+    });
+    const Diabetes_metrics = Diabetes.data.values.map((item) => [
+      item[2],
+      item[1],
+    ]);
+
+    //Thyroid Import
+    const Thyroid_grid = "Thyroid!A2:C4";
+    const Thyroid = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: Thyroid_grid,
+    });
+    const Thyroid_metrics = Thyroid.data.values.map((item) => [
+      item[2],
+      item[1],
+    ]);
+
+    //Vitamin Import
+    const Vitamins_grid = "Vitamins!A2:C4";
+    const Vitamins = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: Vitamins_grid,
+    });
+    const Vitamins_metrics = Vitamins.data.values.map((item) => [
+      item[2],
+      item[1],
+    ]);
+
     const dynamicData = {
       personal_info: {
         report_type: "intro",
@@ -93,7 +126,9 @@ export default async function handler(req, res) {
       },
       // CBP: CBP_metrics,
       // RFT: RFT_metrics,
-      Lipid: Lipid_metrics,
+      // Lipid: Lipid_metrics,
+      // Thyroid: Thyroid_metrics,
+      Vitamins: Vitamins_metrics,
       toc: [
         "Snapshot",
         "Blood Parameters",
@@ -675,10 +710,225 @@ export default async function handler(req, res) {
         },
         {
           page_type: "blood_parameters",
-          glucose_fasting: 85,
+          metrics: [
+            {
+              name: keys[93],
+              value: values[93],
+              unit: Diabetes_metrics[0][0],
+              range: Diabetes_metrics[0][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[93],
+              value: values[93],
+              unit: Diabetes_metrics[1][0],
+              range: Diabetes_metrics[1][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+          ],
           static: {
             heading: "Blood Sugar Indicators",
-            why_test_is_important: "Why is this test important?",
+            why_test_is_important: `
+            <div className="mt-6 break-inside-avoid">
+              <p className="text-[10px] text-gray-500">
+                The Diabetes Profile, consisting of Fasting Blood Glucose and HbA1c tests,
+                plays a crucial role in assessing and managing diabetes. These tests provide
+                key insights into blood sugar control and long-term glycemic management.
+
+                <br />
+                Here's why this profile is important:
+              </p>
+              <ul className="list-disc list-inside text-[10px] text-gray-500">
+                <li>
+                  Fasting Blood Glucose: This test measures the blood glucose level after an
+                  overnight fast. Abnormal levels can indicate impaired fasting glucose or
+                  diabetes, helping in early detection and monitoring of blood sugar
+                  control.
+                </li>
+                <li>
+                  HbA1c (Glycated Hemoglobin): HbA1c reflects the average blood glucose
+                  levels over the past few months. It's a vital indicator of long-term
+                  glycemic control and diabetes management.
+                </li>
+              </ul>
+              <p className="text-[10px] text-gray-500 mb-10">
+                Collectively, the Diabetes Profile aids healthcare professionals in
+                assessing blood sugar levels, evaluating glycemic control, and making
+                informed decisions regarding diabetes management. Regular monitoring of
+                fasting blood glucose and HbA1c allows for timely adjustments in treatment
+                plans, lifestyle modifications, and interventions to achieve and maintain
+                optimal blood sugar levels. By keeping blood sugar within the target range,
+                individuals with diabetes can reduce the risk of complications and improve
+                their overall quality of life.
+              </p>
+            </div>`,
+          },
+        },
+        {
+          page_type: "blood_parameters",
+          metrics: [
+            {
+              name: keys[56],
+              value: values[56],
+              unit: Thyroid_metrics[0][0],
+              range: Thyroid_metrics[0][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[57],
+              value: values[57],
+              unit: Thyroid_metrics[1][0],
+              range: Thyroid_metrics[1][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[58],
+              value: values[58],
+              unit: Thyroid_metrics[2][0],
+              range: Thyroid_metrics[2][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+          ],
+          static: {
+            heading: "Thryroid Profile",
+            why_test_is_important: `
+            <div className="mt-6 break-inside-avoid">
+              <p className="text-[10px] text-gray-500">
+                The Thyroid Function Test panel includes three essential tests that assess
+                the health and functioning of the thyroid gland. The thyroid plays a crucial
+                role in regulating metabolism, energy production, and hormone balance. These
+                tests provide valuable information about thyroid hormone levels and help
+                diagnose various thyroid-related conditions.
+
+                <br />
+                Here's why these tests, when considered together, are important:
+              </p>
+              <ul className="list-disc list-inside text-[10px] text-gray-500">
+                <li>
+                  T3 (TRI-IODOTHYRONINE): T3 is a key thyroid hormone that influences
+                  metabolism and growth. Different age groups and stages of life have
+                  specific reference ranges, helping to identify thyroid dysfunction and
+                  guide treatment.
+                </li>
+                <li>
+                  T4 (THYROXINE): T4 is another vital thyroid hormone responsible for
+                  regulating metabolism. Its levels vary based on age, and deviations can
+                  indicate thyroid disorders.
+                </li>
+                <li>
+                  TSH (THYROID STIMULATING HORMONE): TSH is produced by the pituitary gland
+                  and stimulates the thyroid to produce hormones. Elevated TSH might
+                  indicate an underactive thyroid (hypothyroidism), while low TSH could
+                  suggest an overactive thyroid (hyperthyroidism).
+                </li>
+              </ul>
+              <p className="text-[10px] text-gray-500 mb-10">
+                Collectively, the Thyroid Function Test panel provides a comprehensive
+                assessment of thyroid health. Interpretation of these values, combined with
+                clinical context, guides medical decisions for diagnosing and managing
+                thyroid disorders. Proper thyroid function is essential for maintaining
+                overall health, energy levels, and metabolism.
+              </p>
+              <br />
+              <br />
+              <p className="text-[10px] text-gray-500">
+                <i>
+                  Note: The blood parameters testing is powered by our testing facility:
+                  Previa Labs.
+                </i>
+              </p>
+            </div>`,
+          },
+        },
+        {
+          page_type: "blood_parameters",
+          metrics: [
+            {
+              name: keys[56],
+              value: values[56],
+              unit: Vitamins_metrics[0][0],
+              range: Vitamins_metrics[0][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[57],
+              value: values[57],
+              unit: Vitamins_metrics[1][0],
+              range: Vitamins_metrics[1][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+          ],
+          static: {
+            heading: "Vitamin Profile",
+            why_test_is_important: `
+            <div className="mt-6 break-inside-avoid">
+            <p className="text-[10px] text-gray-500">
+              The panel of tests consisting of Vitamin B12, Vitamin C, and Vitamin D plays
+              a crucial role in assessing and monitoring the status of essential vitamins
+              in the body. Collectively, these tests provide insights into nutritional
+              health, bone health, and immune function. Here's why this panel is
+              important:
+            </p>
+            <ul className="list-disc list-inside text-[10px] text-gray-500">
+              <li>
+                Vitamin B12: Vitamin B12 is essential for red blood cell formation,
+                neurological function, and DNA synthesis. Low B12 levels can lead to
+                anemia, nerve damage, and other health issues. Monitoring B12 levels is
+                crucial for diagnosing deficiencies and guiding supplementation.
+              </li>
+              <li>
+                Vitamin C: Also known as ascorbic acid, Vitamin C is an antioxidant that
+                supports immune function, skin health, and wound healing. Adequate Vitamin
+                C intake is essential to prevent scurvy and maintain overall health.
+              </li>
+              <li>
+                Vitamin D: Vitamin D is vital for calcium absorption, bone health, and
+                immune system function. Low Vitamin D levels can lead to conditions like
+                rickets and osteomalacia. Monitoring Vitamin D levels is important for
+                assessing deficiency, guiding replacement therapy, and preventing
+                bone-related disorders.
+              </li>
+            </ul>
+            <ul className="list-disc list-inside text-[10px] text-gray-500">
+              Interpretation of Vitamin D: Vitamin D testing is useful for various
+              purposes, including:
+              <li>
+                Diagnosis of Vitamin D Deficiency: Low Vitamin D levels can indicate a
+                deficiency, which is associated with various health issues.
+              </li>
+              <li>
+                Differential Diagnosis of Causes of Rickets and Osteomalacia: Vitamin D
+                plays a key role in bone health, and its deficiency can lead to conditions
+                like rickets and osteomalacia. Testing helps in identifying the underlying
+                cause.
+              </li>
+              <li>
+                Monitoring Vitamin D Replacement Therapy: For individuals receiving
+                Vitamin D supplementation, regular monitoring ensures that levels are
+                within the target range.
+              </li>
+              <li>
+                Diagnosis of Hypervitaminosis D: Excessive Vitamin D intake can lead to
+                hypervitaminosis D, which can have adverse effects. Testing helps in
+                identifying this condition.
+              </li>
+            </ul>
+            <p className="text-[10px] text-gray-500 mb-10">
+              It's important to note that Vitamin D levels can vary based on several
+              factors, including geography, season, diet, age, and supplementation.
+              Additionally, certain substances in the patient's sample may interfere with
+              immunoassays, so results should be evaluated carefully. Healthcare providers
+              use these results to guide dietary recommendations, supplementation, and
+              treatments tailored to individual needs.
+            </p>
+          </div>`,
           },
         },
         {
