@@ -89,6 +89,7 @@ interface ParameterRowProps {
     value: number;
     unit: string;
     range: [number, number];
+    rangeString: string;
   };
 }
 
@@ -154,7 +155,7 @@ const ParameterRow: React.FC<ParameterRowProps> = ({ param }) => {
         <p className={cn("font-medium text-xs", isOutOfRange && "font-bold")}>
           {param.value}
         </p>
-        <p className="text-[9px] text-gray-500">{`${param.range[0]} - ${param.range[1]}`}</p>
+        <p className="text-[9px] text-gray-500">{`${param.rangeString}`}</p>
       </div>
     </div>
   );

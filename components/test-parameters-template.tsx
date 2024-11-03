@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 interface contentProps {
   title: string;
   content: ReactNode;
+  image_path: string;
+  image_alt: string;
 }
 
 interface TestParameterProps {
@@ -30,8 +32,8 @@ export default function TestParameters({
           <h2 className="text-sm font-semibold mb-4">{static_text.title}</h2>
           <div className="mb-6 flex items-center">
             <img
-              src="/blood_drop.png"
-              alt="Blood drop"
+              src={static_text.image_path}
+              alt={static_text.image_alt}
               className="w-4 h-6 mr-2"
             />
           </div>
@@ -68,6 +70,7 @@ interface ParameterRowProps {
     value: number;
     unit: string;
     range: [number, number];
+    rangeString: string;
     description?: string;
   };
 }
@@ -135,7 +138,7 @@ const ParameterRow: React.FC<ParameterRowProps> = ({ param }) => {
           <p className={cn("font-medium text-xs", isOutOfRange && "font-bold")}>
             {param.value}
           </p>
-          <p className="text-[9px] text-gray-500">{`${param.range[0]} - ${param.range[1]}`}</p>
+          <p className="text-[9px] text-gray-500">{`${param.rangeString}`}</p>
         </div>
       </div>
       <p className="text-xs text-gray-500">{param.description}</p>

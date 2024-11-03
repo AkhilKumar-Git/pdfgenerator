@@ -46,7 +46,7 @@ export default async function handler(req, res) {
       );
 
     //CBP Import
-    const CBP_grid = "CBP!A2:D22";
+    const CBP_grid = "CBP!A2:E22";
     const CBP = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: CBP_grid,
@@ -55,23 +55,34 @@ export default async function handler(req, res) {
       item[3],
       parseFloat(item[1]),
       parseFloat(item[2]),
+      item[4],
     ]);
 
     //RFT Import
-    const RFT_grid = "RFT!A2:C11";
+    const RFT_grid = "RFT!A2:E11";
     const RFT = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: RFT_grid,
     });
-    const RFT_metrics = RFT.data.values.map((item) => [item[2], item[1]]);
+    const RFT_metrics = RFT.data.values.map((item) => [
+      item[3],
+      parseFloat(item[1]),
+      parseFloat(item[2]),
+      item[4],
+    ]);
 
     //LFT Import
-    const LFT_grid = "LFT!A2:C13";
+    const LFT_grid = "LFT!A2:E13";
     const LFT = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: LFT_grid,
     });
-    const LFT_metrics = LFT.data.values.map((item) => [item[2], item[1]]);
+    const LFT_metrics = LFT.data.values.map((item) => [
+      item[3],
+      parseFloat(item[1]),
+      parseFloat(item[2]),
+      item[4],
+    ]);
 
     //Lipid Import
     const Lipid_grid = "Lipid!A2:C7";
@@ -256,84 +267,98 @@ export default async function handler(req, res) {
               value: values[3],
               unit: CBP_metrics[0][0],
               range: [CBP_metrics[0][1], CBP_metrics[0][2]],
+              rangeString: CBP_metrics[0][3],
             },
             {
               name: keys[4],
               value: values[4],
               unit: CBP_metrics[1][0],
               range: [CBP_metrics[1][1], CBP_metrics[1][2]],
+              rangeString: CBP_metrics[1][3],
             },
             {
               name: keys[5],
               value: values[5],
               unit: CBP_metrics[2][0],
               range: [CBP_metrics[2][1], CBP_metrics[2][2]],
+              rangeString: CBP_metrics[2][3],
             },
             {
               name: keys[6],
               value: values[6],
               unit: CBP_metrics[3][0],
               range: [CBP_metrics[3][1], CBP_metrics[3][2]],
+              rangeString: CBP_metrics[3][3],
             },
             {
               name: keys[7],
               value: values[7],
               unit: CBP_metrics[4][0],
               range: [CBP_metrics[4][1], CBP_metrics[4][2]],
+              rangeString: CBP_metrics[4][3],
             },
             {
               name: keys[8],
               value: values[8],
               unit: CBP_metrics[5][0],
               range: [CBP_metrics[5][1], CBP_metrics[5][2]],
+              rangeString: CBP_metrics[5][3],
             },
             {
               name: keys[9],
               value: values[9],
               unit: CBP_metrics[6][0],
               range: [CBP_metrics[6][1], CBP_metrics[6][2]],
+              rangeString: CBP_metrics[6][3],
             },
             {
               name: keys[10],
               value: values[10],
               unit: CBP_metrics[7][0],
               range: [CBP_metrics[7][1], CBP_metrics[7][2]],
+              rangeString: CBP_metrics[7][3],
             },
             {
               name: keys[11],
               value: values[11],
               unit: CBP_metrics[8][0],
               range: [CBP_metrics[8][1], CBP_metrics[8][2]],
+              rangeString: CBP_metrics[8][3],
             },
             {
               name: keys[12],
               value: values[12],
               unit: "%",
               range: [CBP_metrics[9][1], CBP_metrics[9][2]],
+              rangeString: CBP_metrics[9][3],
             },
             {
               name: keys[13],
               value: values[13],
               unit: "%",
               range: [CBP_metrics[10][1], CBP_metrics[10][2]],
+              rangeString: CBP_metrics[10][3],
             },
             {
               name: keys[14],
               value: values[14],
               unit: "%",
               range: [CBP_metrics[11][1], CBP_metrics[11][2]],
+              rangeString: CBP_metrics[11][3],
             },
             {
               name: keys[15],
               value: values[15],
               unit: "%",
               range: [CBP_metrics[12][1], CBP_metrics[12][2]],
+              rangeString: CBP_metrics[12][3],
             },
             {
               name: keys[16],
               value: values[16],
               unit: "%",
               range: [CBP_metrics[13][1], CBP_metrics[13][2]],
+              rangeString: CBP_metrics[13][3],
             },
           ],
           peripheral_smear: [
@@ -359,81 +384,71 @@ export default async function handler(req, res) {
               name: keys[25],
               value: values[25],
               unit: RFT_metrics[0][0],
-              range: RFT_metrics[0][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [RFT_metrics[0][1], RFT_metrics[0][2]],
+              rangeString: RFT_metrics[0][3],
             },
             {
               name: keys[26],
               value: values[26],
               unit: RFT_metrics[1][0],
-              range: RFT_metrics[1][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [RFT_metrics[1][1], RFT_metrics[1][2]],
+              rangeString: RFT_metrics[1][3],
             },
             {
               name: keys[27],
               value: values[27],
               unit: RFT_metrics[2][0],
-              range: RFT_metrics[2][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [RFT_metrics[2][1], RFT_metrics[2][2]],
+              rangeString: RFT_metrics[2][3],
             },
             {
               name: keys[28],
               value: values[28],
               unit: RFT_metrics[3][0],
-              range: RFT_metrics[3][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [RFT_metrics[3][1], RFT_metrics[3][2]],
+              rangeString: RFT_metrics[3][3],
             },
             {
               name: keys[29],
               value: values[29],
               unit: "",
-              range: RFT_metrics[4][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [RFT_metrics[4][1], RFT_metrics[4][2]],
+              rangeString: RFT_metrics[4][3],
             },
             {
               name: keys[30],
               value: values[30],
               unit: "",
-              range: RFT_metrics[5][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [RFT_metrics[5][1], RFT_metrics[5][2]],
+              rangeString: RFT_metrics[5][3],
             },
             {
               name: keys[31],
               value: values[31],
               unit: RFT_metrics[6][0],
-              range: RFT_metrics[6][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [RFT_metrics[6][1], RFT_metrics[6][2]],
+              rangeString: RFT_metrics[6][3],
             },
             {
               name: keys[32],
               value: values[32],
               unit: RFT_metrics[7][0],
-              range: RFT_metrics[7][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [RFT_metrics[7][1], RFT_metrics[7][2]],
+              rangeString: RFT_metrics[7][3],
             },
             {
               name: keys[33],
               value: values[33],
               unit: RFT_metrics[8][0],
-              range: RFT_metrics[8][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [RFT_metrics[8][1], RFT_metrics[8][2]],
+              rangeString: RFT_metrics[8][3],
             },
             {
               name: keys[34],
               value: values[34],
               unit: RFT_metrics[9][0],
-              range: RFT_metrics[9][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [RFT_metrics[9][1], RFT_metrics[9][2]],
+              rangeString: RFT_metrics[9][3],
             },
           ],
           static: {
@@ -510,97 +525,85 @@ export default async function handler(req, res) {
               name: keys[36],
               value: values[36],
               unit: LFT_metrics[0][0],
-              range: LFT_metrics[0][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[0][1], LFT_metrics[0][2]],
+              rangeString: LFT_metrics[0][3],
             },
             {
               name: keys[37],
               value: values[37],
               unit: LFT_metrics[1][0],
-              range: LFT_metrics[1][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[1][1], LFT_metrics[1][2]],
+              rangeString: LFT_metrics[1][3],
             },
             {
               name: keys[38],
               value: values[38],
               unit: LFT_metrics[2][0],
-              range: LFT_metrics[2][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[2][1], LFT_metrics[2][2]],
+              rangeString: LFT_metrics[2][3],
             },
             {
               name: keys[39],
               value: values[39],
               unit: LFT_metrics[3][0],
-              range: LFT_metrics[3][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[3][1], LFT_metrics[3][2]],
+              rangeString: LFT_metrics[3][3],
             },
             {
               name: keys[40],
               value: values[40],
               unit: LFT_metrics[4][0],
-              range: LFT_metrics[4][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[4][1], LFT_metrics[4][2]],
+              rangeString: LFT_metrics[4][3],
             },
             {
               name: keys[41],
               value: values[41],
               unit: LFT_metrics[5][0],
-              range: LFT_metrics[5][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[5][1], LFT_metrics[5][2]],
+              rangeString: LFT_metrics[5][3],
             },
             {
               name: keys[42],
               value: values[42],
               unit: LFT_metrics[6][0],
-              range: LFT_metrics[6][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[6][1], LFT_metrics[6][2]],
+              rangeString: LFT_metrics[6][3],
             },
             {
               name: keys[43],
               value: values[43],
               unit: LFT_metrics[7][0],
-              range: LFT_metrics[7][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[7][1], LFT_metrics[7][2]],
+              rangeString: LFT_metrics[7][3],
             },
             {
               name: keys[44],
               value: values[44],
               unit: LFT_metrics[8][0],
-              range: LFT_metrics[8][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[8][1], LFT_metrics[8][2]],
+              rangeString: LFT_metrics[8][3],
             },
             {
               name: keys[45],
               value: values[45],
               unit: LFT_metrics[9][0],
-              range: LFT_metrics[9][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[9][1], LFT_metrics[9][2]],
+              rangeString: LFT_metrics[9][3],
             },
             {
               name: keys[46],
               value: values[46],
               unit: LFT_metrics[10][0],
-              range: LFT_metrics[10][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[10][1], LFT_metrics[10][2]],
+              rangeString: LFT_metrics[10][3],
             },
             {
               name: keys[47],
               value: values[47],
               unit: LFT_metrics[11][0],
-              range: LFT_metrics[11][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [LFT_metrics[11][1], LFT_metrics[11][2]],
+              rangeString: LFT_metrics[11][3],
             },
           ],
           static: {

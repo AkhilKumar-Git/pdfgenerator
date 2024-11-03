@@ -115,7 +115,8 @@
           "range": [
             12,
             15
-          ]
+          ],
+          "rangeString": "12 - 15"
         },
         {
           "name": "Total RBC Count",
@@ -124,7 +125,8 @@
           "range": [
             3.8,
             4.8
-          ]
+          ],
+          "rangeString": "3.8 - 4.8 "
         },
         {
           "name": "Total WBC Count",
@@ -133,7 +135,8 @@
           "range": [
             4000,
             10000
-          ]
+          ],
+          "rangeString": "4000 - 10000"
         },
         {
           "name": "Platelet Count",
@@ -142,7 +145,8 @@
           "range": [
             1.5,
             4.1
-          ]
+          ],
+          "rangeString": "1.5 - 4.1"
         },
         {
           "name": "PCV/HCT",
@@ -151,7 +155,8 @@
           "range": [
             36,
             46
-          ]
+          ],
+          "rangeString": "36 - 46"
         },
         {
           "name": "MCV",
@@ -160,7 +165,8 @@
           "range": [
             83,
             101
-          ]
+          ],
+          "rangeString": "83 - 101"
         },
         {
           "name": "MCH",
@@ -169,7 +175,8 @@
           "range": [
             27,
             32
-          ]
+          ],
+          "rangeString": "27 - 32"
         },
         {
           "name": "MCHC",
@@ -178,7 +185,8 @@
           "range": [
             31.5,
             34.5
-          ]
+          ],
+          "rangeString": "31.5 - 34 .5"
         },
         {
           "name": "Erytrocyte Sedimenation Rate (ESR)",
@@ -187,7 +195,8 @@
           "range": [
             0,
             30
-          ]
+          ],
+          "rangeString": "0 - 30"
         },
         {
           "name": "Neutrophils",
@@ -196,7 +205,8 @@
           "range": [
             40,
             80
-          ]
+          ],
+          "rangeString": "40 - 80"
         },
         {
           "name": "Lymphocytes",
@@ -205,7 +215,8 @@
           "range": [
             20,
             40
-          ]
+          ],
+          "rangeString": "20 - 40"
         },
         {
           "name": "Eosinophils",
@@ -214,7 +225,8 @@
           "range": [
             1,
             6
-          ]
+          ],
+          "rangeString": "1 - 6"
         },
         {
           "name": "Monocytes",
@@ -223,7 +235,8 @@
           "range": [
             2,
             10
-          ]
+          ],
+          "rangeString": "2 - 10"
         },
         {
           "name": "Basophils",
@@ -232,7 +245,8 @@
           "range": [
             0,
             1
-          ]
+          ],
+          "rangeString": "0 - 1"
         }
       ],
       "peripheral_smear": [
@@ -280,11 +294,10 @@
           "value": "10.7",
           "unit": "mg/dL",
           "range": [
-            null,
-            null,
-            null,
+            5,
             23
-          ]
+          ],
+          "rangeString": "Infant/Child: 5-18  |  Adult: 6-20  |  >60.0 Years: 8-23"
         },
         {
           "name": "Urea",
@@ -293,7 +306,8 @@
           "range": [
             17,
             43
-          ]
+          ],
+          "rangeString": "17-43"
         },
         {
           "name": "Uric Acid",
@@ -302,33 +316,38 @@
           "range": [
             2.6,
             6
-          ]
+          ],
+          "rangeString": "2.6 - 6.0"
         },
         {
           "name": "Creatinine",
           "value": "0.65",
           "unit": "mg/dL",
           "range": [
-            null,
-            null,
-            0.7
-          ]
+            0.3,
+            0.9
+          ],
+          "rangeString": "Adults: 0.5 - 0.9  |  Children: 0.30 - 0.70"
         },
         {
           "name": "Urea Creatinine Ratio",
           "value": "35.23",
           "unit": "",
           "range": [
-            null
-          ]
+            40,
+            110
+          ],
+          "rangeString": "40 : 1 to 110 : 1"
         },
         {
           "name": "BUN Creatinine Ratio",
           "value": "16.46",
           "unit": "",
           "range": [
-            null
-          ]
+            10,
+            20
+          ],
+          "rangeString": "10 : 1 to 20 : 1."
         },
         {
           "name": "Calcium",
@@ -337,7 +356,8 @@
           "range": [
             8.6,
             10.3
-          ]
+          ],
+          "rangeString": "8.6 - 10.3"
         },
         {
           "name": "Sodium",
@@ -346,7 +366,8 @@
           "range": [
             136,
             146
-          ]
+          ],
+          "rangeString": "136 - 146"
         },
         {
           "name": "Potassium",
@@ -355,7 +376,8 @@
           "range": [
             3.5,
             5.1
-          ]
+          ],
+          "rangeString": "3.5 - 5.1"
         },
         {
           "name": "Chloride",
@@ -364,7 +386,8 @@
           "range": [
             101,
             109
-          ]
+          ],
+          "rangeString": "101 - 109"
         }
       ],
       "static": {
@@ -382,15 +405,18 @@
           "range": [
             0.3,
             1.2
-          ]
+          ],
+          "rangeString": "0.3 - 1.2"
         },
         {
           "name": "Bilirubin - Direct",
           "value": "0.37",
           "unit": "mg/dL",
           "range": [
-            null
-          ]
+            0,
+            0.4
+          ],
+          "rangeString": "<0.4"
         },
         {
           "name": "Bilirubin - Indirect",
@@ -399,23 +425,28 @@
           "range": [
             0.1,
             1
-          ]
+          ],
+          "rangeString": "0.1 - 1.0"
         },
         {
           "name": "Aspartate Aminotransferase (AST/SGOT)",
           "value": "20",
           "unit": "U/L",
           "range": [
-            null
-          ]
+            0,
+            31
+          ],
+          "rangeString": "< 31"
         },
         {
           "name": "Alanine Transaminase (ALT/SGPT)",
           "value": "19",
           "unit": "U/L",
           "range": [
-            null
-          ]
+            0,
+            34
+          ],
+          "rangeString": "< 34"
         },
         {
           "name": "SGOT/SGPT",
@@ -424,7 +455,8 @@
           "range": [
             0.7,
             1.4
-          ]
+          ],
+          "rangeString": "0.7 - 1.4"
         },
         {
           "name": "GGT-Gamma-glutamyl transpeptidase",
@@ -433,7 +465,8 @@
           "range": [
             12,
             73
-          ]
+          ],
+          "rangeString": "12-73"
         },
         {
           "name": "Alkaline Phosphatase-ALPI",
@@ -442,7 +475,8 @@
           "range": [
             39,
             118
-          ]
+          ],
+          "rangeString": "39 - 118"
         },
         {
           "name": "Total Protein",
@@ -451,7 +485,8 @@
           "range": [
             6.6,
             8.7
-          ]
+          ],
+          "rangeString": "6.6 - 8.7"
         },
         {
           "name": "Albumin",
@@ -460,7 +495,8 @@
           "range": [
             3.5,
             5.2
-          ]
+          ],
+          "rangeString": "3.5 - 5.2"
         },
         {
           "name": "Globulin",
@@ -469,7 +505,8 @@
           "range": [
             2,
             3.5
-          ]
+          ],
+          "rangeString": "2.0 - 3.5"
         },
         {
           "name": "A/G Ratio",
@@ -478,7 +515,8 @@
           "range": [
             1.2,
             2.2
-          ]
+          ],
+          "rangeString": "1.2 - 2.2"
         }
       ],
       "static": {

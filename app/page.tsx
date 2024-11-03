@@ -117,6 +117,8 @@ const IntegratedReport = () => {
                 />
               </div>
             ),
+            image_path: "/kidney.svg",
+            image_alt: "Kidney Logo",
           }}
         />
       </div>
@@ -141,6 +143,8 @@ const IntegratedReport = () => {
                 />
               </div>
             ),
+            image_path: "/liver.svg",
+            image_alt: "Liver Logo",
           }}
         />
       </div>
