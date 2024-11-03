@@ -1,8 +1,8 @@
 {
   "personal_info": {
     "report_type": "intro",
-    "name": "Akhil Sharma",
-    "age": "24",
+    "name": "Tarun",
+    "age": "34",
     "gender": "male",
     "sample_types": [
       "Blood",
@@ -17,20 +17,7 @@
       "about": "About your raw data"
     }
   },
-  "Vitamins": [
-    [
-      "pg/mL",
-      "200 - 900"
-    ],
-    [
-      "ng/mL",
-      "Deficiency: < 20\nInsufficiency: 20 - <30\nSufficiency: 30 - 100"
-    ],
-    [
-      "mg/dL",
-      "0.2 - 2.0"
-    ]
-  ],
+  "CBP": "number",
   "toc": [
     "Snapshot",
     "Blood Parameters",
@@ -51,13 +38,60 @@
     "message": "Your overall assessment seems ok, but would need improvement.",
     "microbiome_analysis": {
       "page_type": "microbiome_analysis",
-      "bacterial_phyla": {
-        "Bacteroidetes": 43.66,
-        "Firmicutes": 43.21,
-        "Proteobacteria": 7.69,
-        "Others": 2.29,
-        "Actinobacteria": 3.15
-      },
+      "yourPie": [
+        {
+          "name": "Bacteroidetes Total (saliva/stool)",
+          "value": "42.25",
+          "color": "#10D3E4"
+        },
+        {
+          "name": "Firmicutes total (stool)",
+          "value": "39.24",
+          "color": "#F8F58A"
+        },
+        {
+          "name": "Proteobacteria Total",
+          "value": "13.98",
+          "color": "#A480B1"
+        },
+        {
+          "name": "Others Total",
+          "value": "2.24",
+          "color": "#16354B"
+        },
+        {
+          "name": "Actinobacteria Total (saliva/stool)",
+          "value": "2.29",
+          "color": "#E9AC9C"
+        }
+      ],
+      "normalPie": [
+        {
+          "name": "Bacteroidetes Total (saliva/stool)",
+          "value": "73.13",
+          "color": "#10D3E4"
+        },
+        {
+          "name": "Firmicutes total (stool)",
+          "value": "22.2",
+          "color": "#F8F58A"
+        },
+        {
+          "name": "Proteobacteria Total",
+          "value": "2.15",
+          "color": "#A480B1"
+        },
+        {
+          "name": "Others Total",
+          "value": "0.7",
+          "color": "#16354B"
+        },
+        {
+          "name": "Actinobacteria Total (saliva/stool)",
+          "value": "1.82",
+          "color": "#E9AC9C"
+        }
+      ],
       "deviations": {
         "Bacteroidetes": "Lower than normal",
         "Firmicutes": "Higher than normal",
@@ -97,7 +131,8 @@
           "value": "5800",
           "unit": "cells/cmm",
           "range": [
-            null
+            4000,
+            10000
           ]
         },
         {
@@ -105,7 +140,8 @@
           "value": "1.78",
           "unit": "lakhs/cmm",
           "range": [
-            null
+            1.5,
+            4.1
           ]
         },
         {
@@ -122,7 +158,8 @@
           "value": "89.6",
           "unit": "fL",
           "range": [
-            null
+            83,
+            101
           ]
         },
         {
@@ -130,7 +167,8 @@
           "value": "29.5",
           "unit": "pg",
           "range": [
-            null
+            27,
+            32
           ]
         },
         {
@@ -528,8 +566,8 @@
           ]
         },
         {
-          "name": "Glucose (Fasting Blood Sugar)",
-          "value": "80",
+          "name": "HbA1c",
+          "value": "5.4",
           "unit": "%",
           "range": [
             null
@@ -623,8 +661,8 @@
       "page_type": "blood_parameters",
       "metrics": [
         {
-          "name": "T3 (Triiodothyronine)",
-          "value": "0.86",
+          "name": "Vitamin B12",
+          "value": "224",
           "unit": "pg/mL",
           "range": [
             200,
@@ -632,8 +670,8 @@
           ]
         },
         {
-          "name": "T4 (Thyroxine)",
-          "value": "7.21",
+          "name": "Vitamin D",
+          "value": "30.25",
           "unit": "ng/mL",
           "range": [
             null,
@@ -648,32 +686,318 @@
       }
     },
     {
-      "iron": 87,
-      "uibc": 246,
-      "tibc": 333,
-      "transferrin": 233.1,
-      "transferrin_saturation": 26,
+      "page_type": "blood_parameters",
+      "metrics": [
+        {
+          "name": "Calcium",
+          "value": "9.7",
+          "unit": "mg/dL",
+          "range": [
+            8.6,
+            10.3
+          ]
+        },
+        {
+          "name": "Phosphorus",
+          "value": "3.7",
+          "unit": "mg/dL",
+          "range": [
+            2.5,
+            4.5
+          ]
+        },
+        {
+          "name": "Iron",
+          "value": "78",
+          "range": [
+            39,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "UIBC (Unsaturated Iron Binding Capacity)",
+          "value": "215",
+          "unit": "µg/dL",
+          "range": [
+            120,
+            470
+          ]
+        },
+        {
+          "name": "TIBC (Total Iron Binding Capacity)",
+          "value": "293",
+          "unit": "µg/dL",
+          "range": [
+            240,
+            450
+          ]
+        },
+        {
+          "name": "Transferrin",
+          "value": "205.1",
+          "unit": "µg/dL",
+          "range": [
+            176,
+            280
+          ]
+        },
+        {
+          "name": "Transferrin Saturation",
+          "value": "26.62",
+          "unit": "%",
+          "range": [
+            20,
+            50
+          ]
+        }
+      ],
       "static": {
-        "heading": "Iron Profile",
-        "why_test_is_important": "Why is this test important?"
+        "heading": "Others",
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The panel of tests consisting of Calcium, Phosphorus, Iron, UIBC\n                (Unsaturated Iron Binding Capacity), TIBC (Total Iron Binding Capacity),\n                Transferrin, and Transferrin Saturation plays a crucial role in assessing\n                various aspects of mineral and iron metabolism in the body. When considered\n                collectively, these tests provide insights into bone health, mineral\n                balance, and iron status. Here's why this panel is important:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  Calcium: Calcium is essential for bone health, muscle function, nerve\n                  transmission, and blood clotting. Abnormal calcium levels can indicate\n                  issues such as bone disorders, kidney problems, or hormone imbalances.\n                </li>\n                <li>\n                  Phosphorus: Phosphorus is vital for bone and teeth health, energy\n                  production, and cellular function. Abnormal levels can be associated with\n                  kidney disorders, bone diseases, and hormonal imbalances.\n                </li>\n                <li>\n                  Iron, UIBC, TIBC, Transferrin, Transferrin Saturation: These tests\n                  collectively assess iron levels and its transport within the body. Iron is\n                  crucial for the formation of red blood cells and oxygen transport. Low\n                  iron levels can lead to iron deficiency anemia, while high levels can\n                  indicate iron overload conditions like hemochromatosis. The UIBC, TIBC,\n                  Transferrin, and Transferrin Saturation values help evaluate the body's\n                  iron-binding capacity, the total iron capacity, and the percentage of\n                  transferrin bound to iron.\n                </li>\n              </ul>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                The interpretation of these tests is crucial for diagnosing and managing\n                various conditions:\n                <li>\n                  Iron Deficiency: Low iron levels, high TIBC, high UIBC, and low\n                  transferrin saturation indicate iron deficiency anemia. Ferritin levels\n                  are also typically low in this condition.\n                </li>\n                <li>\n                  Hemochromatosis: High iron levels, low TIBC, low UIBC, and high\n                  transferrin saturation indicate hemochromatosis, a condition of iron\n                  overload. Ferritin levels are also elevated.\n                </li>\n                <li>\n                  Chronic Illness: In chronic illnesses, iron levels might be low, along\n                  with low TIBC and UIBC. Transferrin saturation could be low or normal, and\n                  ferritin levels can vary.\n                </li>\n                <li>\n                  Hemolytic Anemia: High iron levels, normal or low TIBC and UIBC, and high\n                  transferrin saturation can indicate hemolytic anemia. Ferritin levels are\n                  also typically high.\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Together, these tests provide a comprehensive overview of mineral\n                metabolism, bone health, and iron status. They aid healthcare professionals\n                in diagnosing conditions such as anemia, bone disorders, iron deficiency,\n                and iron overload. The interpretation of the results guides medical\n                decisions, enabling healthcare providers to tailor treatments, dietary\n                adjustments, and interventions to ensure optimal mineral and iron balance in\n                the body.\n              </p>\n              <br />\n              <br />\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>"
       }
     },
     {
       "page_type": "urine_examination",
-      "microscopic_examination": {
-        "pus_cells_wbc": "2-3",
-        "epithelial_cells": "0-1",
-        "red_blood_cells": "0-1",
-        "yeast_cells": "Absent",
-        "crystals": "Absent",
-        "casts": "Absent",
-        "bacteria": "Absent",
-        "others": "Absent"
-      },
+      "metrics": [
+        {
+          "name": "Volume",
+          "value": "20",
+          "unit": "mL",
+          "range": [
+            0
+          ]
+        },
+        {
+          "name": "Colour",
+          "value": "Pale Yellow",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Transparency (Appearance)",
+          "value": "Clear",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Reaction (pH)",
+          "value": "6",
+          "range": [
+            4.5,
+            8
+          ]
+        },
+        {
+          "name": "Specific Gravity",
+          "value": "1.02",
+          "range": [
+            1.003,
+            1.03
+          ]
+        },
+        {
+          "name": "Urine Protein (Albumin)",
+          "value": "Negative",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Urine Glucose (sugar)",
+          "value": "Negative",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Blood",
+          "value": "Negative",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Urine Ketones (Acetone)",
+          "value": "Negative",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Bile pigments",
+          "value": "Negative",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Bile Salts",
+          "value": "Normal",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Urobilinogen",
+          "value": "Normal",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Pus Cells (WBCs)",
+          "value": "2-4",
+          "unit": "/hpf",
+          "range": [
+            0,
+            null
+          ]
+        },
+        {
+          "name": "Epithelial Cells",
+          "value": "4-6",
+          "unit": "/hpf",
+          "range": [
+            0,
+            null
+          ]
+        },
+        {
+          "name": "Red blood Cells",
+          "value": "Absent",
+          "unit": "/hpf",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Yeast Cells",
+          "value": "Absent",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Crystals",
+          "value": "Absent",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Cast",
+          "value": "Absent",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Bacteria",
+          "value": "Absent",
+          "range": [
+            null
+          ]
+        },
+        {
+          "name": "Others",
+          "value": "Absent",
+          "range": [
+            null
+          ]
+        }
+      ],
       "static": {
         "heading": "Urine Examination",
-        "why_test_is_important": "Why is this test important?"
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Complete Urine Examination (CUE) panel is a set of tests that provide\n                valuable insights into the health of the urinary system and overall\n                well-being. Collectively, these tests assess various aspects of urine\n                composition, including physical properties, chemical content, and\n                microscopic elements. Here's why this panel is important:\n              </p>\n              <br />\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  Physical Properties: Assessment of urine volume, colour, transparency, and\n                  pH helps identify potential issues such as dehydration, kidney function,\n                  and urinary tract infections. Specific Gravity: Specific gravity reflects\n                  the concentration of solutes in urine, offering insights into hydration\n                  levels and kidney function.\n                </li>\n                <li>\n                  Chemical Examination: Tests for protein, glucose, blood, ketones, bile\n                  pigments, and bile salts detect abnormal substances that could indicate\n                  kidney dysfunction, diabetes, liver problems, or other conditions..\n                </li>\n                <li>\n                  Urobilinogen: Urobilinogen levels can provide information about liver\n                  function and red blood cell breakdown.\n                </li>\n                <li>\n                  Microscopic Examination: Examination of cells, crystals, casts, bacteria,\n                  and other elements helps diagnose urinary tract infections, kidney\n                  disorders, and other abnormalities.\n                </li>\n              </ul>\n\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                When considered collectively, the Complete Urine Examination (CUE) panel\n                provides a comprehensive assessment of urinary health, aiding in the\n                diagnosis and monitoring of various conditions affecting the urinary system.\n                These tests enable healthcare professionals to identify early signs of\n                kidney dysfunction, urinary tract infections, and other underlying health\n                issues, allowing for timely intervention and appropriate treatment.\n                <br />\n                For a thorough understanding of your urine test results and their\n                implications for your health, it's recommended to consult a healthcare\n                provider. They can provide personalized guidance based on your specific\n                health needs and circumstances.\n              </p>\n              <br />\n              <br />\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>"
       }
+    },
+    {
+      "page_type": "microbiome",
+      "yourPie": [
+        {
+          "name": "Bacteroidetes Total (saliva/stool)",
+          "value": "42.25",
+          "color": "#10D3E4"
+        },
+        {
+          "name": "Firmicutes total (stool)",
+          "value": "39.24",
+          "color": "#F8F58A"
+        },
+        {
+          "name": "Proteobacteria Total",
+          "value": "13.98",
+          "color": "#A480B1"
+        },
+        {
+          "name": "Others Total",
+          "value": "2.24",
+          "color": "#16354B"
+        },
+        {
+          "name": "Actinobacteria Total (saliva/stool)",
+          "value": "2.29",
+          "color": "#E9AC9C"
+        }
+      ],
+      "normalPie": [
+        {
+          "name": "Bacteroidetes Total (saliva/stool)",
+          "value": "73.13",
+          "color": "#10D3E4"
+        },
+        {
+          "name": "Firmicutes total (stool)",
+          "value": "22.2",
+          "color": "#F8F58A"
+        },
+        {
+          "name": "Proteobacteria Total",
+          "value": "2.15",
+          "color": "#A480B1"
+        },
+        {
+          "name": "Others Total",
+          "value": "0.7",
+          "color": "#16354B"
+        },
+        {
+          "name": "Actinobacteria Total (saliva/stool)",
+          "value": "1.82",
+          "color": "#E9AC9C"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Bacteroidetes Total (saliva/stool)",
+          "value": "67.20265172",
+          "unit": "%",
+          "range": "73.13 (+/- 22.16)"
+        },
+        {
+          "name": "Firmicutes total (stool)",
+          "value": "18.01015551",
+          "unit": "%",
+          "range": "22.2 (+/- 18.66)"
+        },
+        {
+          "name": "Proteobacteria Total",
+          "value": "11.05469163",
+          "unit": "%",
+          "range": "2.15 (+/- 10.39)"
+        },
+        {
+          "name": "Others Total",
+          "value": "0.84",
+          "unit": "%",
+          "range": "0.07 (+/- 4.6)"
+        }
+      ]
     }
   ],
   "microbiome_static_content": [

@@ -14,7 +14,9 @@ import { TraitHealthReportComponent } from "@/components/trait-health-report";
 import TableOfContents from "@/components/table-of-contents";
 import { integrateReport } from "../utils/integrateReport";
 import BloodTest from "@/components/blood-test-template";
-import { content } from "googleapis/build/src/apis/content";
+import Component from "./pages/5/page";
+import MicrobiomeTemplate from "@/components/microbiome-analysis";
+import Disclaimer from "@/components/disclaimer";
 
 const IntegratedReport = () => {
   const [reportData, setReportData] = useState(null);
@@ -242,6 +244,56 @@ const IntegratedReport = () => {
       </div>
 
       <div className="component w-[210mm] bg-white">
+        <TestParameters
+          testData={dynamicData["Tests"][7]["metrics"]}
+          static_text={{
+            title: dynamicData["Tests"][7]["static"]["heading"],
+            content: (
+              <div>
+                <h3 className="text-[11px] font-semibold mb-2">
+                  Why is this test important?
+                </h3>
+                <div
+                  className="text-[10px] text-gray-500 leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      dynamicData["Tests"][7]["static"][
+                        "why_test_is_important"
+                      ],
+                  }}
+                />
+              </div>
+            ),
+          }}
+        />
+      </div>
+
+      <div className="component w-[210mm] bg-white">
+        <TestParameters
+          testData={dynamicData["Tests"][8]["metrics"]}
+          static_text={{
+            title: dynamicData["Tests"][8]["static"]["heading"],
+            content: (
+              <div>
+                <h3 className="text-[11px] font-semibold mb-2">
+                  Why is this test important?
+                </h3>
+                <div
+                  className="text-[10px] text-gray-500 leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      dynamicData["Tests"][8]["static"][
+                        "why_test_is_important"
+                      ],
+                  }}
+                />
+              </div>
+            ),
+          }}
+        />
+      </div>
+
+      <div className="component w-[210mm] bg-white">
         <div className="flex flex-col justify-between w-[210mm] bg-white px-[48px] pt-[72px]">
           <div className=" text-black text-center text-3xl font-normal my-[420px] tracking-tight">
             Microbiome Analysis
@@ -272,6 +324,34 @@ const IntegratedReport = () => {
           />
         </div>
       ))}
+
+      <div className="component w-[210mm] bg-white">
+        <Component />
+      </div>
+
+      <div className="component w-[210mm] bg-white">
+        <MicrobiomeTemplate
+          testData={dynamicData["Tests"][9]["metrics"]}
+          pieData={dynamicData["Tests"][9]["yourPie"]}
+          normalData={dynamicData["Tests"][9]["normalPie"]}
+        />
+      </div>
+
+      <div className="component w-[210mm] bg-white">
+        <Disclaimer />
+      </div>
+
+      <div className="component w-[210mm] bg-white">
+        <div className="flex flex-col justify-between w-[210mm] bg-white px-[48px] pt-[72px]">
+          <div className=" text-black text-center text-3xl font-normal my-[420px] tracking-tight">
+            References
+          </div>
+          <div className="flex justify-between items-center text-[7px] text-gray-600">
+            <p>Tejinder | 15th August</p>
+            <p className="font-bold">23/41</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -386,7 +466,7 @@ const TotalPDFConverter = () => {
       console.log(`Finished processing component ${i + 1}`);
     }
 
-    pdf.save("integrated_health_report.pdf");
+    pdf.save("ihr.pdf");
   };
 
   return (

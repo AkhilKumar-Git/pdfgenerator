@@ -46,12 +46,16 @@ export default async function handler(req, res) {
       );
 
     //CBP Import
-    const CBP_grid = "CBP!A2:C22";
+    const CBP_grid = "CBP!A2:D22";
     const CBP = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: CBP_grid,
     });
-    const CBP_metrics = CBP.data.values.map((item) => [item[2], item[1]]);
+    const CBP_metrics = CBP.data.values.map((item) => [
+      item[3],
+      parseFloat(item[1]),
+      parseFloat(item[2]),
+    ]);
 
     //RFT Import
     const RFT_grid = "RFT!A2:C11";
@@ -110,6 +114,81 @@ export default async function handler(req, res) {
       item[1],
     ]);
 
+    //Elements Import
+    const Elements_grid = "Elements!A2:C8";
+    const Elements = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: Elements_grid,
+    });
+    const Elements_metrics = Elements.data.values.map((item) => [
+      item[2],
+      item[1],
+    ]);
+
+    //Urine Import
+    const CUE_grid = "CUE!A2:C21";
+    const CUE = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: CUE_grid,
+    });
+    const CUE_metrics = CUE.data.values.map((item) => [item[2], item[1]]);
+
+    //Snapshot Import
+    const Snapshot_grid = "Snapshot!A14:C18";
+    const Snapshot = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: Snapshot_grid,
+    });
+    const colors = ["#10D3E4", "#F8F58A", "#A480B1", "#16354B", "#E9AC9C"];
+    let colorIndex = 0;
+
+    const yourPie_metrics = Snapshot.data.values.map((item) => {
+      const color = colors[colorIndex % colors.length];
+      colorIndex++;
+
+      return {
+        name: item[0],
+        value: item[1],
+        color: color,
+      };
+    });
+
+    colorIndex = 0;
+
+    const normalPie_metrics = Snapshot.data.values.map((item) => {
+      const color = colors[colorIndex % colors.length];
+      colorIndex++;
+
+      return {
+        name: item[0],
+        value: item[2],
+        color: color,
+      };
+    });
+
+    //Microbiome Import
+    const Microbiome_grid = "Microbiome!A2:B47";
+    const Microbiome = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: Microbiome_grid,
+    });
+    const Microbiome_metrics = Microbiome.data.values.map((item) => item[1]);
+
+    //Microbiome data Import
+    const Microbiome_data_grid = "MB results!A2:BB3";
+    const Microbiome_response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: Microbiome_data_grid,
+    });
+    const MB_rows = Microbiome_response.data.values;
+    if (!rows || rows.length < 2) {
+      res.status(404).json({ message: "No data found" });
+      return;
+    }
+
+    const MB_keys = MB_rows[0];
+    const MB_values = MB_rows[1];
+
     const dynamicData = {
       personal_info: {
         report_type: "intro",
@@ -124,11 +203,15 @@ export default async function handler(req, res) {
           about: "About your raw data",
         },
       },
-      // CBP: CBP_metrics,
+      CBP: typeof CBP_metrics[1][1],
       // RFT: RFT_metrics,
       // Lipid: Lipid_metrics,
       // Thyroid: Thyroid_metrics,
-      Vitamins: Vitamins_metrics,
+      // Vitamins: Vitamins_metrics,
+      // piecharts: {
+      //   yours: yourPie_metrics,
+      //   nomral: normalPie_metrics,
+      // },
       toc: [
         "Snapshot",
         "Blood Parameters",
@@ -150,13 +233,8 @@ export default async function handler(req, res) {
           "Your overall assessment seems ok, but would need improvement.",
         microbiome_analysis: {
           page_type: "microbiome_analysis",
-          bacterial_phyla: {
-            Bacteroidetes: 43.66,
-            Firmicutes: 43.21,
-            Proteobacteria: 7.69,
-            Others: 2.29,
-            Actinobacteria: 3.15,
-          },
+          yourPie: yourPie_metrics,
+          normalPie: normalPie_metrics,
           deviations: {
             Bacteroidetes: "Lower than normal",
             Firmicutes: "Higher than normal",
@@ -177,89 +255,86 @@ export default async function handler(req, res) {
               name: keys[3],
               value: values[3],
               unit: CBP_metrics[0][0],
-              range: CBP_metrics[0][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CBP_metrics[0][1], CBP_metrics[0][2]],
             },
             {
               name: keys[4],
               value: values[4],
               unit: CBP_metrics[1][0],
-              range: CBP_metrics[1][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CBP_metrics[1][1], CBP_metrics[1][2]],
             },
             {
               name: keys[5],
               value: values[5],
               unit: CBP_metrics[2][0],
-              range: CBP_metrics[2][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CBP_metrics[2][1], CBP_metrics[2][2]],
             },
             {
               name: keys[6],
               value: values[6],
               unit: CBP_metrics[3][0],
-              range: CBP_metrics[3][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CBP_metrics[3][1], CBP_metrics[3][2]],
             },
             {
               name: keys[7],
               value: values[7],
               unit: CBP_metrics[4][0],
-              range: CBP_metrics[4][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CBP_metrics[4][1], CBP_metrics[4][2]],
             },
             {
               name: keys[8],
               value: values[8],
               unit: CBP_metrics[5][0],
-              range: CBP_metrics[5][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CBP_metrics[5][1], CBP_metrics[5][2]],
             },
             {
               name: keys[9],
               value: values[9],
               unit: CBP_metrics[6][0],
-              range: CBP_metrics[6][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CBP_metrics[6][1], CBP_metrics[6][2]],
             },
             {
               name: keys[10],
               value: values[10],
               unit: CBP_metrics[7][0],
-              range: CBP_metrics[7][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CBP_metrics[7][1], CBP_metrics[7][2]],
             },
             {
               name: keys[11],
               value: values[11],
               unit: CBP_metrics[8][0],
-              range: CBP_metrics[8][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CBP_metrics[8][1], CBP_metrics[8][2]],
             },
             {
               name: keys[12],
               value: values[12],
               unit: "%",
-              range: [40, 80],
+              range: [CBP_metrics[9][1], CBP_metrics[9][2]],
             },
             {
               name: keys[13],
               value: values[13],
               unit: "%",
-              range: [20, 40],
+              range: [CBP_metrics[10][1], CBP_metrics[10][2]],
             },
-            { name: keys[14], value: values[14], unit: "%", range: [1, 6] },
-            { name: keys[15], value: values[15], unit: "%", range: [2, 10] },
-            { name: keys[16], value: values[16], unit: "%", range: [0, 1] },
+            {
+              name: keys[14],
+              value: values[14],
+              unit: "%",
+              range: [CBP_metrics[11][1], CBP_metrics[11][2]],
+            },
+            {
+              name: keys[15],
+              value: values[15],
+              unit: "%",
+              range: [CBP_metrics[12][1], CBP_metrics[12][2]],
+            },
+            {
+              name: keys[16],
+              value: values[16],
+              unit: "%",
+              range: [CBP_metrics[13][1], CBP_metrics[13][2]],
+            },
           ],
           peripheral_smear: [
             { name: keys[17], value: values[17] },
@@ -720,8 +795,8 @@ export default async function handler(req, res) {
                 .map((num) => Number(num.trim())),
             },
             {
-              name: keys[93],
-              value: values[93],
+              name: keys[94],
+              value: values[94],
               unit: Diabetes_metrics[1][0],
               range: Diabetes_metrics[1][1]
                 .split("-")
@@ -849,16 +924,16 @@ export default async function handler(req, res) {
           page_type: "blood_parameters",
           metrics: [
             {
-              name: keys[56],
-              value: values[56],
+              name: keys[89],
+              value: values[89],
               unit: Vitamins_metrics[0][0],
               range: Vitamins_metrics[0][1]
                 .split("-")
                 .map((num) => Number(num.trim())),
             },
             {
-              name: keys[57],
-              value: values[57],
+              name: keys[90],
+              value: values[90],
               unit: Vitamins_metrics[1][0],
               range: Vitamins_metrics[1][1]
                 .split("-")
@@ -932,32 +1007,397 @@ export default async function handler(req, res) {
           },
         },
         {
-          iron: 87,
-          uibc: 246,
-          tibc: 333,
-          transferrin: 233.1,
-          transferrin_saturation: 26,
+          page_type: "blood_parameters",
+          metrics: [
+            {
+              name: keys[60],
+              value: values[60],
+              unit: Elements_metrics[0][0],
+              range: Elements_metrics[0][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[61],
+              value: values[61],
+              unit: Elements_metrics[1][0],
+              range: Elements_metrics[1][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[62],
+              value: values[62],
+              unit: Elements_metrics[2][0],
+              range: Elements_metrics[2][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[63],
+              value: values[63],
+              unit: Elements_metrics[3][0],
+              range: Elements_metrics[3][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[64],
+              value: values[64],
+              unit: Elements_metrics[4][0],
+              range: Elements_metrics[4][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[65],
+              value: values[65],
+              unit: Elements_metrics[5][0],
+              range: Elements_metrics[5][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[66],
+              value: values[66],
+              unit: Elements_metrics[6][0],
+              range: Elements_metrics[6][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+          ],
           static: {
-            heading: "Iron Profile",
-            why_test_is_important: "Why is this test important?",
+            heading: "Others",
+            why_test_is_important: `
+            <div className="mt-6 break-inside-avoid">
+              <p className="text-[10px] text-gray-500">
+                The panel of tests consisting of Calcium, Phosphorus, Iron, UIBC
+                (Unsaturated Iron Binding Capacity), TIBC (Total Iron Binding Capacity),
+                Transferrin, and Transferrin Saturation plays a crucial role in assessing
+                various aspects of mineral and iron metabolism in the body. When considered
+                collectively, these tests provide insights into bone health, mineral
+                balance, and iron status. Here's why this panel is important:
+              </p>
+              <ul className="list-disc list-inside text-[10px] text-gray-500">
+                <li>
+                  Calcium: Calcium is essential for bone health, muscle function, nerve
+                  transmission, and blood clotting. Abnormal calcium levels can indicate
+                  issues such as bone disorders, kidney problems, or hormone imbalances.
+                </li>
+                <li>
+                  Phosphorus: Phosphorus is vital for bone and teeth health, energy
+                  production, and cellular function. Abnormal levels can be associated with
+                  kidney disorders, bone diseases, and hormonal imbalances.
+                </li>
+                <li>
+                  Iron, UIBC, TIBC, Transferrin, Transferrin Saturation: These tests
+                  collectively assess iron levels and its transport within the body. Iron is
+                  crucial for the formation of red blood cells and oxygen transport. Low
+                  iron levels can lead to iron deficiency anemia, while high levels can
+                  indicate iron overload conditions like hemochromatosis. The UIBC, TIBC,
+                  Transferrin, and Transferrin Saturation values help evaluate the body's
+                  iron-binding capacity, the total iron capacity, and the percentage of
+                  transferrin bound to iron.
+                </li>
+              </ul>
+              <ul className="list-disc list-inside text-[10px] text-gray-500">
+                The interpretation of these tests is crucial for diagnosing and managing
+                various conditions:
+                <li>
+                  Iron Deficiency: Low iron levels, high TIBC, high UIBC, and low
+                  transferrin saturation indicate iron deficiency anemia. Ferritin levels
+                  are also typically low in this condition.
+                </li>
+                <li>
+                  Hemochromatosis: High iron levels, low TIBC, low UIBC, and high
+                  transferrin saturation indicate hemochromatosis, a condition of iron
+                  overload. Ferritin levels are also elevated.
+                </li>
+                <li>
+                  Chronic Illness: In chronic illnesses, iron levels might be low, along
+                  with low TIBC and UIBC. Transferrin saturation could be low or normal, and
+                  ferritin levels can vary.
+                </li>
+                <li>
+                  Hemolytic Anemia: High iron levels, normal or low TIBC and UIBC, and high
+                  transferrin saturation can indicate hemolytic anemia. Ferritin levels are
+                  also typically high.
+                </li>
+              </ul>
+              <p className="text-[10px] text-gray-500 mb-10">
+                Together, these tests provide a comprehensive overview of mineral
+                metabolism, bone health, and iron status. They aid healthcare professionals
+                in diagnosing conditions such as anemia, bone disorders, iron deficiency,
+                and iron overload. The interpretation of the results guides medical
+                decisions, enabling healthcare providers to tailor treatments, dietary
+                adjustments, and interventions to ensure optimal mineral and iron balance in
+                the body.
+              </p>
+              <br />
+              <br />
+              <p className="text-[10px] text-gray-500">
+                <i>
+                  Note: The blood parameters testing is powered by our testing facility:
+                  Previa Labs.
+                </i>
+              </p>
+            </div>`,
           },
         },
         {
           page_type: "urine_examination",
-          microscopic_examination: {
-            pus_cells_wbc: "2-3",
-            epithelial_cells: "0-1",
-            red_blood_cells: "0-1",
-            yeast_cells: "Absent",
-            crystals: "Absent",
-            casts: "Absent",
-            bacteria: "Absent",
-            others: "Absent",
-          },
+          metrics: [
+            {
+              name: keys[68],
+              value: values[68],
+              unit: CUE_metrics[0][0],
+              range: CUE_metrics[0][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[69],
+              value: values[69],
+              unit: CUE_metrics[1][0],
+              range: CUE_metrics[1][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[70],
+              value: values[70],
+              unit: CUE_metrics[2][0],
+              range: CUE_metrics[2][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[71],
+              value: values[71],
+              unit: CUE_metrics[3][0],
+              range: CUE_metrics[3][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[72],
+              value: values[72],
+              unit: CUE_metrics[4][0],
+              range: CUE_metrics[4][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[73],
+              value: values[73],
+              unit: CUE_metrics[5][0],
+              range: CUE_metrics[5][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[74],
+              value: values[74],
+              unit: CUE_metrics[6][0],
+              range: CUE_metrics[6][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[75],
+              value: values[75],
+              unit: CUE_metrics[7][0],
+              range: CUE_metrics[7][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[76],
+              value: values[76],
+              unit: CUE_metrics[8][0],
+              range: CUE_metrics[8][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[77],
+              value: values[77],
+              unit: CUE_metrics[9][0],
+              range: CUE_metrics[9][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[78],
+              value: values[78],
+              unit: CUE_metrics[10][0],
+              range: CUE_metrics[10][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[79],
+              value: values[79],
+              unit: CUE_metrics[11][0],
+              range: CUE_metrics[11][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[80],
+              value: values[80],
+              unit: CUE_metrics[12][0],
+              range: CUE_metrics[12][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[81],
+              value: values[81],
+              unit: CUE_metrics[13][0],
+              range: CUE_metrics[13][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[82],
+              value: values[82],
+              unit: CUE_metrics[14][0],
+              range: CUE_metrics[14][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[83],
+              value: values[83],
+              unit: CUE_metrics[15][0],
+              range: CUE_metrics[15][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[84],
+              value: values[84],
+              unit: CUE_metrics[16][0],
+              range: CUE_metrics[16][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[85],
+              value: values[85],
+              unit: CUE_metrics[17][0],
+              range: CUE_metrics[17][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[86],
+              value: values[86],
+              unit: CUE_metrics[18][0],
+              range: CUE_metrics[18][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+            {
+              name: keys[87],
+              value: values[87],
+              unit: CUE_metrics[19][0],
+              range: CUE_metrics[19][1]
+                .split("-")
+                .map((num) => Number(num.trim())),
+            },
+          ],
           static: {
             heading: "Urine Examination",
-            why_test_is_important: "Why is this test important?",
+            why_test_is_important: `
+            <div className="mt-6 break-inside-avoid">
+              <p className="text-[10px] text-gray-500">
+                The Complete Urine Examination (CUE) panel is a set of tests that provide
+                valuable insights into the health of the urinary system and overall
+                well-being. Collectively, these tests assess various aspects of urine
+                composition, including physical properties, chemical content, and
+                microscopic elements. Here's why this panel is important:
+              </p>
+              <br />
+              <ul className="list-disc list-inside text-[10px] text-gray-500">
+                <li>
+                  Physical Properties: Assessment of urine volume, colour, transparency, and
+                  pH helps identify potential issues such as dehydration, kidney function,
+                  and urinary tract infections. Specific Gravity: Specific gravity reflects
+                  the concentration of solutes in urine, offering insights into hydration
+                  levels and kidney function.
+                </li>
+                <li>
+                  Chemical Examination: Tests for protein, glucose, blood, ketones, bile
+                  pigments, and bile salts detect abnormal substances that could indicate
+                  kidney dysfunction, diabetes, liver problems, or other conditions..
+                </li>
+                <li>
+                  Urobilinogen: Urobilinogen levels can provide information about liver
+                  function and red blood cell breakdown.
+                </li>
+                <li>
+                  Microscopic Examination: Examination of cells, crystals, casts, bacteria,
+                  and other elements helps diagnose urinary tract infections, kidney
+                  disorders, and other abnormalities.
+                </li>
+              </ul>
+
+              <p className="text-[10px] text-gray-500 mb-10">
+                When considered collectively, the Complete Urine Examination (CUE) panel
+                provides a comprehensive assessment of urinary health, aiding in the
+                diagnosis and monitoring of various conditions affecting the urinary system.
+                These tests enable healthcare professionals to identify early signs of
+                kidney dysfunction, urinary tract infections, and other underlying health
+                issues, allowing for timely intervention and appropriate treatment.
+                <br />
+                For a thorough understanding of your urine test results and their
+                implications for your health, it's recommended to consult a healthcare
+                provider. They can provide personalized guidance based on your specific
+                health needs and circumstances.
+              </p>
+              <br />
+              <br />
+              <p className="text-[10px] text-gray-500">
+                <i>
+                  Note: The blood parameters testing is powered by our testing facility:
+                  Previa Labs.
+                </i>
+              </p>
+            </div>`,
           },
+        },
+        {
+          page_type: "microbiome",
+          yourPie: yourPie_metrics,
+          normalPie: normalPie_metrics,
+          metrics: [
+            {
+              name: MB_keys[8],
+              value: MB_values[8],
+              unit: "%",
+              range: Microbiome_metrics[0],
+            },
+            {
+              name: MB_keys[9],
+              value: MB_values[9],
+              unit: "%",
+              range: Microbiome_metrics[1],
+            },
+            {
+              name: MB_keys[10],
+              value: MB_values[10],
+              unit: "%",
+              range: Microbiome_metrics[2],
+            },
+            {
+              name: MB_keys[11],
+              value: MB_values[11],
+              unit: "%",
+              range: Microbiome_metrics[3],
+            },
+          ],
         },
       ],
       microbiome_static_content: [

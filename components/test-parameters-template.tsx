@@ -68,6 +68,7 @@ interface ParameterRowProps {
     value: number;
     unit: string;
     range: [number, number];
+    description?: string;
   };
 }
 
@@ -92,49 +93,52 @@ const ParameterRow: React.FC<ParameterRowProps> = ({ param }) => {
     (param.value - extendedMin) / (adjustedMax - extendedMin);
 
   return (
-    <div className="flex items-center justify-between mb-4">
-      <div className="w-1/3">
-        <p className="font-bold text-[11px]">{param.name}</p>
-        <p className="text-[9px] text-gray-500">{param.unit}</p>
-      </div>
-      <div className="w-1/3 relative h-[2px] bg-score-f2 rounded-full flex items-center">
-        <div className="absolute left-0 right-0 h-full">
+    <div>
+      <div className="flex items-center justify-between mb-4">
+        <div className="w-1/3">
+          <p className="font-bold text-[11px]">{param.name}</p>
+          <p className="text-[9px] text-gray-500">{param.unit}</p>
+        </div>
+        <div className="w-1/3 relative h-[2px] bg-score-f2 rounded-full flex items-center">
+          <div className="absolute left-0 right-0 h-full">
+            <div
+              className="absolute h-full rounded-full"
+              style={{
+                left: `${startPosition * 100}%`,
+                right: `${(1 - endPosition) * 100}%`,
+              }}
+            ></div>
+          </div>
+          <div className="absolute left-0 right-0 px-2 text-xs text-gray-400">
+            <span
+              className="absolute font-semibold"
+              style={{ left: `${startPosition * 100}%` }}
+            >
+              :
+            </span>
+            <span
+              className="relative font-semibold"
+              style={{ left: `${endPosition * 100}%` }}
+            >
+              :
+            </span>
+          </div>
           <div
-            className="absolute h-full rounded-full"
-            style={{
-              left: `${startPosition * 100}%`,
-              right: `${(1 - endPosition) * 100}%`,
-            }}
+            className={cn(
+              "absolute w-1 h-3 rounded-full top-1/2 -translate-y-1/2 shadow-md",
+              isOutOfRange ? "bg-[#FC4F64]" : "bg-[#333333]"
+            )}
+            style={{ left: `${valuePosition * 100}%` }}
           ></div>
         </div>
-        <div className="absolute left-0 right-0 px-2 text-xs text-gray-400">
-          <span
-            className="absolute font-semibold"
-            style={{ left: `${startPosition * 100}%` }}
-          >
-            :
-          </span>
-          <span
-            className="relative font-semibold"
-            style={{ left: `${endPosition * 100}%` }}
-          >
-            :
-          </span>
+        <div className="w-1/6 text-right">
+          <p className={cn("font-medium text-xs", isOutOfRange && "font-bold")}>
+            {param.value}
+          </p>
+          <p className="text-[9px] text-gray-500">{`${param.range[0]} - ${param.range[1]}`}</p>
         </div>
-        <div
-          className={cn(
-            "absolute w-1 h-3 rounded-full top-1/2 -translate-y-1/2 shadow-md",
-            isOutOfRange ? "bg-[#FC4F64]" : "bg-[#333333]"
-          )}
-          style={{ left: `${valuePosition * 100}%` }}
-        ></div>
       </div>
-      <div className="w-1/6 text-right">
-        <p className={cn("font-medium text-xs", isOutOfRange && "font-bold")}>
-          {param.value}
-        </p>
-        <p className="text-[9px] text-gray-500">{`${param.range[0]} - ${param.range[1]}`}</p>
-      </div>
+      <p className="text-xs text-gray-500">{param.description}</p>
     </div>
   );
 };
