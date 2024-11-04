@@ -2,7 +2,19 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-export default function BloodTest({ testData }) {
+interface testProps {
+  name: string;
+  value: number;
+  unit: string;
+  range: [number, number];
+  rangeString: string;
+}
+
+interface props {
+  testData: testProps[];
+}
+
+export default function BloodTest({ testData }: props) {
   return (
     <div className="blood-parameters-container w-[210mm] bg-white px-[48px] pt-[72px]">
       {/* Remove Card wrapper and use direct styling */}

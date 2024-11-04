@@ -4,7 +4,30 @@ import { cn } from "@/lib/utils";
 import { Card, CardContent } from "./ui/card";
 import { PieChart, Pie, Cell } from "recharts";
 
-export default function MicrobiomeTemplate({ testData, pieData, normalData }) {
+interface testProps {
+  name: string;
+  value: number;
+  unit: string;
+  range: [number, number];
+  rangeString: string;
+}
+
+interface pieProps {
+  name: string;
+  value: number;
+  color: string;
+}
+
+interface props {
+  testData: testProps[];
+  pieData: pieProps[];
+  normalData: pieProps[];
+}
+export default function MicrobiomeTemplate({
+  testData,
+  pieData,
+  normalData,
+}: props) {
   return (
     <div className="blood-parameters-container w-[210mm] bg-white px-[48px] pt-[72px]">
       {/* Remove Card wrapper and use direct styling */}

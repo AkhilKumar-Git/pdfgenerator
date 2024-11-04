@@ -9,8 +9,16 @@ interface contentProps {
   image_alt: string;
 }
 
+interface testProps {
+  name: string;
+  value: number;
+  unit: string;
+  range: [number, number];
+  rangeString: string;
+}
+
 interface TestParameterProps {
-  testData: any;
+  testData: testProps[];
   static_text: contentProps;
 }
 

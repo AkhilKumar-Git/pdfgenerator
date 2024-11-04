@@ -153,8 +153,8 @@
   ],
   "overall_summary": {
     "page_type": "snapshot",
-    "body_score": 80,
-    "biome_score": 76,
+    "body_score": 58,
+    "biome_score": 48,
     "health_snapshot_date": "15 aug 2023",
     "message": "Your overall assessment seems ok, but would need improvement.",
     "microbiome_analysis": {
@@ -1604,11 +1604,65 @@
       "note": "Of all the microbial communities in the human body, the gut microbiome is by far the most dense and diverse."
     }
   },
+  "disclaimer": {
+    "items": [
+      "Trait Health Pvt. Ltd. (hereinafter referred to as\n          &quot;We/Us/Our&quot;) is not responsible for any loss, liability, or\n          counter-effect suffered by the person to whom the specimen belongs\n          (including such person&apos;s guardian or any person acting on his/her\n          behalf), referred to as &quot;You/Your&quot;.",
+      "This Report is not a diagnostic report and should be used for Research\n          Use Only (RUO) or Investigational Use Only (IUO), and should be\n          interpreted or used exclusively by or under the guidance of a\n          practitioner, including but not limited to, certified physicians,\n          clinicians, dietitians, nutritionists, sports therapists, and such\n          other persons in similar professions having appropriate validation to\n          undertake such practice.",
+      "This Report is generated using an algorithm that analyzes the\n          sequencing data of your gut microbiome. As with any algorithm, the\n          predictions and recommendations in this Report are based on\n          statistical models and may not be entirely accurate for every\n          individual. Therefore, it is important to interpret the results of\n          this Report with caution and in conjunction with other relevant\n          information about your health. Additionally, this Report is not\n          intended to replace medical advice or guidance from a qualified\n          healthcare professional.",
+      " It is imperative that any preventative or therapeutic measures taken\n          for any of the diagnosis should be solely under the guidance of a\n          &quot;Professional Practitioner.&quot;",
+      "We shall not be held responsible for any misinterpretation by your\n          &quot;Professional Practitioner&quot; of this Report or for any other\n          matter arising out of this Report.",
+      "This Report&apos;s role is limited to providing insights into your gut\n          microbiome, and risk assessment.",
+      "It is essential that you consult a Professional Practitioner for\n          detailed recommendations or risk management that may be specific /\n          customized for you.",
+      "Information in this Report is not intended to replace medical or\n          professional advice offered by Professional Practitioners.",
+      "Not all disease-associated microbial groups may have been identified,\n          validated, and recorded by the scientific community, and the clinical\n          significance of many microbial groups is not completely understood.",
+      "This Report is limited only to those variants within your gut\n          microbiome which has strong evidence of causing or contributing to a\n          disease or a drug response or a metabolism-related issue till date.",
+      "The microbiome sequencing data is being constantly updated, both with\n          new taxonomic groups and curation of old microbial databases, hence it\n          is subject to revision-based updates based on the latest scientific\n          research.",
+      "Microbiome information must always be considered in conjunction with\n          other information about your health, including but not limited to your\n          age, sex, ethnicity, lifestyle, bio-medical history, family health\n          history, and any other information that You may provide to the\n          &quot;Professional Practitioner.&quot;",
+      "We cannot be held responsible in any manner for non-adherence by you\n          to the terms and conditions contained in this Disclaimer.",
+      "We shall not be responsible for any findings in this Report and\n          disclaims any responsibility for any errors, including but not limited\n          to human error in reporting, and/or omissions by the sampler or agent\n          either during the collection of DNA samples (stool, etc.) or delivery\n          of the DNA sample to us.",
+      " With respect to this Report or process undertaken to arrive at the\n          findings reflected or reported in the Report, We make no warranties of\n          any kind including, without limitation, the implied warranties as to\n          its merchantability, fitness for a specific purpose, accuracy, and\n          non-infringement.",
+      "It is important to note that while this Report may provide\n          information, it is not designed to diagnose or treat food allergies or\n          sensitivities. If you have a known food allergy or sensitivity, it is\n          important to seek guidance from a healthcare professional before\n          making any dietary changes based on this Report."
+    ]
+  },
   "references": {
     "page_type": "references",
     "reference_list": [
-      "Everard, A., Belzer, C., Geurts, L., et al. (2013). Cross-talk between Akkermansia...",
-      "Miquel, S., Martin, R., Rossi, O., et al. (2013). Faecalibacterium prausnitzii and..."
+      "V. K. Ridaura et al. “Gut Microbiota from Twins Discordant for Obesity Modulate Metabolism in Mice.”Science 341, no. 6150 (2013). http://science.sciencemag.org/content/341/6150/1241214.",
+      "M. Noval Rivas et al. “A Microbiota Signature Associated with Experimental Food Allergy Promotes Allergic Sensitization and Anaphylaxis.” Journal of Allergy and Clinical Immunology 131, no. 1 (2013): 201–212. http://www.jacionline.org/article/S0091-6749(12)01694-6/abstract.",
+      "M. C. de Goffau et al. “Fecal Microbiota Composition Differs between Children with B-Cell Autoimmunity and Those Without.” Diabetes 62, no. 4 (2013): 1238–1244. http://diabetes.diabetesjournals.org/content/62/4/1238.",
+      "A. Giongo et al. “Toward Defining the Autoimmune Microbiome for Type 1 Diabetes.” ISME Journal 5 (2011): 82–91. http://www.nature.com/ismej/journal/v5/n1/full/ismej201092a.html.",
+      "Z. Wang et al. “Gut Flora Metabolism of Phosphatidylcholine Promotes Cardiovascular Disease.” Nature 472, no. 7341 (2011): 57–63. http://www.nature.com/nature/journal/v472/n7341/full/nature09922.html.",
+      "S. Michail et al. “Alterations in the Gut Microbiome of Children with Severe Ulcerative Colitis.” Inflammatory Bowel Diseases 18, no. 10 (2012): 1799–1808. https://www.ncbi.nlm.nih.gov/pubmed/22170749.",
+      "Manichanh, C., Borruel, N., Casellas, F., & Guarner, F. (2012). The Gut Microbiota In IBD. Nature reviews Gastroenterology & hepatology, 9(10), 599. https://www.nature.com/articles/nrgastro.2012.152",
+      "Noor, S. O., Ridgway, K., Scovell, L., Kemsley, E. K., Lund, E. K., Jamieson, C., ... & Narbad, A. (2010). Ulcerative colitis and irritable bowel patients exhibit distinct abnormalities of the gut microbiota. BMC gastroenterology, 10(1), 134. https://bmcgastroenterol.biomedcentral.com/articles/10.1186/1471-230X-10-134",
+      "A. Keshavarzian et al. “Colonic Bacterial Composition in Parkinson’s Disease.” Movement Disorders 30, no. 10 (2015): 1351–1360. http://onlinelibrary.wiley.com/doi/10.1002/mds.26307/abstract.",
+      "J. M. Hill et al. “Pathogenic Microbes, the Microbiome, and Alzheimer’s Disease (AD).” Frontiers in Aging Neuroscience 6 (2014): 127. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4058571/.",
+      "McNeil, N. I. (1984). The contribution of the large intestine to energy supplies in man. The American journal of clinical nutrition, 39(2), 338-342. https://academic.oup.com/ajcn/article-abstract/39/2/338/4691042.",
+      "P. J. Turnbaugh et al. “An Obesity-Associated Gut Microbiome with Increased Capacity for Energy Harvest.” Nature 444 (2006): 1027–1031. http://www.nature.com/nature/journal/v444/n7122/abs/nature05414.html",
+      "LeBlanc, J. G., Milani, C., de Giori, G. S., Sesma, F., Van Sinderen, D., & Ventura, M. (2013). Bacteria as vitamin suppliers to their host: a gut microbiota perspective. Current opinion in biotechnology, 24(2), 160-168. https://www.sciencedirect.com/science/article/pii/S095816691200119X",
+      "Magnúsdóttir, S., Ravcheev, D., de Crécy-Lagard, V., & Thiele, I. (2015). Systematic genome assessment of Bvitamin biosynthesis suggests co-operation among gut microbes. Frontiers in genetics, 6, 148. https://www.frontiersin.org/articles/10.3389/fgene.2015.00148/full",
+      "Frost, G., Sleeth, M. L., Sahuri-Arisoylu, M., Lizarbe, B., Cerdan, S., Brody, L., ... & Carling, D. (2014). The short-chain fatty acid acetate reduces appetite via a central homeostatic mechanism. Nature communications, 5, 3611. https://www.nature.com/articles/ncomms4611",
+      "Schwiertz, A., Taras, D., Schäfer, K., Beijer, S., Bos, N. A., Donus, C., & Hardt, P. D. (2010). Microbiota and SCFA in lean and overweight healthy subjects. Obesity,18(1),190-195. https://onlinelibrary.wiley.com/doi/abs/10.1038/oby.2009.167",
+      "Ost, K. S., & Round, J. L. (2018). Communication Between the Microbiota and Mammalian Immunity. Annual review of microbiology, 72. https://www.annualreviews.org/doi/abs/10.1146/annurevmicro-090817-062307",
+      "Macpherson, A. J., de Aguero, M. G., & Ganal-Vonarburg, S. C. (2017). How nutrition and the maternal microbiota shape the neonatal immune system. Nature Reviews Immunology, 17(8), 508. https://www.nature.com/articles/nri.2017.58",
+      "Le Chatelier, E., Nielsen, T., Qin, J., Prifti, E., Hildebrand, F., Falony, G., ... & Leonard, P. (2013). Richness of human gut microbiome correlates with metabolic markers. Nature, 500(7464), 541.",
+      "Huttenhower, C., Gevers, D., Knight, R., Abubucker, S., Badger, J. H., Chinwalla, A. T., ... & Giglio, M. G. (2012). Structure, function and diversity of the healthy human microbiome. Nature, 486(7402), 207.",
+      "Wu, G. D., Chen, J., Hoffmann, C., Bittinger, K., Chen, Y. Y., Keilbaugh, S. A., ... & Sinha, R. (2011). Linking long-term dietary patterns with gut microbial enterotypes. Science, 334(6052), 105-108.",
+      "Schwiertz, A., Taras, D., Schäfer, K., Beijer, S., Bos, N. A., Donus, C., & Hardt, P. D. (2010). Microbiota and SCFA in lean and overweight healthy subjects. Obesity, 18(1), 190-195.",
+      "Jumpertz, R., Le, D. S., Turnbaugh, P. J., Trinidad, C., Bogardus, C., Gordon, J. I., & Krakoff, J. (2011). Energybalance studies reveal associations between gut microbes, caloric load, and nutrient absorption in humans. The American journal of clinical nutrition, 94(1), 58-65.",
+      "Flint, H. J., Scott, K. P., Louis, P., & Duncan, S. H. (2012). The role of the gut microbiota in nutrition and health. Nature Reviews Gastroenterology and Hepatology, 9(10), 577.",
+      "Flint, H. J., Scott, K. P., Duncan, S. H., Louis, P., & Forano, E. (2012). Microbial degradation of complex carbohydrates in the gut. Gut microbes, 3(4), 289-306.",
+      "Willing, B. P., Dicksved, J., Halfvarson, J., Andersson, A. F., Lucio, M., Zheng, Z., ... & Engstrand, L. (2010). A pyrosequencing study in twins shows that gastrointestinal microbial profiles vary with inflammatory bowel disease phenotypes. Gastroenterology, 139(6), 1844-1854.",
+      "Saulnier, D. M., Riehle, K., Mistretta, T. A., Diaz, M. A., Mandal, D., Raza, S., ... & Petrosino, J. F. (2011). Gastrointestinal microbiome signatures of pediatric patients with irritable bowel syndrome. Gastroenterology, 141(5), 1782-1791.",
+      "Tamanai-Shacoori, Z., Smida, I., Bousarghin, L., Loreal, O., Meuric, V., Fong, S. B., ... & Jolivet-Gougeon, A. (2017). Roseburia spp.: a marker of health?. Future microbiology, 12(2), 157-170.",
+      "Everard, A., Belzer, C., Geurts, L., Ouwerkerk, J. P., Druart, C., Bindels, L. B., ... & De Vos, W. M. (2013). Cross-talk between Akkermansia muciniphila and intestinal epithelium controls diet-induced obesity. Proceedings of the National Academy of Sciences, 110(22), 9066-9071.",
+      "Miquel, S., Martin, R., Rossi, O., Bermudez-Humaran, L. G., Chatel, J. M., Sokol, H., ... & Langella, P. (2013). Faecalibacterium prausnitzii and human intestinal health. Current opinion in microbiology, 16(3), 255-261.",
+      "Fujimoto, T., Imaeda, H., Takahashi, K., Kasumi, E., Bamba, S., Fujiyama, Y., & Andoh, A. (2013). Decreased abundance of Faecalibacterium prausnitzii in the gut microbiota of Crohn's disease. Journal of gastroenterology and hepatology, 28(4), 613-619.",
+      "Tremaroli, V., & Bäckhed, F. (2012). Functional interactions between the gut microbiota and host metabolism. Nature, 489(7415), 242.",
+      "Macfarlane, G. T., & Macfarlane, S. (2012). Bacteria, colonic fermentation, and gastrointestinal health. Journal of AOAC International, 95(1), 50-60.",
+      "Russell, W. R., Hoyles, L., Flint, H. J., & Dumas, M. E. (2013). Colonic bacterial metabolites and human health. Current opinion in microbiology, 16(3), 246-254.",
+      "Rowland, I., Gibson, G., Heinken, A., Scott, K., Swann, J., Thiele, I., & Tuohy, K. (2017). Gut microbiota functions: metabolism of nutrients and other food components. European journal of nutrition, 1-24.",
+      "Magnúsdóttir, S., Ravcheev, D., de Crécy-Lagard, V., & Thiele, I. (2015). Systematic genome assessment of Bvitamin biosynthesis suggests co-operation among gut microbes. Frontiers in genetics, 6, 148"
     ],
     "static": {
       "heading": "References"
