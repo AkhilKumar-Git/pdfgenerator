@@ -186,34 +186,43 @@ export default async function handler(req, res) {
     ]);
 
     //Vitamin Import
-    const Vitamins_grid = "Vitamins!A2:C4";
+    const Vitamins_grid = "Vitamins!A2:E4";
     const Vitamins = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: Vitamins_grid,
     });
     const Vitamins_metrics = Vitamins.data.values.map((item) => [
-      item[2],
-      item[1],
+      item[3],
+      parseFloat(item[1]),
+      parseFloat(item[2]),
+      item[4],
     ]);
 
     //Elements Import
-    const Elements_grid = "Elements!A2:C8";
+    const Elements_grid = "Elements!A2:E8";
     const Elements = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: Elements_grid,
     });
     const Elements_metrics = Elements.data.values.map((item) => [
-      item[2],
-      item[1],
+      item[3],
+      parseFloat(item[1]),
+      parseFloat(item[2]),
+      item[4],
     ]);
 
     //Urine Import
-    const CUE_grid = "CUE!A2:C21";
+    const CUE_grid = "CUE!A2:E21";
     const CUE = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: CUE_grid,
     });
-    const CUE_metrics = CUE.data.values.map((item) => [item[2], item[1]]);
+    const CUE_metrics = CUE.data.values.map((item) => [
+      item[3],
+      parseFloat(item[1]),
+      parseFloat(item[2]),
+      item[4],
+    ]);
 
     //Snapshot Import
     const Snapshot_grid = "Snapshot!A14:C18";
@@ -230,7 +239,7 @@ export default async function handler(req, res) {
 
       return {
         name: item[0],
-        value: item[1],
+        value: parseFloat(item[1]),
         color: color,
       };
     });
@@ -243,18 +252,22 @@ export default async function handler(req, res) {
 
       return {
         name: item[0],
-        value: item[2],
+        value: parseFloat(item[2]),
         color: color,
       };
     });
 
     //Microbiome Import
-    const Microbiome_grid = "Microbiome!A2:B47";
+    const Microbiome_grid = "Microbiome!A2:D47";
     const Microbiome = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: Microbiome_grid,
     });
-    const Microbiome_metrics = Microbiome.data.values.map((item) => item[1]);
+    const Microbiome_metrics = Microbiome.data.values.map((item) => [
+      parseFloat(item[1]),
+      parseFloat(item[2]),
+      item[3],
+    ]);
 
     //Microbiome data Import
     const Microbiome_data_grid = "MB results!A2:BB3";
@@ -285,7 +298,7 @@ export default async function handler(req, res) {
           about: "About your raw data",
         },
       },
-      CBP: typeof CBP_metrics[1][1],
+      CUE: CUE_metrics,
       // RFT: RFT_metrics,
       // Lipid: Lipid_metrics,
       // Thyroid: Thyroid_metrics,
@@ -914,25 +927,22 @@ export default async function handler(req, res) {
               name: keys[56],
               value: values[56],
               unit: Thyroid_metrics[0][0],
-              range: Thyroid_metrics[0][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [thyroid_values.T3.low, thyroid_values.T3.high],
+              rangeString: Thyroid_metrics[0][1],
             },
             {
               name: keys[57],
               value: values[57],
               unit: Thyroid_metrics[1][0],
-              range: Thyroid_metrics[1][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [thyroid_values.T4.low, thyroid_values.T4.high],
+              rangeString: Thyroid_metrics[1][1],
             },
             {
               name: keys[58],
               value: values[58],
               unit: Thyroid_metrics[2][0],
-              range: Thyroid_metrics[2][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [thyroid_values.TSH.low, thyroid_values.TSH.high],
+              rangeString: Thyroid_metrics[2][1],
             },
           ],
           static: {
@@ -993,17 +1003,15 @@ export default async function handler(req, res) {
               name: keys[89],
               value: values[89],
               unit: Vitamins_metrics[0][0],
-              range: Vitamins_metrics[0][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Vitamins_metrics[0][1], Vitamins_metrics[0][2]],
+              rangeString: Vitamins_metrics[0][3],
             },
             {
               name: keys[90],
               value: values[90],
               unit: Vitamins_metrics[1][0],
-              range: Vitamins_metrics[1][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Vitamins_metrics[1][1], Vitamins_metrics[1][2]],
+              rangeString: Vitamins_metrics[1][3],
             },
           ],
           static: {
@@ -1079,57 +1087,50 @@ export default async function handler(req, res) {
               name: keys[60],
               value: values[60],
               unit: Elements_metrics[0][0],
-              range: Elements_metrics[0][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Elements_metrics[0][1], Elements_metrics[0][2]],
+              rangeString: Elements_metrics[0][3],
             },
             {
               name: keys[61],
               value: values[61],
               unit: Elements_metrics[1][0],
-              range: Elements_metrics[1][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Elements_metrics[1][1], Elements_metrics[1][2]],
+              rangeString: Elements_metrics[1][3],
             },
             {
               name: keys[62],
               value: values[62],
               unit: Elements_metrics[2][0],
-              range: Elements_metrics[2][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Elements_metrics[2][1], Elements_metrics[2][2]],
+              rangeString: Elements_metrics[2][3],
             },
             {
               name: keys[63],
               value: values[63],
               unit: Elements_metrics[3][0],
-              range: Elements_metrics[3][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Elements_metrics[3][1], Elements_metrics[3][2]],
+              rangeString: Elements_metrics[3][3],
             },
             {
               name: keys[64],
               value: values[64],
               unit: Elements_metrics[4][0],
-              range: Elements_metrics[4][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Elements_metrics[4][1], Elements_metrics[4][2]],
+              rangeString: Elements_metrics[4][3],
             },
             {
               name: keys[65],
               value: values[65],
               unit: Elements_metrics[5][0],
-              range: Elements_metrics[5][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Elements_metrics[5][1], Elements_metrics[5][2]],
+              rangeString: Elements_metrics[5][3],
             },
             {
               name: keys[66],
               value: values[66],
               unit: Elements_metrics[6][0],
-              range: Elements_metrics[6][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Elements_metrics[6][1], Elements_metrics[6][2]],
+              rangeString: Elements_metrics[6][3],
             },
           ],
           static: {
@@ -1217,161 +1218,141 @@ export default async function handler(req, res) {
               name: keys[68],
               value: values[68],
               unit: CUE_metrics[0][0],
-              range: CUE_metrics[0][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[0][3],
             },
             {
               name: keys[69],
               value: values[69],
               unit: CUE_metrics[1][0],
-              range: CUE_metrics[1][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[1][3],
             },
             {
               name: keys[70],
               value: values[70],
               unit: CUE_metrics[2][0],
-              range: CUE_metrics[2][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[2][3],
             },
             {
               name: keys[71],
               value: values[71],
               unit: CUE_metrics[3][0],
-              range: CUE_metrics[3][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CUE_metrics[3][1], CUE_metrics[3][2]],
+              rangeString: CUE_metrics[3][3],
             },
             {
               name: keys[72],
               value: values[72],
               unit: CUE_metrics[4][0],
-              range: CUE_metrics[4][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CUE_metrics[4][1], CUE_metrics[4][2]],
+              rangeString: CUE_metrics[4][3],
             },
             {
               name: keys[73],
               value: values[73],
               unit: CUE_metrics[5][0],
-              range: CUE_metrics[5][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[5][3],
             },
             {
               name: keys[74],
               value: values[74],
               unit: CUE_metrics[6][0],
-              range: CUE_metrics[6][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[6][3],
             },
             {
               name: keys[75],
               value: values[75],
               unit: CUE_metrics[7][0],
-              range: CUE_metrics[7][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[7][3],
             },
             {
               name: keys[76],
               value: values[76],
               unit: CUE_metrics[8][0],
-              range: CUE_metrics[8][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[8][3],
             },
             {
               name: keys[77],
               value: values[77],
               unit: CUE_metrics[9][0],
-              range: CUE_metrics[9][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[9][3],
             },
             {
               name: keys[78],
               value: values[78],
               unit: CUE_metrics[10][0],
-              range: CUE_metrics[10][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[10][3],
             },
             {
               name: keys[79],
               value: values[79],
               unit: CUE_metrics[11][0],
-              range: CUE_metrics[11][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[11][3],
             },
             {
               name: keys[80],
               value: values[80],
               unit: CUE_metrics[12][0],
-              range: CUE_metrics[12][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CUE_metrics[12][1], CUE_metrics[12][2]],
+              rangeString: CUE_metrics[12][3],
             },
             {
               name: keys[81],
               value: values[81],
               unit: CUE_metrics[13][0],
-              range: CUE_metrics[13][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [CUE_metrics[13][1], CUE_metrics[13][2]],
+              rangeString: CUE_metrics[13][3],
             },
             {
               name: keys[82],
               value: values[82],
               unit: CUE_metrics[14][0],
-              range: CUE_metrics[14][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[14][3],
             },
             {
               name: keys[83],
               value: values[83],
               unit: CUE_metrics[15][0],
-              range: CUE_metrics[15][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[15][3],
             },
             {
               name: keys[84],
               value: values[84],
               unit: CUE_metrics[16][0],
-              range: CUE_metrics[16][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[16][3],
             },
             {
               name: keys[85],
               value: values[85],
               unit: CUE_metrics[17][0],
-              range: CUE_metrics[17][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[17][3],
             },
             {
               name: keys[86],
               value: values[86],
               unit: CUE_metrics[18][0],
-              range: CUE_metrics[18][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[18][3],
             },
             {
               name: keys[87],
               value: values[87],
               unit: CUE_metrics[19][0],
-              range: CUE_metrics[19][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [],
+              rangeString: CUE_metrics[19][3],
             },
           ],
           static: {
@@ -1443,25 +1424,323 @@ export default async function handler(req, res) {
               name: MB_keys[8],
               value: MB_values[8],
               unit: "%",
-              range: Microbiome_metrics[0],
+              range: [Microbiome_metrics[0][0], Microbiome_metrics[0][1]],
+              rangeString: Microbiome_metrics[0][2],
             },
             {
               name: MB_keys[9],
               value: MB_values[9],
               unit: "%",
-              range: Microbiome_metrics[1],
+              range: [Microbiome_metrics[1][0], Microbiome_metrics[1][1]],
+              rangeString: Microbiome_metrics[1][2],
             },
             {
               name: MB_keys[10],
               value: MB_values[10],
               unit: "%",
-              range: Microbiome_metrics[2],
+              range: [Microbiome_metrics[2][0], Microbiome_metrics[2][1]],
+              rangeString: Microbiome_metrics[2][2],
             },
             {
               name: MB_keys[11],
               value: MB_values[11],
               unit: "%",
-              range: Microbiome_metrics[3],
+              range: [Microbiome_metrics[3][0], Microbiome_metrics[3][1]],
+              rangeString: Microbiome_metrics[3][2],
+            },
+            {
+              name: MB_keys[12],
+              value: MB_values[12],
+              unit: "%",
+              range: [Microbiome_metrics[4][0], Microbiome_metrics[4][1]],
+              rangeString: Microbiome_metrics[4][2],
+            },
+            {
+              name: MB_keys[13],
+              value: MB_values[13],
+              unit: "%",
+              range: [Microbiome_metrics[5][0], Microbiome_metrics[5][1]],
+              rangeString: Microbiome_metrics[5][2],
+            },
+            {
+              name: MB_keys[14],
+              value: MB_values[14],
+              unit: "%",
+              range: [Microbiome_metrics[6][0], Microbiome_metrics[6][1]],
+              rangeString: Microbiome_metrics[6][2],
+            },
+            {
+              name: MB_keys[15],
+              value: MB_values[15],
+              unit: "%",
+              range: [Microbiome_metrics[7][0], Microbiome_metrics[7][1]],
+              rangeString: Microbiome_metrics[7][2],
+            },
+            {
+              name: MB_keys[16],
+              value: MB_values[16],
+              unit: "%",
+              range: [Microbiome_metrics[8][0], Microbiome_metrics[8][1]],
+              rangeString: Microbiome_metrics[8][2],
+            },
+            {
+              name: MB_keys[17],
+              value: MB_values[17],
+              unit: "%",
+              range: [Microbiome_metrics[9][0], Microbiome_metrics[9][1]],
+              rangeString: Microbiome_metrics[9][2],
+            },
+            {
+              name: MB_keys[18],
+              value: MB_values[18],
+              unit: "%",
+              range: [Microbiome_metrics[10][0], Microbiome_metrics[10][1]],
+              rangeString: Microbiome_metrics[10][2],
+            },
+            {
+              name: MB_keys[19],
+              value: MB_values[19],
+              unit: "%",
+              range: [Microbiome_metrics[11][0], Microbiome_metrics[11][1]],
+              rangeString: Microbiome_metrics[11][2],
+            },
+            {
+              name: MB_keys[20],
+              value: MB_values[20],
+              unit: "%",
+              range: [Microbiome_metrics[12][0], Microbiome_metrics[12][1]],
+              rangeString: Microbiome_metrics[12][2],
+            },
+            {
+              name: MB_keys[21],
+              value: MB_values[21],
+              unit: "%",
+              range: [Microbiome_metrics[13][0], Microbiome_metrics[13][1]],
+              rangeString: Microbiome_metrics[13][2],
+            },
+            {
+              name: MB_keys[22],
+              value: MB_values[22],
+              unit: "%",
+              range: [Microbiome_metrics[14][0], Microbiome_metrics[14][1]],
+              rangeString: Microbiome_metrics[14][2],
+            },
+            {
+              name: MB_keys[23],
+              value: MB_values[23],
+              unit: "%",
+              range: [Microbiome_metrics[15][0], Microbiome_metrics[15][1]],
+              rangeString: Microbiome_metrics[15][2],
+            },
+            {
+              name: MB_keys[24],
+              value: MB_values[24],
+              unit: "%",
+              range: [Microbiome_metrics[16][0], Microbiome_metrics[16][1]],
+              rangeString: Microbiome_metrics[16][2],
+            },
+            {
+              name: MB_keys[25],
+              value: MB_values[25],
+              unit: "%",
+              range: [Microbiome_metrics[17][0], Microbiome_metrics[17][1]],
+              rangeString: Microbiome_metrics[17][2],
+            },
+            {
+              name: MB_keys[26],
+              value: MB_values[26],
+              unit: "%",
+              range: [Microbiome_metrics[18][0], Microbiome_metrics[18][1]],
+              rangeString: Microbiome_metrics[18][2],
+            },
+            {
+              name: MB_keys[27],
+              value: MB_values[27],
+              unit: "%",
+              range: [Microbiome_metrics[19][0], Microbiome_metrics[19][1]],
+              rangeString: Microbiome_metrics[19][2],
+            },
+            {
+              name: MB_keys[28],
+              value: MB_values[28],
+              unit: "%",
+              range: [Microbiome_metrics[20][0], Microbiome_metrics[20][1]],
+              rangeString: Microbiome_metrics[20][2],
+            },
+            {
+              name: MB_keys[29],
+              value: MB_values[29],
+              unit: "%",
+              range: [Microbiome_metrics[21][0], Microbiome_metrics[21][1]],
+              rangeString: Microbiome_metrics[21][2],
+            },
+            {
+              name: MB_keys[30],
+              value: MB_values[30],
+              unit: "%",
+              range: [Microbiome_metrics[22][0], Microbiome_metrics[22][1]],
+              rangeString: Microbiome_metrics[22][2],
+            },
+            {
+              name: MB_keys[31],
+              value: MB_values[31],
+              unit: "%",
+              range: [Microbiome_metrics[23][0], Microbiome_metrics[23][1]],
+              rangeString: Microbiome_metrics[23][2],
+            },
+            {
+              name: MB_keys[32],
+              value: MB_values[32],
+              unit: "%",
+              range: [Microbiome_metrics[24][0], Microbiome_metrics[24][1]],
+              rangeString: Microbiome_metrics[24][2],
+            },
+            {
+              name: MB_keys[33],
+              value: MB_values[33],
+              unit: "%",
+              range: [Microbiome_metrics[25][0], Microbiome_metrics[25][1]],
+              rangeString: Microbiome_metrics[25][2],
+            },
+            {
+              name: MB_keys[34],
+              value: MB_values[34],
+              unit: "%",
+              range: [Microbiome_metrics[26][0], Microbiome_metrics[26][1]],
+              rangeString: Microbiome_metrics[26][2],
+            },
+            {
+              name: MB_keys[35],
+              value: MB_values[35],
+              unit: "%",
+              range: [Microbiome_metrics[27][0], Microbiome_metrics[27][1]],
+              rangeString: Microbiome_metrics[27][2],
+            },
+            {
+              name: MB_keys[36],
+              value: MB_values[36],
+              unit: "%",
+              range: [Microbiome_metrics[28][0], Microbiome_metrics[28][1]],
+              rangeString: Microbiome_metrics[28][2],
+            },
+            {
+              name: MB_keys[37],
+              value: MB_values[37],
+              unit: "%",
+              range: [Microbiome_metrics[29][0], Microbiome_metrics[29][1]],
+              rangeString: Microbiome_metrics[29][2],
+            },
+            {
+              name: MB_keys[38],
+              value: MB_values[38],
+              unit: "%",
+              range: [Microbiome_metrics[30][0], Microbiome_metrics[30][1]],
+              rangeString: Microbiome_metrics[30][2],
+            },
+            {
+              name: MB_keys[39],
+              value: MB_values[39],
+              unit: "%",
+              range: [Microbiome_metrics[31][0], Microbiome_metrics[31][1]],
+              rangeString: Microbiome_metrics[31][2],
+            },
+            {
+              name: MB_keys[40],
+              value: MB_values[40],
+              unit: "%",
+              range: [Microbiome_metrics[32][0], Microbiome_metrics[32][1]],
+              rangeString: Microbiome_metrics[32][2],
+            },
+            {
+              name: MB_keys[41],
+              value: MB_values[41],
+              unit: "%",
+              range: [Microbiome_metrics[33][0], Microbiome_metrics[33][1]],
+              rangeString: Microbiome_metrics[33][2],
+            },
+            {
+              name: MB_keys[42],
+              value: MB_values[42],
+              unit: "%",
+              range: [Microbiome_metrics[34][0], Microbiome_metrics[34][1]],
+              rangeString: Microbiome_metrics[34][2],
+            },
+            {
+              name: MB_keys[43],
+              value: MB_values[43],
+              unit: "%",
+              range: [Microbiome_metrics[35][0], Microbiome_metrics[35][1]],
+              rangeString: Microbiome_metrics[35][2],
+            },
+            {
+              name: MB_keys[44],
+              value: MB_values[44],
+              unit: "%",
+              range: [Microbiome_metrics[36][0], Microbiome_metrics[36][1]],
+              rangeString: Microbiome_metrics[36][2],
+            },
+            {
+              name: MB_keys[45],
+              value: MB_values[45],
+              unit: "%",
+              range: [Microbiome_metrics[37][0], Microbiome_metrics[37][1]],
+              rangeString: Microbiome_metrics[37][2],
+            },
+            {
+              name: MB_keys[46],
+              value: MB_values[46],
+              unit: "%",
+              range: [Microbiome_metrics[38][0], Microbiome_metrics[38][1]],
+              rangeString: Microbiome_metrics[38][2],
+            },
+            {
+              name: MB_keys[47],
+              value: MB_values[47],
+              unit: "%",
+              range: [Microbiome_metrics[39][0], Microbiome_metrics[39][1]],
+              rangeString: Microbiome_metrics[39][2],
+            },
+            {
+              name: MB_keys[48],
+              value: MB_values[48],
+              unit: "%",
+              range: [Microbiome_metrics[40][0], Microbiome_metrics[40][1]],
+              rangeString: Microbiome_metrics[40][2],
+            },
+            {
+              name: MB_keys[49],
+              value: MB_values[49],
+              unit: "%",
+              range: [Microbiome_metrics[41][0], Microbiome_metrics[41][1]],
+              rangeString: Microbiome_metrics[41][2],
+            },
+            {
+              name: MB_keys[50],
+              value: MB_values[50],
+              unit: "%",
+              range: [Microbiome_metrics[42][0], Microbiome_metrics[42][1]],
+              rangeString: Microbiome_metrics[42][2],
+            },
+            {
+              name: MB_keys[51],
+              value: MB_values[51],
+              unit: "%",
+              range: [Microbiome_metrics[43][0], Microbiome_metrics[43][1]],
+              rangeString: Microbiome_metrics[43][2],
+            },
+            {
+              name: MB_keys[52],
+              value: MB_values[52],
+              unit: "%",
+              range: [Microbiome_metrics[44][0], Microbiome_metrics[44][1]],
+              rangeString: Microbiome_metrics[44][2],
+            },
+            {
+              name: MB_keys[53],
+              value: MB_values[53],
+              unit: "%",
+              range: [Microbiome_metrics[45][0], Microbiome_metrics[45][1]],
+              rangeString: Microbiome_metrics[45][2],
             },
           ],
         },

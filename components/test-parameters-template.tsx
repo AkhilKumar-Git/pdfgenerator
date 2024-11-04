@@ -34,7 +34,7 @@ export default function TestParameters({
             <img
               src={static_text.image_path}
               alt={static_text.image_alt}
-              className="w-4 h-6 mr-2"
+              className="w-6 h-6 mr-2"
             />
           </div>
 
@@ -79,21 +79,29 @@ const ParameterRow: React.FC<ParameterRowProps> = ({ param }) => {
   const isOutOfRange =
     param.value < param.range[0] || param.value > param.range[1];
 
-  // Calculate the extended range
-  const rangeWidth = param.range[1] - param.range[0];
-  const extendedMin = param.range[0] - rangeWidth;
-  const extendedMax = param.range[1] + rangeWidth;
+  // Check if the range is defined and has values
+  const hasRange = param.range.length > 0;
+
+  // Calculate the extended range only if hasRange is true
+  const rangeWidth = hasRange ? param.range[1] - param.range[0] : 0;
+  const extendedMin = hasRange ? param.range[0] - rangeWidth : 0;
+  const extendedMax = hasRange ? param.range[1] + rangeWidth : 0;
 
   // Adjust max if the value exceeds the extended range
-  const adjustedMax = Math.max(extendedMax, param.value * 1.1);
+  const adjustedMax = hasRange
+    ? Math.max(extendedMax, param.value * 1.1)
+    : param.value;
 
-  // Calculate positions
-  const startPosition =
-    (param.range[0] - extendedMin) / (adjustedMax - extendedMin);
-  const endPosition =
-    (param.range[1] - extendedMin) / (adjustedMax - extendedMin);
-  const valuePosition =
-    (param.value - extendedMin) / (adjustedMax - extendedMin);
+  // Calculate positions only if hasRange is true
+  const startPosition = hasRange
+    ? (param.range[0] - extendedMin) / (adjustedMax - extendedMin)
+    : 0;
+  const endPosition = hasRange
+    ? (param.range[1] - extendedMin) / (adjustedMax - extendedMin)
+    : 0;
+  const valuePosition = hasRange
+    ? (param.value - extendedMin) / (adjustedMax - extendedMin)
+    : 0;
 
   return (
     <div>
@@ -102,43 +110,51 @@ const ParameterRow: React.FC<ParameterRowProps> = ({ param }) => {
           <p className="font-bold text-[11px]">{param.name}</p>
           <p className="text-[9px] text-gray-500">{param.unit}</p>
         </div>
-        <div className="w-1/3 relative h-[2px] bg-score-f2 rounded-full flex items-center">
-          <div className="absolute left-0 right-0 h-full">
+        {hasRange ? (
+          <div className="w-1/3 relative h-[2px] bg-score-f2 rounded-full flex items-center">
+            <div className="absolute left-0 right-0 h-full">
+              <div
+                className="absolute h-full rounded-full"
+                style={{
+                  left: `${startPosition * 100}%`,
+                  right: `${(1 - endPosition) * 100}%`,
+                }}
+              ></div>
+            </div>
+            <div className="absolute left-0 right-0 px-2 text-xs text-gray-400">
+              <span
+                className="absolute font-semibold"
+                style={{ left: `${startPosition * 100}%` }}
+              >
+                :
+              </span>
+              <span
+                className="relative font-semibold"
+                style={{ left: `${endPosition * 100}%` }}
+              >
+                :
+              </span>
+            </div>
             <div
-              className="absolute h-full rounded-full"
-              style={{
-                left: `${startPosition * 100}%`,
-                right: `${(1 - endPosition) * 100}%`,
-              }}
+              className={cn(
+                "absolute w-1 h-3 rounded-full top-1/2 -translate-y-1/2 shadow-md",
+                isOutOfRange ? "bg-[#FC4F64]" : "bg-[#333333]"
+              )}
+              style={{ left: `${valuePosition * 100}%` }}
             ></div>
           </div>
-          <div className="absolute left-0 right-0 px-2 text-xs text-gray-400">
-            <span
-              className="absolute font-semibold"
-              style={{ left: `${startPosition * 100}%` }}
-            >
-              :
-            </span>
-            <span
-              className="relative font-semibold"
-              style={{ left: `${endPosition * 100}%` }}
-            >
-              :
-            </span>
-          </div>
-          <div
-            className={cn(
-              "absolute w-1 h-3 rounded-full top-1/2 -translate-y-1/2 shadow-md",
-              isOutOfRange ? "bg-[#FC4F64]" : "bg-[#333333]"
-            )}
-            style={{ left: `${valuePosition * 100}%` }}
-          ></div>
-        </div>
+        ) : (
+          ""
+        )}
         <div className="w-1/6 text-right">
           <p className={cn("font-medium text-xs", isOutOfRange && "font-bold")}>
             {param.value}
           </p>
-          <p className="text-[9px] text-gray-500">{`${param.rangeString}`}</p>
+          {hasRange ? (
+            <p className="text-[9px] text-gray-500">{`${param.rangeString}`}</p>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <p className="text-xs text-gray-500">{param.description}</p>

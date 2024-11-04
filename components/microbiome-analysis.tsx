@@ -288,6 +288,7 @@ interface ParameterRowProps {
     value: number;
     unit: string;
     range: [number, number];
+    rangeString: string;
   };
 }
 
@@ -302,14 +303,16 @@ const ParameterRow: React.FC<ParameterRowProps> = ({ param }) => {
 
   // Adjust max if the value exceeds the extended range
   const adjustedMax = Math.max(extendedMax, param.value * 1.1);
+  // Adjust min if the value goes below the extended range
+  const adjustedMin = Math.min(extendedMin, param.value * 0.9); // New line to adjust minimum
 
   // Calculate positions
   const startPosition =
-    (param.range[0] - extendedMin) / (adjustedMax - extendedMin);
+    (param.range[0] - adjustedMin) / (adjustedMax - adjustedMin);
   const endPosition =
-    (param.range[1] - extendedMin) / (adjustedMax - extendedMin);
+    (param.range[1] - adjustedMin) / (adjustedMax - adjustedMin);
   const valuePosition =
-    (param.value - extendedMin) / (adjustedMax - extendedMin);
+    (param.value - adjustedMin) / (adjustedMax - adjustedMin);
 
   return (
     <div className="flex items-center justify-between mb-4">
@@ -353,7 +356,7 @@ const ParameterRow: React.FC<ParameterRowProps> = ({ param }) => {
         <p className={cn("font-medium text-xs", isOutOfRange && "font-bold")}>
           {param.value}
         </p>
-        <p className="text-[9px] text-gray-500 mt-2">{`${param.range[0]} - ${param.range[1]}`}</p>
+        <p className="text-[9px] text-gray-500 mt-2">{`${param.rangeString}`}</p>
       </div>
     </div>
   );

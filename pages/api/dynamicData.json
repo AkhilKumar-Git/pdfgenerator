@@ -17,7 +17,128 @@
       "about": "About your raw data"
     }
   },
-  "CBP": "number",
+  "CUE": [
+    [
+      "mL",
+      null,
+      null,
+      null
+    ],
+    [
+      "",
+      null,
+      null,
+      "Pale Yellow"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Clear"
+    ],
+    [
+      "Method",
+      4.5,
+      8,
+      "4.5 - 8"
+    ],
+    [
+      "Method",
+      1.003,
+      1.03,
+      "1.003 - 1.030"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Normal"
+    ],
+    [
+      "Units Method",
+      0,
+      5,
+      "0 - 5 /hpf"
+    ],
+    [
+      "Units Method",
+      0,
+      4,
+      "0 - 4 /hpf"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent "
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent"
+    ]
+  ],
   "toc": [
     "Snapshot",
     "Blood Parameters",
@@ -41,54 +162,54 @@
       "yourPie": [
         {
           "name": "Bacteroidetes Total (saliva/stool)",
-          "value": "42.25",
+          "value": 42.25,
           "color": "#10D3E4"
         },
         {
           "name": "Firmicutes total (stool)",
-          "value": "39.24",
+          "value": 39.24,
           "color": "#F8F58A"
         },
         {
           "name": "Proteobacteria Total",
-          "value": "13.98",
+          "value": 13.98,
           "color": "#A480B1"
         },
         {
           "name": "Others Total",
-          "value": "2.24",
+          "value": 2.24,
           "color": "#16354B"
         },
         {
           "name": "Actinobacteria Total (saliva/stool)",
-          "value": "2.29",
+          "value": 2.29,
           "color": "#E9AC9C"
         }
       ],
       "normalPie": [
         {
           "name": "Bacteroidetes Total (saliva/stool)",
-          "value": "73.13",
+          "value": 73.13,
           "color": "#10D3E4"
         },
         {
           "name": "Firmicutes total (stool)",
-          "value": "22.2",
+          "value": 22.2,
           "color": "#F8F58A"
         },
         {
           "name": "Proteobacteria Total",
-          "value": "2.15",
+          "value": 2.15,
           "color": "#A480B1"
         },
         {
           "name": "Others Total",
-          "value": "0.7",
+          "value": 0.7,
           "color": "#16354B"
         },
         {
           "name": "Actinobacteria Total (saliva/stool)",
-          "value": "1.82",
+          "value": 1.82,
           "color": "#E9AC9C"
         }
       ],
@@ -630,73 +751,34 @@
           "value": "0.86",
           "unit": "ng/ml",
           "range": [
-            1,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ]
+            0.7,
+            2.04
+          ],
+          "rangeString": "1 - 3 Days: 1.00 - 7.40\n4 days - 11 months: 1.05 - 2.4\n1 - 5 years : 1.05 - 2.69\n6 - 10 years : 0.94 - 2.41\n11 - 15 years: 0.82 - 2.13\n16 - 20 years : 0.80 - 2.10\nAdults\n21-50 years: 0.70 - 2.04\n51-90 years: 0.40 - 1.81\n\nPregnancy\n1st trimester: 0.81 - 1.90\n2nd and 3rd trimester: 1.0 - 2.6\n                                                                                       ."
         },
         {
           "name": "T4 (Thyroxine)",
           "value": "7.21",
           "unit": "μg/dL",
           "range": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ]
+            3.5,
+            12.6
+          ],
+          "rangeString": "Adults : 3.5 - 12.6\n> 60 yrs :5.0 - 10.7\nBirth - 14 days : 11.8 - 22.6\n14 days - 5 yrs: 7.2 - 16.6\n5 - 15 yrs :6.4 - 13.3\n                                                                                       ."
         },
         {
           "name": "TSH (Thyroid-Stimulating Hormone)",
           "value": "4.79",
           "unit": "uIU/mL",
           "range": [
-            1,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ]
+            0.4,
+            4.5
+          ],
+          "rangeString": "1 - 4 days :1.0 - 39.0\n5days - 6 months : 1.7 - 9.1\n7 months -17 years : 0.7 - 6.4\nMale 18 - 20 Years : 0.7 - 6.4\nMale 21 - 54 years: 0.4-4.5\nFemale 18 - 20 Years : 0.7 - 6.4\nFemale 21 - 54 years : 0.4 - 4.5\nBoth 55 - 87 years :0.4 - 4.5\n1st trimester: 0.3 - 4.5\n2nd trimester :0.5 - 4.6\n3rd trimester :0.8 - 5.2\n                                                                                       ."
         }
       ],
       "static": {
-        "heading": "Thryroid Profile",
+        "heading": "Thyroid Profile",
         "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Thyroid Function Test panel includes three essential tests that assess\n                the health and functioning of the thyroid gland. The thyroid plays a crucial\n                role in regulating metabolism, energy production, and hormone balance. These\n                tests provide valuable information about thyroid hormone levels and help\n                diagnose various thyroid-related conditions.\n\n                <br />\n                Here's why these tests, when considered together, are important:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  T3 (TRI-IODOTHYRONINE): T3 is a key thyroid hormone that influences\n                  metabolism and growth. Different age groups and stages of life have\n                  specific reference ranges, helping to identify thyroid dysfunction and\n                  guide treatment.\n                </li>\n                <li>\n                  T4 (THYROXINE): T4 is another vital thyroid hormone responsible for\n                  regulating metabolism. Its levels vary based on age, and deviations can\n                  indicate thyroid disorders.\n                </li>\n                <li>\n                  TSH (THYROID STIMULATING HORMONE): TSH is produced by the pituitary gland\n                  and stimulates the thyroid to produce hormones. Elevated TSH might\n                  indicate an underactive thyroid (hypothyroidism), while low TSH could\n                  suggest an overactive thyroid (hyperthyroidism).\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Collectively, the Thyroid Function Test panel provides a comprehensive\n                assessment of thyroid health. Interpretation of these values, combined with\n                clinical context, guides medical decisions for diagnosing and managing\n                thyroid disorders. Proper thyroid function is essential for maintaining\n                overall health, energy levels, and metabolism.\n              </p>\n              <br />\n              <br />\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>"
       }
     },
@@ -710,17 +792,18 @@
           "range": [
             200,
             900
-          ]
+          ],
+          "rangeString": "200 - 900"
         },
         {
           "name": "Vitamin D",
           "value": "30.25",
           "unit": "ng/mL",
           "range": [
-            null,
-            null,
+            30,
             100
-          ]
+          ],
+          "rangeString": "Deficiency: < 20\nInsufficiency: 20 - <30\nSufficiency: 30 - 100"
         }
       ],
       "static": {
@@ -738,7 +821,8 @@
           "range": [
             8.6,
             10.3
-          ]
+          ],
+          "rangeString": "8.6 - 10.3"
         },
         {
           "name": "Phosphorus",
@@ -747,18 +831,18 @@
           "range": [
             2.5,
             4.5
-          ]
+          ],
+          "rangeString": "2.5 - 4.5"
         },
         {
           "name": "Iron",
           "value": "78",
+          "unit": "",
           "range": [
             39,
-            null,
-            null,
-            null,
-            null
-          ]
+            149
+          ],
+          "rangeString": "39 - 149 :Adults\n42 - 177 :12th gestational week\n25 - 137 :At term\n16 - 150 :6 weeks postpartum"
         },
         {
           "name": "UIBC (Unsaturated Iron Binding Capacity)",
@@ -767,7 +851,8 @@
           "range": [
             120,
             470
-          ]
+          ],
+          "rangeString": "120 - 470"
         },
         {
           "name": "TIBC (Total Iron Binding Capacity)",
@@ -776,7 +861,8 @@
           "range": [
             240,
             450
-          ]
+          ],
+          "rangeString": "240 - 450"
         },
         {
           "name": "Transferrin",
@@ -785,7 +871,8 @@
           "range": [
             176,
             280
-          ]
+          ],
+          "rangeString": "176 - 280"
         },
         {
           "name": "Transferrin Saturation",
@@ -794,7 +881,8 @@
           "range": [
             20,
             50
-          ]
+          ],
+          "rangeString": "20 - 50"
         }
       ],
       "static": {
@@ -809,149 +897,152 @@
           "name": "Volume",
           "value": "20",
           "unit": "mL",
-          "range": [
-            0
-          ]
+          "range": []
         },
         {
           "name": "Colour",
           "value": "Pale Yellow",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Pale Yellow"
         },
         {
           "name": "Transparency (Appearance)",
           "value": "Clear",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Clear"
         },
         {
           "name": "Reaction (pH)",
           "value": "6",
+          "unit": "Method",
           "range": [
             4.5,
             8
-          ]
+          ],
+          "rangeString": "4.5 - 8"
         },
         {
           "name": "Specific Gravity",
           "value": "1.02",
+          "unit": "Method",
           "range": [
             1.003,
             1.03
-          ]
+          ],
+          "rangeString": "1.003 - 1.030"
         },
         {
           "name": "Urine Protein (Albumin)",
           "value": "Negative",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
         },
         {
           "name": "Urine Glucose (sugar)",
           "value": "Negative",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
         },
         {
           "name": "Blood",
           "value": "Negative",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
         },
         {
           "name": "Urine Ketones (Acetone)",
           "value": "Negative",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
         },
         {
           "name": "Bile pigments",
           "value": "Negative",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
         },
         {
           "name": "Bile Salts",
           "value": "Normal",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
         },
         {
           "name": "Urobilinogen",
           "value": "Normal",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Normal"
         },
         {
           "name": "Pus Cells (WBCs)",
           "value": "2-4",
-          "unit": "/hpf",
+          "unit": "Units Method",
           "range": [
             0,
-            null
-          ]
+            5
+          ],
+          "rangeString": "0 - 5 /hpf"
         },
         {
           "name": "Epithelial Cells",
           "value": "4-6",
-          "unit": "/hpf",
+          "unit": "Units Method",
           "range": [
             0,
-            null
-          ]
+            4
+          ],
+          "rangeString": "0 - 4 /hpf"
         },
         {
           "name": "Red blood Cells",
           "value": "Absent",
-          "unit": "/hpf",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent "
         },
         {
           "name": "Yeast Cells",
           "value": "Absent",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent"
         },
         {
           "name": "Crystals",
           "value": "Absent",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent"
         },
         {
           "name": "Cast",
           "value": "Absent",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent"
         },
         {
           "name": "Bacteria",
           "value": "Absent",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent"
         },
         {
           "name": "Others",
           "value": "Absent",
-          "range": [
-            null
-          ]
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent"
         }
       ],
       "static": {
@@ -964,54 +1055,54 @@
       "yourPie": [
         {
           "name": "Bacteroidetes Total (saliva/stool)",
-          "value": "42.25",
+          "value": 42.25,
           "color": "#10D3E4"
         },
         {
           "name": "Firmicutes total (stool)",
-          "value": "39.24",
+          "value": 39.24,
           "color": "#F8F58A"
         },
         {
           "name": "Proteobacteria Total",
-          "value": "13.98",
+          "value": 13.98,
           "color": "#A480B1"
         },
         {
           "name": "Others Total",
-          "value": "2.24",
+          "value": 2.24,
           "color": "#16354B"
         },
         {
           "name": "Actinobacteria Total (saliva/stool)",
-          "value": "2.29",
+          "value": 2.29,
           "color": "#E9AC9C"
         }
       ],
       "normalPie": [
         {
           "name": "Bacteroidetes Total (saliva/stool)",
-          "value": "73.13",
+          "value": 73.13,
           "color": "#10D3E4"
         },
         {
           "name": "Firmicutes total (stool)",
-          "value": "22.2",
+          "value": 22.2,
           "color": "#F8F58A"
         },
         {
           "name": "Proteobacteria Total",
-          "value": "2.15",
+          "value": 2.15,
           "color": "#A480B1"
         },
         {
           "name": "Others Total",
-          "value": "0.7",
+          "value": 0.7,
           "color": "#16354B"
         },
         {
           "name": "Actinobacteria Total (saliva/stool)",
-          "value": "1.82",
+          "value": 1.82,
           "color": "#E9AC9C"
         }
       ],
@@ -1020,25 +1111,461 @@
           "name": "Bacteroidetes Total (saliva/stool)",
           "value": "67.20265172",
           "unit": "%",
-          "range": "73.13 (+/- 22.16)"
+          "range": [
+            50.97,
+            95.29
+          ],
+          "rangeString": "73.13 (+/- 22.16)"
         },
         {
           "name": "Firmicutes total (stool)",
           "value": "18.01015551",
           "unit": "%",
-          "range": "22.2 (+/- 18.66)"
+          "range": [
+            3.54,
+            40.86
+          ],
+          "rangeString": "22.2 (+/- 18.66)"
         },
         {
           "name": "Proteobacteria Total",
           "value": "11.05469163",
           "unit": "%",
-          "range": "2.15 (+/- 10.39)"
+          "range": [
+            -8.24,
+            12.54
+          ],
+          "rangeString": "2.15 (+/- 10.39)"
         },
         {
           "name": "Others Total",
           "value": "0.84",
           "unit": "%",
-          "range": "0.07 (+/- 4.6)"
+          "range": [
+            -4.53,
+            4.67
+          ],
+          "rangeString": "0.07 (+/- 4.6)"
+        },
+        {
+          "name": "Actinobacteria Total (saliva/stool)",
+          "value": "2.909129377",
+          "unit": "%",
+          "range": [
+            -1.18,
+            4.82
+          ],
+          "rangeString": "1.82 (+/- 3)"
+        },
+        {
+          "name": "Firmicutes: Bacteroidetes (F/B) Ratio",
+          "value": "0.267997691",
+          "unit": "%",
+          "range": [
+            0.69,
+            2.28
+          ],
+          "rangeString": "0.69-2.28 (+/- )"
+        },
+        {
+          "name": "Proteobacteria : Actinobacteria (P/A) Ratio",
+          "value": "3.8",
+          "unit": "%",
+          "range": [
+            0.28,
+            5.64
+          ],
+          "rangeString": "0.28-5.64 (+/- )"
+        },
+        {
+          "name": "Bifidobacterium total",
+          "value": "1.361818611",
+          "unit": "%",
+          "range": [
+            -1.3,
+            1.7
+          ],
+          "rangeString": "0.2 (+/- 1.5)"
+        },
+        {
+          "name": "Bifidobacterium longum (stool)",
+          "value": "0.4601",
+          "unit": "%",
+          "range": [
+            -0.773,
+            1.027
+          ],
+          "rangeString": "0.127 (+/- 0.9)"
+        },
+        {
+          "name": "Bifidobacterium bifidum(stool)",
+          "value": "0.189586512",
+          "unit": "%",
+          "range": [
+            -0.305,
+            0.355
+          ],
+          "rangeString": "0.025 (+/- 0.33)"
+        },
+        {
+          "name": "Bifidobacterium adolescentis (stool)",
+          "value": "0.717847522",
+          "unit": "%",
+          "range": [
+            -1.459,
+            1.613
+          ],
+          "rangeString": "0.077 (+/- 1.536)"
+        },
+        {
+          "name": "Faecalibacterium prausnitzii (stool)",
+          "value": "10.22161762",
+          "unit": "%",
+          "range": [
+            -7.02,
+            17.1
+          ],
+          "rangeString": "5.04 (+/- 12.06)"
+        },
+        {
+          "name": "Roseburia intestinalis (stool)",
+          "value": "3.130325565",
+          "unit": "%",
+          "range": [
+            -4.314,
+            6.546
+          ],
+          "rangeString": "1.116 (+/- 5.43)"
+        },
+        {
+          "name": "Ruminococcus flavefaciens (stool)",
+          "value": "1.208063697",
+          "unit": "%",
+          "range": [
+            -2.007,
+            2.021
+          ],
+          "rangeString": "0.007 (+/- 2.014)"
+        },
+        {
+          "name": "Lactobacillus reuteri (saliva/stool)",
+          "value": "0.003227879",
+          "unit": "%",
+          "range": [
+            -0.005,
+            0.027
+          ],
+          "rangeString": "0.011 (+/- 0.016)"
+        },
+        {
+          "name": "Lactobacillus salivarius (saliva/stool)",
+          "value": "0.003466981",
+          "unit": "%",
+          "range": [
+            -0.005,
+            0.029
+          ],
+          "rangeString": "0.012 (+/- 0.017)"
+        },
+        {
+          "name": "Lactobacillus plantarum (saliva/stool)",
+          "value": "0.024029768",
+          "unit": "%",
+          "range": [
+            -0.035,
+            0.067
+          ],
+          "rangeString": "0.016 (+/- 0.051)"
+        },
+        {
+          "name": "Lactobacillus Total (saliva/stool)",
+          "value": "0.030844179",
+          "unit": "%",
+          "range": [
+            -0.164,
+            0.228
+          ],
+          "rangeString": "0.032 (+/- 0.196)"
+        },
+        {
+          "name": "Bacillus TOTAL (saliva/stool)",
+          "value": "3.376122592",
+          "unit": "%",
+          "range": [
+            -1.41,
+            3.53
+          ],
+          "rangeString": "1.06 (+/- 2.47)"
+        },
+        {
+          "name": "Bacillus clausi (stool)",
+          "value": "0.000263012",
+          "unit": "%",
+          "range": [
+            -0.0009,
+            0.0011
+          ],
+          "rangeString": "0.0001 (+/- 0.001)"
+        },
+        {
+          "name": "Butyricicoccus pullicaecorum (stool)",
+          "value": "0.01219421",
+          "unit": "%",
+          "range": [
+            -0.029,
+            0.051
+          ],
+          "rangeString": "0.011 (+/- 0.04)"
+        },
+        {
+          "name": "Bacteroides fragilis (stool)",
+          "value": "21.19373721",
+          "unit": "%",
+          "range": [
+            -20.68,
+            29.32
+          ],
+          "rangeString": "4.32 (+/- 25)"
+        },
+        {
+          "name": "Bacteroides vulgatus (stool)",
+          "value": "12.16688215",
+          "unit": "%",
+          "range": [
+            -16.96,
+            21.04
+          ],
+          "rangeString": "2.04 (+/- 19)"
+        },
+        {
+          "name": "Bacteroides ovatus (stool)",
+          "value": "6.447753612",
+          "unit": "%",
+          "range": [
+            -2.62,
+            8.92
+          ],
+          "rangeString": "3.15 (+/- 5.77)"
+        },
+        {
+          "name": "Alistipes finegoldii (stool)",
+          "value": "5.273857663",
+          "unit": "%",
+          "range": [
+            3.58,
+            9.12
+          ],
+          "rangeString": "6.35 (+/- 2.77)"
+        },
+        {
+          "name": "Bacteroides uniformis (stool)",
+          "value": "9.209011325",
+          "unit": "%",
+          "range": [
+            -5.5,
+            6.4
+          ],
+          "rangeString": "0.45 (+/- 5.95)"
+        },
+        {
+          "name": "Bacteroides xylanisolvence (stool)",
+          "value": "5.477699201",
+          "unit": "%",
+          "range": [
+            -4.03,
+            4.21
+          ],
+          "rangeString": "0.09 (+/- 4.12)"
+        },
+        {
+          "name": "Bacteroides thetaiotaomicron (stool)",
+          "value": "0.002133143",
+          "unit": "%",
+          "range": [
+            -0.775,
+            0.925
+          ],
+          "rangeString": "0.075 (+/- 0.85)"
+        },
+        {
+          "name": "Bacteroides cellulosilyticus (stool)",
+          "value": "3.122678879",
+          "unit": "%",
+          "range": [
+            -3.48,
+            3.6
+          ],
+          "rangeString": "0.06 (+/- 3.54)"
+        },
+        {
+          "name": "Bacteroides dorai (stool)",
+          "value": "3.776128349",
+          "unit": "%",
+          "range": [
+            -5.47,
+            6.53
+          ],
+          "rangeString": "0.53 (+/- 6)"
+        },
+        {
+          "name": "Escherichia coli (stool)",
+          "value": "7.8578772",
+          "unit": "%",
+          "range": [
+            -4.43,
+            4.51
+          ],
+          "rangeString": "0.04 (+/- 4.47)"
+        },
+        {
+          "name": "Bilophila wadsworthia (Saliva/stool)",
+          "value": "1.787623505",
+          "unit": "%",
+          "range": [
+            -1.12,
+            1.14
+          ],
+          "rangeString": "0.01 (+/- 1.13)"
+        },
+        {
+          "name": "Ralstonia (stool)",
+          "value": "1.409190927",
+          "unit": "%",
+          "range": [
+            -1.009,
+            1.011
+          ],
+          "rangeString": "0.001 (+/- 1.01)"
+        },
+        {
+          "name": "Saccharomyces TOTAL (saliva/stool)",
+          "value": "0.00007241",
+          "unit": "%",
+          "range": [
+            -0.019,
+            0.021
+          ],
+          "rangeString": "0.001 (+/- 0.02)"
+        },
+        {
+          "name": "Saccharomyces cerevisiae (saliva/stool)",
+          "value": "0.00000586",
+          "unit": "%",
+          "range": [
+            -0.0049,
+            0.0051
+          ],
+          "rangeString": "0.0001 (+/- 0.005)"
+        },
+        {
+          "name": "Saccharomyces boulardii (stool)",
+          "value": "0.06967213",
+          "unit": "%",
+          "range": [
+            -0.0049,
+            0.0051
+          ],
+          "rangeString": "0.0001 (+/- 0.005)"
+        },
+        {
+          "name": "Clostridium (Stool)",
+          "value": "0",
+          "unit": "%",
+          "range": [
+            1.19,
+            1.61
+          ],
+          "rangeString": "1.4 (+/- 0.21)"
+        },
+        {
+          "name": "Streptococcus",
+          "value": "0",
+          "unit": "%",
+          "range": [
+            0.43,
+            1.05
+          ],
+          "rangeString": "0.74 (+/- 0.31)"
+        },
+        {
+          "name": "Salmonella",
+          "value": "0.76",
+          "unit": "%",
+          "range": [
+            3.46,
+            4.56
+          ],
+          "rangeString": "4.01 (+/- 0.55)"
+        },
+        {
+          "name": "Vibrio",
+          "value": "0.008333333",
+          "unit": "%",
+          "range": [
+            0.13,
+            0.25
+          ],
+          "rangeString": "0.19 (+/- 0.06)"
+        },
+        {
+          "name": "Helicobacter pylori",
+          "value": "0.822",
+          "unit": "%",
+          "range": [
+            3.69,
+            4.11
+          ],
+          "rangeString": "3.9 (+/- 0.21)"
+        },
+        {
+          "name": "Staphylococcus",
+          "value": "0.658",
+          "unit": "%",
+          "range": [
+            1.58,
+            6.58
+          ],
+          "rangeString": "4.08 (+/- 2.5)"
+        },
+        {
+          "name": "Klebsiella",
+          "value": "0.69",
+          "unit": "%",
+          "range": [
+            1.95,
+            3.45
+          ],
+          "rangeString": "2.7 (+/- 0.75)"
+        },
+        {
+          "name": "Enterococcus faecium",
+          "value": "0",
+          "unit": "%",
+          "range": [
+            -0.08,
+            0.14
+          ],
+          "rangeString": "0.03 (+/- 0.11)"
+        },
+        {
+          "name": "Shigella flexneri",
+          "value": "0",
+          "unit": "%",
+          "range": [
+            -0.22,
+            0.24
+          ],
+          "rangeString": "0.01 (+/- 0.23)"
+        },
+        {
+          "name": "Desulfovibrio intestinalis (stool)",
+          "value": "0.113333333",
+          "unit": "%",
+          "range": [
+            -3.34,
+            3.4
+          ],
+          "rangeString": "0.03 (+/- 3.37)"
         }
       ]
     }
