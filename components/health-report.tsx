@@ -5,7 +5,7 @@ import { PieChart, Pie, Cell, AreaChart, Area } from "recharts";
 import { FileText } from "lucide-react";
 import Image from "next/image";
 import { curveCardinal } from "d3-shape";
-import React, { FC } from "react";
+import React from "react";
 
 const barData = [
   { name: "Gut & Microbiome", value: 90 },
@@ -25,15 +25,15 @@ const pieData = [
   { name: "OTHERS", value: 2, color: "#E9AC9C" },
 ];
 
-interface CustomizedDotProps {
-  cx: number;
-  cy: number;
-}
-const CustomizedDot: FC<CustomizedDotProps> = ({ cx, cy }) => {
-  return (
-    <image x={cx - 10} y={cy - 20} width={20} height={20} href="/person.svg" />
-  );
-};
+// interface CustomizedDotProps {
+//   cx: number;
+//   cy: number;
+// }
+// const CustomizedDot: FC<CustomizedDotProps> = ({ cx, cy }) => {
+//   return (
+//     <image x={cx - 10} y={cy - 20} width={20} height={20} href="/person.svg" />
+//   );
+// };
 
 const areaData = [
   { x: 0, y: 0 },
@@ -45,7 +45,25 @@ const areaData = [
   { x: 6, y: 0 },
 ];
 
-const HealthReportComponent = () => {
+interface pieProps {
+  name: string;
+  value: number;
+  color: string;
+}
+
+interface healthProps {
+  yourData: pieProps[];
+  normalData: pieProps[];
+  healthScore: number;
+  gutScore: number;
+}
+
+const HealthReportComponent = ({
+  yourData,
+  normalData,
+  healthScore,
+  gutScore,
+}: healthProps) => {
   return (
     <div className="bg-white px-[48px] pt-[72px]">
       <div className="mx-6">
@@ -98,13 +116,13 @@ const HealthReportComponent = () => {
                   <div className="flex-1 bg-score-f1 pl-4 pb-2 border-r">
                     <div className="text-[8px]">BODY SCORE</div>
 
-                    <div className="text-2xl font-bold ">80</div>
+                    <div className="text-2xl font-bold ">{healthScore}</div>
                   </div>
 
                   <div className="flex-1 bg-score-f2 text-right pr-4 pb-2">
                     <div className="text-[8px]">BIOME SCORE</div>
 
-                    <div className="text-2xl font-bold ">84</div>
+                    <div className="text-2xl font-bold ">{gutScore}</div>
                   </div>
                 </div>
               </div>
@@ -153,7 +171,7 @@ const HealthReportComponent = () => {
 
                     <PieChart width={75} height={75}>
                       <Pie
-                        data={pieData}
+                        data={yourData}
                         cx={35}
                         cy={35}
                         innerRadius={0}
@@ -163,7 +181,7 @@ const HealthReportComponent = () => {
                         dataKey="value"
                         isAnimationActive={false}
                       >
-                        {pieData.map((entry, index) => (
+                        {yourData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={entry.color} />
                         ))}
                       </Pie>
@@ -175,7 +193,7 @@ const HealthReportComponent = () => {
 
                     <PieChart width={75} height={75}>
                       <Pie
-                        data={pieData}
+                        data={normalData}
                         cx={35}
                         cy={35}
                         innerRadius={0}
@@ -185,7 +203,7 @@ const HealthReportComponent = () => {
                         dataKey="value"
                         isAnimationActive={false}
                       >
-                        {pieData.map((entry, index) => (
+                        {normalData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={entry.color} />
                         ))}
                       </Pie>
@@ -256,7 +274,7 @@ const HealthReportComponent = () => {
                   fillOpacity={1}
                   fill="url(#colorPv)"
                   clipPath="url(#clip-path-score)"
-                  dot={<CustomizedDot cx={0} cy={0} />}
+                  // dot={<CustomizedDot cx={0} cy={0} />}
                   isAnimationActive={false}
                 />
 

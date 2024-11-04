@@ -1,7 +1,7 @@
 "use client";
 
 //Dependencies Import
-import React, { useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
@@ -42,9 +42,15 @@ const IntegratedReport = () => {
     return <div>Failed to load report data</div>;
   }
 
+  interface staticContentProps {
+    title: string;
+    content: ReactNode;
+  }
+
   const dynamicData = reportData;
   const contentlist = dynamicData["toc"];
-  const MicrobiomeStaticContent = dynamicData["microbiome_static_content"];
+  const MicrobiomeStaticContent: staticContentProps[] =
+    dynamicData["microbiome_static_content"];
   console.log(dynamicData);
   return (
     <div className="integrated-report">
@@ -89,7 +95,12 @@ const IntegratedReport = () => {
       </div>
       <div className="component w-[210mm] bg-white">
         {/* Only Static Component, logic needed for biome score and other things */}
-        <HealthReportComponent />
+        <HealthReportComponent
+          yourData={dynamicData["Tests"][9]["yourPie"]}
+          normalData={dynamicData["Tests"][9]["normalPie"]}
+          healthScore={dynamicData["overall_summary"]["body_score"]}
+          gutScore={dynamicData["overall_summary"]["biome_score"]}
+        />
       </div>
       <div className="component w-[210mm] bg-white">
         <BloodTest
@@ -333,7 +344,7 @@ const IntegratedReport = () => {
               content: (
                 <div
                   className="text-base text-[11px] leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: content.content }}
+                  dangerouslySetInnerHTML={{ __html: content.content || "" }}
                 />
               ),
             }}
@@ -354,7 +365,10 @@ const IntegratedReport = () => {
       </div>
 
       <div className="component w-[210mm] bg-white">
-        <Disclaimer />
+        <Disclaimer
+          title={"Disclaimer"}
+          items={dynamicData["disclaimer"]["items"]}
+        />
       </div>
 
       <div className="component w-[210mm] bg-white">
@@ -367,6 +381,13 @@ const IntegratedReport = () => {
             <p className="font-bold">23/41</p>
           </div>
         </div>
+      </div>
+
+      <div className="component w-[210mm] bg-white">
+        <Disclaimer
+          title={"References"}
+          items={dynamicData["references"]["reference_list"]}
+        />
       </div>
     </div>
   );
