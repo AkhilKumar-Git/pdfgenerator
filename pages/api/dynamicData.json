@@ -1,8 +1,8 @@
 {
   "personal_info": {
     "report_type": "intro",
-    "name": "Tejinder Sharma",
-    "age": "24",
+    "name": "Tarun",
+    "age": "34",
     "gender": "male",
     "sample_types": [
       "Blood",
@@ -17,6 +17,140 @@
       "about": "About your raw data"
     }
   },
+  "CUE": [
+    [
+      "mL",
+      null,
+      null,
+      null
+    ],
+    [
+      "",
+      null,
+      null,
+      "Pale Yellow"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Clear"
+    ],
+    [
+      "Method",
+      4.5,
+      8,
+      "4.5 - 8"
+    ],
+    [
+      "Method",
+      1.003,
+      1.03,
+      "1.003 - 1.030"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Negative"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Normal"
+    ],
+    [
+      "Units Method",
+      0,
+      5,
+      "0 - 5 /hpf"
+    ],
+    [
+      "Units Method",
+      0,
+      4,
+      "0 - 4 /hpf"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent "
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent"
+    ],
+    [
+      "",
+      null,
+      null,
+      "Absent"
+    ]
+  ],
+  "toc": [
+    "Snapshot",
+    "Blood Parameters",
+    "Microbiome Analysis: Intro",
+    "What is Gut Microbiome",
+    "Importance of gut microbiome",
+    "Taxonomic Classification",
+    "Microbiome Report",
+    "Strains and composition",
+    "Disclaimer",
+    "References"
+  ],
   "overall_summary": {
     "page_type": "snapshot",
     "body_score": 80,
@@ -25,13 +159,60 @@
     "message": "Your overall assessment seems ok, but would need improvement.",
     "microbiome_analysis": {
       "page_type": "microbiome_analysis",
-      "bacterial_phyla": {
-        "Bacteroidetes": 43.66,
-        "Firmicutes": 43.21,
-        "Proteobacteria": 7.69,
-        "Others": 2.29,
-        "Actinobacteria": 3.15
-      },
+      "yourPie": [
+        {
+          "name": "Bacteroidetes Total (saliva/stool)",
+          "value": 42.25,
+          "color": "#10D3E4"
+        },
+        {
+          "name": "Firmicutes total (stool)",
+          "value": 39.24,
+          "color": "#F8F58A"
+        },
+        {
+          "name": "Proteobacteria Total",
+          "value": 13.98,
+          "color": "#A480B1"
+        },
+        {
+          "name": "Others Total",
+          "value": 2.24,
+          "color": "#16354B"
+        },
+        {
+          "name": "Actinobacteria Total (saliva/stool)",
+          "value": 2.29,
+          "color": "#E9AC9C"
+        }
+      ],
+      "normalPie": [
+        {
+          "name": "Bacteroidetes Total (saliva/stool)",
+          "value": 73.13,
+          "color": "#10D3E4"
+        },
+        {
+          "name": "Firmicutes total (stool)",
+          "value": 22.2,
+          "color": "#F8F58A"
+        },
+        {
+          "name": "Proteobacteria Total",
+          "value": 2.15,
+          "color": "#A480B1"
+        },
+        {
+          "name": "Others Total",
+          "value": 0.7,
+          "color": "#16354B"
+        },
+        {
+          "name": "Actinobacteria Total (saliva/stool)",
+          "value": 1.82,
+          "color": "#E9AC9C"
+        }
+      ],
       "deviations": {
         "Bacteroidetes": "Lower than normal",
         "Firmicutes": "Higher than normal",
@@ -55,7 +236,8 @@
           "range": [
             12,
             15
-          ]
+          ],
+          "rangeString": "12 - 15"
         },
         {
           "name": "Total RBC Count",
@@ -64,7 +246,8 @@
           "range": [
             3.8,
             4.8
-          ]
+          ],
+          "rangeString": "3.8 - 4.8 "
         },
         {
           "name": "Total WBC Count",
@@ -73,7 +256,8 @@
           "range": [
             4000,
             10000
-          ]
+          ],
+          "rangeString": "4000 - 10000"
         },
         {
           "name": "Platelet Count",
@@ -82,7 +266,8 @@
           "range": [
             1.5,
             4.1
-          ]
+          ],
+          "rangeString": "1.5 - 4.1"
         },
         {
           "name": "PCV/HCT",
@@ -91,7 +276,8 @@
           "range": [
             36,
             46
-          ]
+          ],
+          "rangeString": "36 - 46"
         },
         {
           "name": "MCV",
@@ -100,7 +286,8 @@
           "range": [
             83,
             101
-          ]
+          ],
+          "rangeString": "83 - 101"
         },
         {
           "name": "MCH",
@@ -109,7 +296,8 @@
           "range": [
             27,
             32
-          ]
+          ],
+          "rangeString": "27 - 32"
         },
         {
           "name": "MCHC",
@@ -118,7 +306,8 @@
           "range": [
             31.5,
             34.5
-          ]
+          ],
+          "rangeString": "31.5 - 34 .5"
         },
         {
           "name": "Erytrocyte Sedimenation Rate (ESR)",
@@ -127,10 +316,9 @@
           "range": [
             0,
             30
-          ]
-        }
-      ],
-      "differential_count": [
+          ],
+          "rangeString": "0 - 30"
+        },
         {
           "name": "Neutrophils",
           "value": "40",
@@ -138,7 +326,8 @@
           "range": [
             40,
             80
-          ]
+          ],
+          "rangeString": "40 - 80"
         },
         {
           "name": "Lymphocytes",
@@ -147,7 +336,8 @@
           "range": [
             20,
             40
-          ]
+          ],
+          "rangeString": "20 - 40"
         },
         {
           "name": "Eosinophils",
@@ -156,7 +346,8 @@
           "range": [
             1,
             6
-          ]
+          ],
+          "rangeString": "1 - 6"
         },
         {
           "name": "Monocytes",
@@ -165,7 +356,8 @@
           "range": [
             2,
             10
-          ]
+          ],
+          "rangeString": "2 - 10"
         },
         {
           "name": "Basophils",
@@ -174,7 +366,8 @@
           "range": [
             0,
             1
-          ]
+          ],
+          "rangeString": "0 - 1"
         }
       ],
       "peripheral_smear": [
@@ -222,10 +415,10 @@
           "value": "10.7",
           "unit": "mg/dL",
           "range": [
-            "Infant/Child: 5-18",
-            "Adult: 6-20",
-            ">60.0 Years: 8-23"
-          ]
+            5,
+            23
+          ],
+          "rangeString": "Infant/Child: 5-18  |  Adult: 6-20  |  >60.0 Years: 8-23"
         },
         {
           "name": "Urea",
@@ -234,7 +427,8 @@
           "range": [
             17,
             43
-          ]
+          ],
+          "rangeString": "17-43"
         },
         {
           "name": "Uric Acid",
@@ -243,33 +437,38 @@
           "range": [
             2.6,
             6
-          ]
+          ],
+          "rangeString": "2.6 - 6.0"
         },
         {
           "name": "Creatinine",
           "value": "0.65",
           "unit": "mg/dL",
           "range": [
-            0
-          ]
+            0.3,
+            0.9
+          ],
+          "rangeString": "Adults: 0.5 - 0.9  |  Children: 0.30 - 0.70"
         },
         {
           "name": "Urea Creatinine Ratio",
           "value": "35.23",
           "unit": "",
           "range": [
-            "40:1",
-            "110:1"
-          ]
+            40,
+            110
+          ],
+          "rangeString": "40 : 1 to 110 : 1"
         },
         {
           "name": "BUN Creatinine Ratio",
           "value": "16.46",
           "unit": "",
           "range": [
-            "10:1",
-            "20:1"
-          ]
+            10,
+            20
+          ],
+          "rangeString": "10 : 1 to 20 : 1."
         },
         {
           "name": "Calcium",
@@ -278,7 +477,8 @@
           "range": [
             8.6,
             10.3
-          ]
+          ],
+          "rangeString": "8.6 - 10.3"
         },
         {
           "name": "Sodium",
@@ -287,7 +487,8 @@
           "range": [
             136,
             146
-          ]
+          ],
+          "rangeString": "136 - 146"
         },
         {
           "name": "Potassium",
@@ -296,7 +497,8 @@
           "range": [
             3.5,
             5.1
-          ]
+          ],
+          "rangeString": "3.5 - 5.1"
         },
         {
           "name": "Chloride",
@@ -305,12 +507,13 @@
           "range": [
             101,
             109
-          ]
+          ],
+          "rangeString": "101 - 109"
         }
       ],
       "static": {
         "heading": "Renal (Kidney) Function Tests",
-        "why_test_is_important": "Why is this test important?"
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              \n             <p >\n              The Kidney Function Test Panel, also known as the Basic Metabolic Panel\n              (BMP), provides crucial information about the health and functionality of\n              the kidneys and the body&apos;s overall metabolic state. This panel of tests\n              helps doctors assess kidney function, fluid and electrolyte balance, and\n              certain aspects of metabolism. Here&apos;s why each test in the panel is\n              important:\n              </p>\n            <ol >\n              <li>\n                Blood Urea Nitrogen (BUN): BUN levels indicate how well the kidneys are\n                filtering waste products from the blood. Elevated levels can suggest\n                kidney dysfunction or dehydration.\n              </li>\n              <li>\n                Creatinine: Creatinine levels reflect how effectively the kidneys are\n                filtering waste from the bloodstream. Elevated levels may signal impaired\n                kidney function.\n              </li>\n              <li>\n                Urea Creatinine Ratio: This ratio helps evaluate the balance between urea\n                and creatinine. Abnormal values might indicate issues with kidney function\n                or hydration status.\n              </li>\n              <li>\n                BUN Creatinine Ratio: This ratio provides additional insight into kidney\n                function, helping differentiate between different causes of kidney issues.\n              </li>\n              <li>\n                Uric Acid: Uric acid levels can impact kidney health, and elevated levels\n                might indicate gout or other kidney-related conditions.\n              </li>\n              <li>\n                Calcium: Calcium is important for various bodily functions, including\n                kidney function and bone health. Abnormal calcium levels can indicate\n                kidney dysfunction.\n              </li>\n              <li>\n                Sodium, Potassium, Chloride: These electrolytes are essential for\n                maintaining fluid balance, nerve function, and overall health. Imbalances\n                can indicate kidney problems or other issues.\n              </li>\n            </ol>\n            <p\">\n              Together, these tests help healthcare professionals assess kidney health,\n              hydration status, and the body's ability to maintain a proper balance of\n              electrolytes. The results aid in diagnosing conditions like kidney disease,\n              dehydration, electrolyte imbalances, and certain metabolic disorders.\n              Interpretation of the panel, along with the patient's medical history and\n              other clinical factors, guides medical decisions and treatment plans.\n            </p>\n\n            <p>\n              <i>\n                Note: The blood parameters testing is powered by our testing facility:\n                Previa Labs.\n              </i>\n            </p>\n          </div>\n"
       }
     },
     {
@@ -319,153 +522,1070 @@
         {
           "name": "Bilirubin - Total",
           "value": "0.88",
-          "unit": "mg/dL (Serum, Jendrassik Grof)",
+          "unit": "mg/dL",
           "range": [
             0.3,
             1.2
-          ]
+          ],
+          "rangeString": "0.3 - 1.2"
         },
         {
           "name": "Bilirubin - Direct",
           "value": "0.37",
-          "unit": "mg/dL (Serum, Diazotization)",
+          "unit": "mg/dL",
           "range": [
             0,
             0.4
-          ]
+          ],
+          "rangeString": "<0.4"
         },
         {
           "name": "Bilirubin - Indirect",
           "value": "0.51",
-          "unit": "mg/L (Serum, Calculated)",
+          "unit": "mg/dL",
           "range": [
             0.1,
             1
-          ]
+          ],
+          "rangeString": "0.1 - 1.0"
         },
         {
           "name": "Aspartate Aminotransferase (AST/SGOT)",
           "value": "20",
-          "unit": "U/L (UV without P5P (IFCC))",
+          "unit": "U/L",
           "range": [
             0,
             31
-          ]
+          ],
+          "rangeString": "< 31"
         },
         {
           "name": "Alanine Transaminase (ALT/SGPT)",
           "value": "19",
-          "unit": "U/L (UV without P5P (IFCC))",
+          "unit": "U/L",
           "range": [
             0,
             34
-          ]
+          ],
+          "rangeString": "< 34"
         },
         {
           "name": "SGOT/SGPT",
           "value": "1.05",
-          "unit": "ratio (calculated)",
+          "unit": "ratio",
           "range": [
             0.7,
             1.4
-          ]
+          ],
+          "rangeString": "0.7 - 1.4"
         },
         {
           "name": "GGT-Gamma-glutamyl transpeptidase",
           "value": "21",
-          "unit": "U/L (G-glutamyl-carboxy-Nitroanilide)",
+          "unit": "U/L",
           "range": [
             12,
             73
-          ]
+          ],
+          "rangeString": "12-73"
         },
         {
           "name": "Alkaline Phosphatase-ALPI",
           "value": "89",
-          "unit": "U/L (PNPP, AMP Buffer, IFCC)",
+          "unit": "U/L",
           "range": [
             39,
             118
-          ]
+          ],
+          "rangeString": "39 - 118"
         },
         {
           "name": "Total Protein",
           "value": "7.6",
-          "unit": "g/L (Biuret)",
+          "unit": "g/dL",
           "range": [
             6.6,
             8.7
-          ]
+          ],
+          "rangeString": "6.6 - 8.7"
         },
         {
           "name": "Albumin",
           "value": "4.6",
-          "unit": "g/dL (Bromocresol Green)",
+          "unit": "g/dL",
           "range": [
             3.5,
             5.2
-          ]
+          ],
+          "rangeString": "3.5 - 5.2"
         },
         {
           "name": "Globulin",
           "value": "3",
-          "unit": "g/dL (Calculated)",
+          "unit": "g/dL",
           "range": [
             2,
             3.5
-          ]
+          ],
+          "rangeString": "2.0 - 3.5"
         },
         {
           "name": "A/G Ratio",
           "value": "1.53",
-          "unit": "ratio (Calculated)",
+          "unit": "ratio",
           "range": [
             1.2,
             2.2
-          ]
+          ],
+          "rangeString": "1.2 - 2.2"
         }
       ],
       "static": {
         "heading": "Liver Function Tests",
-        "why_test_is_important": "Why is this test important?"
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Liver Function Test (LFT) or Hepatic Panel is a group of blood tests\n                that provide insights into the health and functioning of the liver. These\n                tests collectively assess various aspects of liver function, enzymes, and\n                protein levels. <br/>Here's why each test in the panel is important when\n                considered together:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  Bilirubin - Total, Direct, and Indirect: Bilirubin is a waste product from\n                  the breakdown of hemoglobin. Elevated levels might suggest liver\n                  dysfunction or other health conditions.\n                </li>\n                <li>\n                  Aspartate Aminotransferase (AST/SGOT) and Alanine Transaminase (ALT/SGPT):\n                  These enzymes are released when liver cells are damaged. Elevated levels\n                  can indicate liver injury or disease.\n                </li>\n                <li>\n                  SGOT/SGPT: This ratio can provide additional insights into liver health,\n                  aiding in diagnosing certain liver disorders.\n                </li>\n                <li>\n                  GGT-Gamma-glutamyl transpeptidase: GGT levels can indicate liver or bile\n                  duct issues, alcohol consumption, or certain medications' effects on the\n                  liver.\n                </li>\n                <li>\n                  Alkaline Phosphatase-ALPI: Alkaline phosphatase levels can help diagnose\n                  liver or bone disorders. Elevated levels might indicate liver or bone\n                  issues.\n                </li>\n                <li>\n                  Total Protein, Albumin, and Globulin: These assess overall protein levels\n                  and liver's ability to produce proteins. Abnormal levels can point to\n                  liver or kidney problems.\n                </li>\n                <li>\n                  A/G Ratio: The ratio of albumin to globulin helps assess liver and immune\n                  system health. Imbalances might indicate various health conditions.\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Collectively, the LFT panel aids in diagnosing liver diseases, assessing\n                liver function, and monitoring treatment effectiveness. It's crucial for\n                detecting liver inflammation, damage, or dysfunction. Interpretation of the\n                panel, combined with clinical context, guides medical decisions and\n                treatment plans.\n              </p>\n              <br/>\n              <br/>\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>\n"
       }
     },
     {
       "page_type": "blood_parameters",
-      "glucose_fasting": 85,
+      "lipid_profile": [
+        {
+          "name": "Cholesterol-Total",
+          "value": "253",
+          "unit": "mg/dl",
+          "range": [
+            0,
+            200
+          ],
+          "rangeString": "Desirable: <= 200\nBorderline High: 201-239\nHigh: > 239\nRef: The National Cholesterol\nEducation Program (NCEP) Adult\nTreatment Panel III Report.\n                                                                                       ."
+        },
+        {
+          "name": "Cholesterol-HDL Direct",
+          "value": "64",
+          "unit": "mg/dl",
+          "range": [
+            40,
+            60
+          ],
+          "rangeString": "High Risk: < 40\nOptimal: 40 - 60\nLow Risk: > 60\n                                                                                       ."
+        },
+        {
+          "name": "LDL Cholesterol",
+          "value": "175.6",
+          "unit": "mg/dl",
+          "range": [
+            0,
+            100
+          ],
+          "rangeString": "Optimal: < 100\nNear optimal/above optimal: 100 - 129\nBorderline high: 130 - 159\nHigh: 160 - 189\nVery High: >= 190\n                                                                                       ."
+        },
+        {
+          "name": "Triglycerides",
+          "value": "67",
+          "unit": "mg/dl",
+          "range": [
+            0,
+            150
+          ],
+          "rangeString": "Normal: < 150\nBorderline High: 150 - 199\nHigh: 200 - 499\nVery High: >= 500\n                                                                                       ."
+        },
+        {
+          "name": "Non - HDL Cholesterol, Serum",
+          "value": "189",
+          "unit": "mg/dl",
+          "range": [
+            0,
+            130
+          ],
+          "rangeString": "Desirable: < 130\nBorderline High: 130 - 159\nHigh: 160 - 189\nVery High: >= 190\n                                                                                       ."
+        },
+        {
+          "name": "VLDL Cholesterol",
+          "value": "13.4",
+          "unit": "mg/dl",
+          "range": [
+            10,
+            30
+          ],
+          "rangeString": "10 - 30"
+        }
+      ],
       "static": {
-        "heading": "Blood Sugar Indicator",
-        "why_test_is_important": "Why is this test important?"
+        "heading": "Lipid Profile",
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Lipid Profile is a group of blood tests that assess different types of\n                cholesterol and triglycerides in the blood. These tests collectively provide\n                insights into a person's lipid levels, which are crucial for heart health\n                and cardiovascular disease risk assessment.\n                <vr></vr>\n                Here's why these tests, when considered together, are important:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  Cholesterol-Total: Total cholesterol levels help assess overall\n                  cholesterol in the blood. Elevated levels might indicate an increased risk\n                  of heart disease.\n                </li>\n                <li>\n                  Cholesterol-HDL Direct: HDL cholesterol is considered \"good\" cholesterol\n                  that helps remove excess cholesterol from the bloodstream. Low levels can\n                  be associated with an increased risk of heart disease.\n                </li>\n                <li>\n                  LDL Cholesterol: LDL cholesterol is often referred to as \"bad\"\n                  cholesterol. Elevated levels might lead to the accumulation of cholesterol\n                  in arteries, increasing heart disease risk.\n                </li>\n                <li>\n                  LDL Cholesterol: LDL cholesterol is often referred to as \"bad\"\n                  cholesterol. Elevated levels might lead to the accumulation of cholesterol\n                  in arteries, increasing heart disease risk.\n                </li>\n                <li>\n                  Non - HDL Cholesterol, Serum: Non-HDL cholesterol includes all forms of\n                  cholesterol except HDL. It's considered a better predictor of heart\n                  disease risk than total cholesterol alone.\n                </li>\n                <li>\n                  VLDL Cholesterol: VLDL cholesterol is a type of lipoprotein that carries\n                  triglycerides. Elevated levels can contribute to heart disease risk.\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Collectively, the Lipid Profile provides valuable information about an\n                individual's risk for heart disease and cardiovascular issues.\n                Interpretation of these lipid levels, combined with other risk factors and\n                clinical context, guides medical decisions for preventing or managing heart\n                disease.\n              </p>\n              <br />\n              <br />\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>\n"
       }
     },
     {
-      "page_type": "iron_profile",
-      "iron": 87,
-      "uibc": 246,
-      "tibc": 333,
-      "transferrin": 233.1,
-      "transferrin_saturation": 26,
+      "page_type": "blood_parameters",
+      "metrics": [
+        {
+          "name": "Glucose (Fasting Blood Sugar)",
+          "value": "80",
+          "unit": "mg/dl",
+          "range": [
+            70,
+            100
+          ],
+          "rangeString": "70-100"
+        },
+        {
+          "name": "HbA1c",
+          "value": "5.4",
+          "unit": "%",
+          "range": [
+            0,
+            5.7
+          ],
+          "rangeString": "<5.7"
+        }
+      ],
       "static": {
-        "heading": "Iron Profile",
-        "why_test_is_important": "Why is this test important?"
+        "heading": "Blood Sugar Indicators",
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Diabetes Profile, consisting of Fasting Blood Glucose and HbA1c tests,\n                plays a crucial role in assessing and managing diabetes. These tests provide\n                key insights into blood sugar control and long-term glycemic management.\n\n                <br />\n                Here's why this profile is important:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  Fasting Blood Glucose: This test measures the blood glucose level after an\n                  overnight fast. Abnormal levels can indicate impaired fasting glucose or\n                  diabetes, helping in early detection and monitoring of blood sugar\n                  control.\n                </li>\n                <li>\n                  HbA1c (Glycated Hemoglobin): HbA1c reflects the average blood glucose\n                  levels over the past few months. It's a vital indicator of long-term\n                  glycemic control and diabetes management.\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Collectively, the Diabetes Profile aids healthcare professionals in\n                assessing blood sugar levels, evaluating glycemic control, and making\n                informed decisions regarding diabetes management. Regular monitoring of\n                fasting blood glucose and HbA1c allows for timely adjustments in treatment\n                plans, lifestyle modifications, and interventions to achieve and maintain\n                optimal blood sugar levels. By keeping blood sugar within the target range,\n                individuals with diabetes can reduce the risk of complications and improve\n                their overall quality of life.\n              </p>\n            </div>"
+      }
+    },
+    {
+      "page_type": "blood_parameters",
+      "metrics": [
+        {
+          "name": "T3 (Triiodothyronine)",
+          "value": "0.86",
+          "unit": "ng/ml",
+          "range": [
+            0.7,
+            2.04
+          ],
+          "rangeString": "1 - 3 Days: 1.00 - 7.40\n4 days - 11 months: 1.05 - 2.4\n1 - 5 years : 1.05 - 2.69\n6 - 10 years : 0.94 - 2.41\n11 - 15 years: 0.82 - 2.13\n16 - 20 years : 0.80 - 2.10\nAdults\n21-50 years: 0.70 - 2.04\n51-90 years: 0.40 - 1.81\n\nPregnancy\n1st trimester: 0.81 - 1.90\n2nd and 3rd trimester: 1.0 - 2.6\n                                                                                       ."
+        },
+        {
+          "name": "T4 (Thyroxine)",
+          "value": "7.21",
+          "unit": "μg/dL",
+          "range": [
+            3.5,
+            12.6
+          ],
+          "rangeString": "Adults : 3.5 - 12.6\n> 60 yrs :5.0 - 10.7\nBirth - 14 days : 11.8 - 22.6\n14 days - 5 yrs: 7.2 - 16.6\n5 - 15 yrs :6.4 - 13.3\n                                                                                       ."
+        },
+        {
+          "name": "TSH (Thyroid-Stimulating Hormone)",
+          "value": "4.79",
+          "unit": "uIU/mL",
+          "range": [
+            0.4,
+            4.5
+          ],
+          "rangeString": "1 - 4 days :1.0 - 39.0\n5days - 6 months : 1.7 - 9.1\n7 months -17 years : 0.7 - 6.4\nMale 18 - 20 Years : 0.7 - 6.4\nMale 21 - 54 years: 0.4-4.5\nFemale 18 - 20 Years : 0.7 - 6.4\nFemale 21 - 54 years : 0.4 - 4.5\nBoth 55 - 87 years :0.4 - 4.5\n1st trimester: 0.3 - 4.5\n2nd trimester :0.5 - 4.6\n3rd trimester :0.8 - 5.2\n                                                                                       ."
+        }
+      ],
+      "static": {
+        "heading": "Thyroid Profile",
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Thyroid Function Test panel includes three essential tests that assess\n                the health and functioning of the thyroid gland. The thyroid plays a crucial\n                role in regulating metabolism, energy production, and hormone balance. These\n                tests provide valuable information about thyroid hormone levels and help\n                diagnose various thyroid-related conditions.\n\n                <br />\n                Here's why these tests, when considered together, are important:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  T3 (TRI-IODOTHYRONINE): T3 is a key thyroid hormone that influences\n                  metabolism and growth. Different age groups and stages of life have\n                  specific reference ranges, helping to identify thyroid dysfunction and\n                  guide treatment.\n                </li>\n                <li>\n                  T4 (THYROXINE): T4 is another vital thyroid hormone responsible for\n                  regulating metabolism. Its levels vary based on age, and deviations can\n                  indicate thyroid disorders.\n                </li>\n                <li>\n                  TSH (THYROID STIMULATING HORMONE): TSH is produced by the pituitary gland\n                  and stimulates the thyroid to produce hormones. Elevated TSH might\n                  indicate an underactive thyroid (hypothyroidism), while low TSH could\n                  suggest an overactive thyroid (hyperthyroidism).\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Collectively, the Thyroid Function Test panel provides a comprehensive\n                assessment of thyroid health. Interpretation of these values, combined with\n                clinical context, guides medical decisions for diagnosing and managing\n                thyroid disorders. Proper thyroid function is essential for maintaining\n                overall health, energy levels, and metabolism.\n              </p>\n              <br />\n              <br />\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>"
+      }
+    },
+    {
+      "page_type": "blood_parameters",
+      "metrics": [
+        {
+          "name": "Vitamin B12",
+          "value": "224",
+          "unit": "pg/mL",
+          "range": [
+            200,
+            900
+          ],
+          "rangeString": "200 - 900"
+        },
+        {
+          "name": "Vitamin D",
+          "value": "30.25",
+          "unit": "ng/mL",
+          "range": [
+            30,
+            100
+          ],
+          "rangeString": "Deficiency: < 20\nInsufficiency: 20 - <30\nSufficiency: 30 - 100"
+        }
+      ],
+      "static": {
+        "heading": "Vitamin Profile",
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n            <p className=\"text-[10px] text-gray-500\">\n              The panel of tests consisting of Vitamin B12, Vitamin C, and Vitamin D plays\n              a crucial role in assessing and monitoring the status of essential vitamins\n              in the body. Collectively, these tests provide insights into nutritional\n              health, bone health, and immune function. Here's why this panel is\n              important:\n            </p>\n            <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n              <li>\n                Vitamin B12: Vitamin B12 is essential for red blood cell formation,\n                neurological function, and DNA synthesis. Low B12 levels can lead to\n                anemia, nerve damage, and other health issues. Monitoring B12 levels is\n                crucial for diagnosing deficiencies and guiding supplementation.\n              </li>\n              <li>\n                Vitamin C: Also known as ascorbic acid, Vitamin C is an antioxidant that\n                supports immune function, skin health, and wound healing. Adequate Vitamin\n                C intake is essential to prevent scurvy and maintain overall health.\n              </li>\n              <li>\n                Vitamin D: Vitamin D is vital for calcium absorption, bone health, and\n                immune system function. Low Vitamin D levels can lead to conditions like\n                rickets and osteomalacia. Monitoring Vitamin D levels is important for\n                assessing deficiency, guiding replacement therapy, and preventing\n                bone-related disorders.\n              </li>\n            </ul>\n            <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n              Interpretation of Vitamin D: Vitamin D testing is useful for various\n              purposes, including:\n              <li>\n                Diagnosis of Vitamin D Deficiency: Low Vitamin D levels can indicate a\n                deficiency, which is associated with various health issues.\n              </li>\n              <li>\n                Differential Diagnosis of Causes of Rickets and Osteomalacia: Vitamin D\n                plays a key role in bone health, and its deficiency can lead to conditions\n                like rickets and osteomalacia. Testing helps in identifying the underlying\n                cause.\n              </li>\n              <li>\n                Monitoring Vitamin D Replacement Therapy: For individuals receiving\n                Vitamin D supplementation, regular monitoring ensures that levels are\n                within the target range.\n              </li>\n              <li>\n                Diagnosis of Hypervitaminosis D: Excessive Vitamin D intake can lead to\n                hypervitaminosis D, which can have adverse effects. Testing helps in\n                identifying this condition.\n              </li>\n            </ul>\n            <p className=\"text-[10px] text-gray-500 mb-10\">\n              It's important to note that Vitamin D levels can vary based on several\n              factors, including geography, season, diet, age, and supplementation.\n              Additionally, certain substances in the patient's sample may interfere with\n              immunoassays, so results should be evaluated carefully. Healthcare providers\n              use these results to guide dietary recommendations, supplementation, and\n              treatments tailored to individual needs.\n            </p>\n          </div>"
+      }
+    },
+    {
+      "page_type": "blood_parameters",
+      "metrics": [
+        {
+          "name": "Calcium",
+          "value": "9.7",
+          "unit": "mg/dL",
+          "range": [
+            8.6,
+            10.3
+          ],
+          "rangeString": "8.6 - 10.3"
+        },
+        {
+          "name": "Phosphorus",
+          "value": "3.7",
+          "unit": "mg/dL",
+          "range": [
+            2.5,
+            4.5
+          ],
+          "rangeString": "2.5 - 4.5"
+        },
+        {
+          "name": "Iron",
+          "value": "78",
+          "unit": "",
+          "range": [
+            39,
+            149
+          ],
+          "rangeString": "39 - 149 :Adults\n42 - 177 :12th gestational week\n25 - 137 :At term\n16 - 150 :6 weeks postpartum"
+        },
+        {
+          "name": "UIBC (Unsaturated Iron Binding Capacity)",
+          "value": "215",
+          "unit": "µg/dL",
+          "range": [
+            120,
+            470
+          ],
+          "rangeString": "120 - 470"
+        },
+        {
+          "name": "TIBC (Total Iron Binding Capacity)",
+          "value": "293",
+          "unit": "µg/dL",
+          "range": [
+            240,
+            450
+          ],
+          "rangeString": "240 - 450"
+        },
+        {
+          "name": "Transferrin",
+          "value": "205.1",
+          "unit": "µg/dL",
+          "range": [
+            176,
+            280
+          ],
+          "rangeString": "176 - 280"
+        },
+        {
+          "name": "Transferrin Saturation",
+          "value": "26.62",
+          "unit": "%",
+          "range": [
+            20,
+            50
+          ],
+          "rangeString": "20 - 50"
+        }
+      ],
+      "static": {
+        "heading": "Others",
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The panel of tests consisting of Calcium, Phosphorus, Iron, UIBC\n                (Unsaturated Iron Binding Capacity), TIBC (Total Iron Binding Capacity),\n                Transferrin, and Transferrin Saturation plays a crucial role in assessing\n                various aspects of mineral and iron metabolism in the body. When considered\n                collectively, these tests provide insights into bone health, mineral\n                balance, and iron status. Here's why this panel is important:\n              </p>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  Calcium: Calcium is essential for bone health, muscle function, nerve\n                  transmission, and blood clotting. Abnormal calcium levels can indicate\n                  issues such as bone disorders, kidney problems, or hormone imbalances.\n                </li>\n                <li>\n                  Phosphorus: Phosphorus is vital for bone and teeth health, energy\n                  production, and cellular function. Abnormal levels can be associated with\n                  kidney disorders, bone diseases, and hormonal imbalances.\n                </li>\n                <li>\n                  Iron, UIBC, TIBC, Transferrin, Transferrin Saturation: These tests\n                  collectively assess iron levels and its transport within the body. Iron is\n                  crucial for the formation of red blood cells and oxygen transport. Low\n                  iron levels can lead to iron deficiency anemia, while high levels can\n                  indicate iron overload conditions like hemochromatosis. The UIBC, TIBC,\n                  Transferrin, and Transferrin Saturation values help evaluate the body's\n                  iron-binding capacity, the total iron capacity, and the percentage of\n                  transferrin bound to iron.\n                </li>\n              </ul>\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                The interpretation of these tests is crucial for diagnosing and managing\n                various conditions:\n                <li>\n                  Iron Deficiency: Low iron levels, high TIBC, high UIBC, and low\n                  transferrin saturation indicate iron deficiency anemia. Ferritin levels\n                  are also typically low in this condition.\n                </li>\n                <li>\n                  Hemochromatosis: High iron levels, low TIBC, low UIBC, and high\n                  transferrin saturation indicate hemochromatosis, a condition of iron\n                  overload. Ferritin levels are also elevated.\n                </li>\n                <li>\n                  Chronic Illness: In chronic illnesses, iron levels might be low, along\n                  with low TIBC and UIBC. Transferrin saturation could be low or normal, and\n                  ferritin levels can vary.\n                </li>\n                <li>\n                  Hemolytic Anemia: High iron levels, normal or low TIBC and UIBC, and high\n                  transferrin saturation can indicate hemolytic anemia. Ferritin levels are\n                  also typically high.\n                </li>\n              </ul>\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                Together, these tests provide a comprehensive overview of mineral\n                metabolism, bone health, and iron status. They aid healthcare professionals\n                in diagnosing conditions such as anemia, bone disorders, iron deficiency,\n                and iron overload. The interpretation of the results guides medical\n                decisions, enabling healthcare providers to tailor treatments, dietary\n                adjustments, and interventions to ensure optimal mineral and iron balance in\n                the body.\n              </p>\n              <br />\n              <br />\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>"
       }
     },
     {
       "page_type": "urine_examination",
-      "microscopic_examination": {
-        "pus_cells_wbc": "2-3",
-        "epithelial_cells": "0-1",
-        "red_blood_cells": "0-1",
-        "yeast_cells": "Absent",
-        "crystals": "Absent",
-        "casts": "Absent",
-        "bacteria": "Absent",
-        "others": "Absent"
-      },
+      "metrics": [
+        {
+          "name": "Volume",
+          "value": "20",
+          "unit": "mL",
+          "range": []
+        },
+        {
+          "name": "Colour",
+          "value": "Pale Yellow",
+          "unit": "",
+          "range": [],
+          "rangeString": "Pale Yellow"
+        },
+        {
+          "name": "Transparency (Appearance)",
+          "value": "Clear",
+          "unit": "",
+          "range": [],
+          "rangeString": "Clear"
+        },
+        {
+          "name": "Reaction (pH)",
+          "value": "6",
+          "unit": "Method",
+          "range": [
+            4.5,
+            8
+          ],
+          "rangeString": "4.5 - 8"
+        },
+        {
+          "name": "Specific Gravity",
+          "value": "1.02",
+          "unit": "Method",
+          "range": [
+            1.003,
+            1.03
+          ],
+          "rangeString": "1.003 - 1.030"
+        },
+        {
+          "name": "Urine Protein (Albumin)",
+          "value": "Negative",
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
+        },
+        {
+          "name": "Urine Glucose (sugar)",
+          "value": "Negative",
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
+        },
+        {
+          "name": "Blood",
+          "value": "Negative",
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
+        },
+        {
+          "name": "Urine Ketones (Acetone)",
+          "value": "Negative",
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
+        },
+        {
+          "name": "Bile pigments",
+          "value": "Negative",
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
+        },
+        {
+          "name": "Bile Salts",
+          "value": "Normal",
+          "unit": "",
+          "range": [],
+          "rangeString": "Negative"
+        },
+        {
+          "name": "Urobilinogen",
+          "value": "Normal",
+          "unit": "",
+          "range": [],
+          "rangeString": "Normal"
+        },
+        {
+          "name": "Pus Cells (WBCs)",
+          "value": "2-4",
+          "unit": "Units Method",
+          "range": [
+            0,
+            5
+          ],
+          "rangeString": "0 - 5 /hpf"
+        },
+        {
+          "name": "Epithelial Cells",
+          "value": "4-6",
+          "unit": "Units Method",
+          "range": [
+            0,
+            4
+          ],
+          "rangeString": "0 - 4 /hpf"
+        },
+        {
+          "name": "Red blood Cells",
+          "value": "Absent",
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent "
+        },
+        {
+          "name": "Yeast Cells",
+          "value": "Absent",
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent"
+        },
+        {
+          "name": "Crystals",
+          "value": "Absent",
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent"
+        },
+        {
+          "name": "Cast",
+          "value": "Absent",
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent"
+        },
+        {
+          "name": "Bacteria",
+          "value": "Absent",
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent"
+        },
+        {
+          "name": "Others",
+          "value": "Absent",
+          "unit": "",
+          "range": [],
+          "rangeString": "Absent"
+        }
+      ],
       "static": {
         "heading": "Urine Examination",
-        "why_test_is_important": "Why is this test important?"
+        "why_test_is_important": "\n            <div className=\"mt-6 break-inside-avoid\">\n              <p className=\"text-[10px] text-gray-500\">\n                The Complete Urine Examination (CUE) panel is a set of tests that provide\n                valuable insights into the health of the urinary system and overall\n                well-being. Collectively, these tests assess various aspects of urine\n                composition, including physical properties, chemical content, and\n                microscopic elements. Here's why this panel is important:\n              </p>\n              <br />\n              <ul className=\"list-disc list-inside text-[10px] text-gray-500\">\n                <li>\n                  Physical Properties: Assessment of urine volume, colour, transparency, and\n                  pH helps identify potential issues such as dehydration, kidney function,\n                  and urinary tract infections. Specific Gravity: Specific gravity reflects\n                  the concentration of solutes in urine, offering insights into hydration\n                  levels and kidney function.\n                </li>\n                <li>\n                  Chemical Examination: Tests for protein, glucose, blood, ketones, bile\n                  pigments, and bile salts detect abnormal substances that could indicate\n                  kidney dysfunction, diabetes, liver problems, or other conditions..\n                </li>\n                <li>\n                  Urobilinogen: Urobilinogen levels can provide information about liver\n                  function and red blood cell breakdown.\n                </li>\n                <li>\n                  Microscopic Examination: Examination of cells, crystals, casts, bacteria,\n                  and other elements helps diagnose urinary tract infections, kidney\n                  disorders, and other abnormalities.\n                </li>\n              </ul>\n\n              <p className=\"text-[10px] text-gray-500 mb-10\">\n                When considered collectively, the Complete Urine Examination (CUE) panel\n                provides a comprehensive assessment of urinary health, aiding in the\n                diagnosis and monitoring of various conditions affecting the urinary system.\n                These tests enable healthcare professionals to identify early signs of\n                kidney dysfunction, urinary tract infections, and other underlying health\n                issues, allowing for timely intervention and appropriate treatment.\n                <br />\n                For a thorough understanding of your urine test results and their\n                implications for your health, it's recommended to consult a healthcare\n                provider. They can provide personalized guidance based on your specific\n                health needs and circumstances.\n              </p>\n              <br />\n              <br />\n              <p className=\"text-[10px] text-gray-500\">\n                <i>\n                  Note: The blood parameters testing is powered by our testing facility:\n                  Previa Labs.\n                </i>\n              </p>\n            </div>"
       }
+    },
+    {
+      "page_type": "microbiome",
+      "yourPie": [
+        {
+          "name": "Bacteroidetes Total (saliva/stool)",
+          "value": 42.25,
+          "color": "#10D3E4"
+        },
+        {
+          "name": "Firmicutes total (stool)",
+          "value": 39.24,
+          "color": "#F8F58A"
+        },
+        {
+          "name": "Proteobacteria Total",
+          "value": 13.98,
+          "color": "#A480B1"
+        },
+        {
+          "name": "Others Total",
+          "value": 2.24,
+          "color": "#16354B"
+        },
+        {
+          "name": "Actinobacteria Total (saliva/stool)",
+          "value": 2.29,
+          "color": "#E9AC9C"
+        }
+      ],
+      "normalPie": [
+        {
+          "name": "Bacteroidetes Total (saliva/stool)",
+          "value": 73.13,
+          "color": "#10D3E4"
+        },
+        {
+          "name": "Firmicutes total (stool)",
+          "value": 22.2,
+          "color": "#F8F58A"
+        },
+        {
+          "name": "Proteobacteria Total",
+          "value": 2.15,
+          "color": "#A480B1"
+        },
+        {
+          "name": "Others Total",
+          "value": 0.7,
+          "color": "#16354B"
+        },
+        {
+          "name": "Actinobacteria Total (saliva/stool)",
+          "value": 1.82,
+          "color": "#E9AC9C"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Bacteroidetes Total (saliva/stool)",
+          "value": "67.20265172",
+          "unit": "%",
+          "range": [
+            50.97,
+            95.29
+          ],
+          "rangeString": "73.13 (+/- 22.16)"
+        },
+        {
+          "name": "Firmicutes total (stool)",
+          "value": "18.01015551",
+          "unit": "%",
+          "range": [
+            3.54,
+            40.86
+          ],
+          "rangeString": "22.2 (+/- 18.66)"
+        },
+        {
+          "name": "Proteobacteria Total",
+          "value": "11.05469163",
+          "unit": "%",
+          "range": [
+            -8.24,
+            12.54
+          ],
+          "rangeString": "2.15 (+/- 10.39)"
+        },
+        {
+          "name": "Others Total",
+          "value": "0.84",
+          "unit": "%",
+          "range": [
+            -4.53,
+            4.67
+          ],
+          "rangeString": "0.07 (+/- 4.6)"
+        },
+        {
+          "name": "Actinobacteria Total (saliva/stool)",
+          "value": "2.909129377",
+          "unit": "%",
+          "range": [
+            -1.18,
+            4.82
+          ],
+          "rangeString": "1.82 (+/- 3)"
+        },
+        {
+          "name": "Firmicutes: Bacteroidetes (F/B) Ratio",
+          "value": "0.267997691",
+          "unit": "%",
+          "range": [
+            0.69,
+            2.28
+          ],
+          "rangeString": "0.69-2.28 (+/- )"
+        },
+        {
+          "name": "Proteobacteria : Actinobacteria (P/A) Ratio",
+          "value": "3.8",
+          "unit": "%",
+          "range": [
+            0.28,
+            5.64
+          ],
+          "rangeString": "0.28-5.64 (+/- )"
+        },
+        {
+          "name": "Bifidobacterium total",
+          "value": "1.361818611",
+          "unit": "%",
+          "range": [
+            -1.3,
+            1.7
+          ],
+          "rangeString": "0.2 (+/- 1.5)"
+        },
+        {
+          "name": "Bifidobacterium longum (stool)",
+          "value": "0.4601",
+          "unit": "%",
+          "range": [
+            -0.773,
+            1.027
+          ],
+          "rangeString": "0.127 (+/- 0.9)"
+        },
+        {
+          "name": "Bifidobacterium bifidum(stool)",
+          "value": "0.189586512",
+          "unit": "%",
+          "range": [
+            -0.305,
+            0.355
+          ],
+          "rangeString": "0.025 (+/- 0.33)"
+        },
+        {
+          "name": "Bifidobacterium adolescentis (stool)",
+          "value": "0.717847522",
+          "unit": "%",
+          "range": [
+            -1.459,
+            1.613
+          ],
+          "rangeString": "0.077 (+/- 1.536)"
+        },
+        {
+          "name": "Faecalibacterium prausnitzii (stool)",
+          "value": "10.22161762",
+          "unit": "%",
+          "range": [
+            -7.02,
+            17.1
+          ],
+          "rangeString": "5.04 (+/- 12.06)"
+        },
+        {
+          "name": "Roseburia intestinalis (stool)",
+          "value": "3.130325565",
+          "unit": "%",
+          "range": [
+            -4.314,
+            6.546
+          ],
+          "rangeString": "1.116 (+/- 5.43)"
+        },
+        {
+          "name": "Ruminococcus flavefaciens (stool)",
+          "value": "1.208063697",
+          "unit": "%",
+          "range": [
+            -2.007,
+            2.021
+          ],
+          "rangeString": "0.007 (+/- 2.014)"
+        },
+        {
+          "name": "Lactobacillus reuteri (saliva/stool)",
+          "value": "0.003227879",
+          "unit": "%",
+          "range": [
+            -0.005,
+            0.027
+          ],
+          "rangeString": "0.011 (+/- 0.016)"
+        },
+        {
+          "name": "Lactobacillus salivarius (saliva/stool)",
+          "value": "0.003466981",
+          "unit": "%",
+          "range": [
+            -0.005,
+            0.029
+          ],
+          "rangeString": "0.012 (+/- 0.017)"
+        },
+        {
+          "name": "Lactobacillus plantarum (saliva/stool)",
+          "value": "0.024029768",
+          "unit": "%",
+          "range": [
+            -0.035,
+            0.067
+          ],
+          "rangeString": "0.016 (+/- 0.051)"
+        },
+        {
+          "name": "Lactobacillus Total (saliva/stool)",
+          "value": "0.030844179",
+          "unit": "%",
+          "range": [
+            -0.164,
+            0.228
+          ],
+          "rangeString": "0.032 (+/- 0.196)"
+        },
+        {
+          "name": "Bacillus TOTAL (saliva/stool)",
+          "value": "3.376122592",
+          "unit": "%",
+          "range": [
+            -1.41,
+            3.53
+          ],
+          "rangeString": "1.06 (+/- 2.47)"
+        },
+        {
+          "name": "Bacillus clausi (stool)",
+          "value": "0.000263012",
+          "unit": "%",
+          "range": [
+            -0.0009,
+            0.0011
+          ],
+          "rangeString": "0.0001 (+/- 0.001)"
+        },
+        {
+          "name": "Butyricicoccus pullicaecorum (stool)",
+          "value": "0.01219421",
+          "unit": "%",
+          "range": [
+            -0.029,
+            0.051
+          ],
+          "rangeString": "0.011 (+/- 0.04)"
+        },
+        {
+          "name": "Bacteroides fragilis (stool)",
+          "value": "21.19373721",
+          "unit": "%",
+          "range": [
+            -20.68,
+            29.32
+          ],
+          "rangeString": "4.32 (+/- 25)"
+        },
+        {
+          "name": "Bacteroides vulgatus (stool)",
+          "value": "12.16688215",
+          "unit": "%",
+          "range": [
+            -16.96,
+            21.04
+          ],
+          "rangeString": "2.04 (+/- 19)"
+        },
+        {
+          "name": "Bacteroides ovatus (stool)",
+          "value": "6.447753612",
+          "unit": "%",
+          "range": [
+            -2.62,
+            8.92
+          ],
+          "rangeString": "3.15 (+/- 5.77)"
+        },
+        {
+          "name": "Alistipes finegoldii (stool)",
+          "value": "5.273857663",
+          "unit": "%",
+          "range": [
+            3.58,
+            9.12
+          ],
+          "rangeString": "6.35 (+/- 2.77)"
+        },
+        {
+          "name": "Bacteroides uniformis (stool)",
+          "value": "9.209011325",
+          "unit": "%",
+          "range": [
+            -5.5,
+            6.4
+          ],
+          "rangeString": "0.45 (+/- 5.95)"
+        },
+        {
+          "name": "Bacteroides xylanisolvence (stool)",
+          "value": "5.477699201",
+          "unit": "%",
+          "range": [
+            -4.03,
+            4.21
+          ],
+          "rangeString": "0.09 (+/- 4.12)"
+        },
+        {
+          "name": "Bacteroides thetaiotaomicron (stool)",
+          "value": "0.002133143",
+          "unit": "%",
+          "range": [
+            -0.775,
+            0.925
+          ],
+          "rangeString": "0.075 (+/- 0.85)"
+        },
+        {
+          "name": "Bacteroides cellulosilyticus (stool)",
+          "value": "3.122678879",
+          "unit": "%",
+          "range": [
+            -3.48,
+            3.6
+          ],
+          "rangeString": "0.06 (+/- 3.54)"
+        },
+        {
+          "name": "Bacteroides dorai (stool)",
+          "value": "3.776128349",
+          "unit": "%",
+          "range": [
+            -5.47,
+            6.53
+          ],
+          "rangeString": "0.53 (+/- 6)"
+        },
+        {
+          "name": "Escherichia coli (stool)",
+          "value": "7.8578772",
+          "unit": "%",
+          "range": [
+            -4.43,
+            4.51
+          ],
+          "rangeString": "0.04 (+/- 4.47)"
+        },
+        {
+          "name": "Bilophila wadsworthia (Saliva/stool)",
+          "value": "1.787623505",
+          "unit": "%",
+          "range": [
+            -1.12,
+            1.14
+          ],
+          "rangeString": "0.01 (+/- 1.13)"
+        },
+        {
+          "name": "Ralstonia (stool)",
+          "value": "1.409190927",
+          "unit": "%",
+          "range": [
+            -1.009,
+            1.011
+          ],
+          "rangeString": "0.001 (+/- 1.01)"
+        },
+        {
+          "name": "Saccharomyces TOTAL (saliva/stool)",
+          "value": "0.00007241",
+          "unit": "%",
+          "range": [
+            -0.019,
+            0.021
+          ],
+          "rangeString": "0.001 (+/- 0.02)"
+        },
+        {
+          "name": "Saccharomyces cerevisiae (saliva/stool)",
+          "value": "0.00000586",
+          "unit": "%",
+          "range": [
+            -0.0049,
+            0.0051
+          ],
+          "rangeString": "0.0001 (+/- 0.005)"
+        },
+        {
+          "name": "Saccharomyces boulardii (stool)",
+          "value": "0.06967213",
+          "unit": "%",
+          "range": [
+            -0.0049,
+            0.0051
+          ],
+          "rangeString": "0.0001 (+/- 0.005)"
+        },
+        {
+          "name": "Clostridium (Stool)",
+          "value": "0",
+          "unit": "%",
+          "range": [
+            1.19,
+            1.61
+          ],
+          "rangeString": "1.4 (+/- 0.21)"
+        },
+        {
+          "name": "Streptococcus",
+          "value": "0",
+          "unit": "%",
+          "range": [
+            0.43,
+            1.05
+          ],
+          "rangeString": "0.74 (+/- 0.31)"
+        },
+        {
+          "name": "Salmonella",
+          "value": "0.76",
+          "unit": "%",
+          "range": [
+            3.46,
+            4.56
+          ],
+          "rangeString": "4.01 (+/- 0.55)"
+        },
+        {
+          "name": "Vibrio",
+          "value": "0.008333333",
+          "unit": "%",
+          "range": [
+            0.13,
+            0.25
+          ],
+          "rangeString": "0.19 (+/- 0.06)"
+        },
+        {
+          "name": "Helicobacter pylori",
+          "value": "0.822",
+          "unit": "%",
+          "range": [
+            3.69,
+            4.11
+          ],
+          "rangeString": "3.9 (+/- 0.21)"
+        },
+        {
+          "name": "Staphylococcus",
+          "value": "0.658",
+          "unit": "%",
+          "range": [
+            1.58,
+            6.58
+          ],
+          "rangeString": "4.08 (+/- 2.5)"
+        },
+        {
+          "name": "Klebsiella",
+          "value": "0.69",
+          "unit": "%",
+          "range": [
+            1.95,
+            3.45
+          ],
+          "rangeString": "2.7 (+/- 0.75)"
+        },
+        {
+          "name": "Enterococcus faecium",
+          "value": "0",
+          "unit": "%",
+          "range": [
+            -0.08,
+            0.14
+          ],
+          "rangeString": "0.03 (+/- 0.11)"
+        },
+        {
+          "name": "Shigella flexneri",
+          "value": "0",
+          "unit": "%",
+          "range": [
+            -0.22,
+            0.24
+          ],
+          "rangeString": "0.01 (+/- 0.23)"
+        },
+        {
+          "name": "Desulfovibrio intestinalis (stool)",
+          "value": "0.113333333",
+          "unit": "%",
+          "range": [
+            -3.34,
+            3.4
+          ],
+          "rangeString": "0.03 (+/- 3.37)"
+        }
+      ]
+    }
+  ],
+  "microbiome_static_content": [
+    {
+      "title": "Intro",
+      "content": "Microbes are everywhere, they live in and on all animals and plants and they fill our oceans. Right now, they are on your phone, your hands (even if you wash them), in your drinking water (about a million per one milliliter!), in aerosols around you and present at any moment in time. In fact, the ecosystem of planet earth, which is composed of a multitude of habitats, contains different sets of microbes that are essential for proper ecosystem functioning. As the ecosystems of planet Earth have a series of habitats with specific organisms that are essential for a proper ecosystem functioning, so does the human body. On a smaller scale, the human body is also an ecosystem, with different body sites providing different habitats for microbial communities. The microbial communities living in and on our body are collectively called the microbiome and we have distinct microbiomes at each of our body sites."
+    },
+    {
+      "title": "What is the Gut Microbiome?",
+      "content": "The gut microbiome is a collective name for the 40 trillion cells and up to 1000 microbial species that include bacteria, viruses, fungi, parasites and archaea and reside in our gut. The number of gut bacterial cells is approximately equal to the total number of human cells in our body, so if we consider only cell counts, we are only about half human. In terms of gene counts, the microbiome contains about 200 times more genes than the human genome, making bacterial genes responsible for over 99% of our bodies’ gene content! Of all the microbial communities in the human body, the gut microbiome is by far the most dense, diverse and physiologically important ecosystem to our overall health."
+    },
+    {
+      "title": "The importance of your Gut Microbiome",
+      "content": "\n          <p>Our body lives in a symbiotic relationship with the microbes within us, which are significant contributors to our health and overall wellness</p> <br/> <br/>\n\n          <p><strong>Health:</strong> In recent years science has discovered various associations between the microbiome and various health conditions including obesity(1), allergies and autoimmune conditions(2-4), vascular diseases(5), gastrointestinal diseases and disorders (IBS, IBD, Crohn's, colitis)(6-8) and even neurodegenerative disorders and mental conditions(9-10).</p> <br/> <br/>\n\n          <p><strong>Energy:</strong> Bacterial breakdown of food provides approximately 10-20% of our energy supplies(11). The extent of energy extracted from foods depends on the microbiome, and it can differ dramatically between people(12).</p><br/> <br/>\n\n          <p><strong>Essential Nutrients:</strong> The human body cannot produce all the nutrients required for its proper functioning, so some nutrients must be either acquired from diet, or produced by the gut microbiome. For example, the gut microbiome is a key producer of essential  vitamins, <br/><br/><br/><br/><br/><br/><br/><br/> like vitamin K and many vitamin B derivatives(13-14). Additionally, while many food components are absorbed early in our digestive tract (i.e the small intestine), some kinds of dietary fiber can only be broken down in the large intestines by specific members of the gut microbiome. Important products of this process include short chain fatty acids (SCFA) that are important for energizing colon cells, have anti-inflammatory properties and are even associated with hunger levels and the release of the hunger hormone, Leptin(15-16). </p> <br/> <br/>\n\n          <p><strong>Immunity:</strong> There is growing evidence that the microbiome is regulating our immune system(17). Our microbiome is important in developing our immune system, helps by making our body tolerate food molecules and harmless substances, helps in recognizing invaders and protects against pathogens by constantly communicating with the immune system in the intestines(18).</p>"
+    },
+    {
+      "title": "Taxonomic Classification",
+      "content": "Taxonomy is the science of organisms classification into groups based on shared characteristics or evolutionary relatedness. All living organisms are classified using taxonomic classifications.\n\nRanks or Levels of Microbial Taxonomy\nTaxonomic classification is a hierarchical grouping of organisms in ranks of decreasing similarity. Organism groups can be aggregated with other relatively similar groups of the same rank, to create a super-group of higher rank. In bacterial taxonomy, the most commonly used ranks or levels in their ascending order are: strains, species, genera, families, orders, classes, phyla and kingdom (see table). Species is the basic taxonomic group in bacterial taxonomy. Groups of species are then collected into genera. Groups of genera are collected into families (sing. family), families into orders, orders into classes, classes into phyla (sing., phylum), and phyla into kingdom (the highest rank or level). Groups of bacteria at each rank or level have names with endings or suffixes characteristic to that rank or level."
     }
   ],
   "gut_microbiome": {
