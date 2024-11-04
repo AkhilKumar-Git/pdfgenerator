@@ -169,6 +169,8 @@ const IntegratedReport = () => {
                 />
               </div>
             ),
+            image_path: "/lipid.svg",
+            image_alt: "Lipid Logo",
           }}
         />
       </div>
@@ -193,6 +195,8 @@ const IntegratedReport = () => {
                 />
               </div>
             ),
+            image_path: "/blood-sugar.svg",
+            image_alt: "Blood sugar Logo",
           }}
         />
       </div>
@@ -218,6 +222,8 @@ const IntegratedReport = () => {
                 />
               </div>
             ),
+            image_path: "/thyroid.svg",
+            image_alt: "Thyroid Logo",
           }}
         />
       </div>
@@ -243,6 +249,8 @@ const IntegratedReport = () => {
                 />
               </div>
             ),
+            image_path: "/vitamin.svg",
+            image_alt: "Vitamin Logo",
           }}
         />
       </div>
@@ -268,6 +276,8 @@ const IntegratedReport = () => {
                 />
               </div>
             ),
+            image_path: "/vitamin.svg",
+            image_alt: "Vitamin Logo",
           }}
         />
       </div>
@@ -293,6 +303,8 @@ const IntegratedReport = () => {
                 />
               </div>
             ),
+            image_path: "/urine.svg",
+            image_alt: "Urine collection Logo",
           }}
         />
       </div>

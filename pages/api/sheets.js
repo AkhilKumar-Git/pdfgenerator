@@ -85,22 +85,29 @@ export default async function handler(req, res) {
     ]);
 
     //Lipid Import
-    const Lipid_grid = "Lipid!A2:C7";
+    const Lipid_grid = "Lipid!A2:E7";
     const Lipid = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: Lipid_grid,
     });
-    const Lipid_metrics = Lipid.data.values.map((item) => [item[2], item[1]]);
+    const Lipid_metrics = Lipid.data.values.map((item) => [
+      item[3],
+      parseFloat(item[1]),
+      parseFloat(item[2]),
+      item[4],
+    ]);
 
     //Diabetes Import
-    const Diabetes_grid = "Diabetes!A2:C3";
+    const Diabetes_grid = "Diabetes!A2:E3";
     const Diabetes = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: Diabetes_grid,
     });
     const Diabetes_metrics = Diabetes.data.values.map((item) => [
-      item[2],
-      item[1],
+      item[3],
+      parseFloat(item[1]),
+      parseFloat(item[2]),
+      item[4],
     ]);
 
     //Thyroid Import
@@ -109,6 +116,70 @@ export default async function handler(req, res) {
       spreadsheetId,
       range: Thyroid_grid,
     });
+    const age = values[1];
+    function getThyroidRanges(ageInYears) {
+      // Convert years to a comparable number
+      const age = parseFloat(ageInYears);
+
+      // Validation
+      if (isNaN(age) || age < 0 || age > 100) {
+        throw new Error("Age must be a number between 0 and 100 years");
+      }
+
+      // Helper function to find ranges for any hormone type
+      function findRange(ranges) {
+        for (const range of ranges) {
+          if (age >= range.from && age < range.to) {
+            return {
+              low: range.low,
+              high: range.high,
+            };
+          }
+        }
+        return null;
+      }
+
+      // Define ranges for each hormone
+      const t3Ranges = [
+        { from: 0, to: 0.0109589041, low: 1.0, high: 7.4 },
+        { from: 0.0109589041, to: 0.904109589, low: 1.05, high: 2.4 },
+        { from: 0.904109589, to: 5, low: 1.05, high: 2.69 },
+        { from: 5, to: 10, low: 0.94, high: 2.41 },
+        { from: 10, to: 15, low: 0.82, high: 2.13 },
+        { from: 15, to: 20, low: 0.8, high: 2.1 },
+        { from: 20, to: 50, low: 0.7, high: 2.04 },
+        { from: 50, to: 100, low: 0.4, high: 1.81 },
+      ];
+
+      const t4Ranges = [
+        { from: 0, to: 0.0383561644, low: 11.8, high: 22.6 },
+        { from: 0.0383561644, to: 5, low: 7.2, high: 16.6 },
+        { from: 5, to: 15, low: 6.4, high: 13.3 },
+        { from: 15, to: 60, low: 3.5, high: 12.6 },
+        { from: 60, to: 100, low: 5.0, high: 10.7 },
+      ];
+
+      const tshRanges = [
+        { from: 0, to: 0.0109589041, low: 1.0, high: 39.0 },
+        { from: 0.0109589041, to: 0.5, low: 1.7, high: 9.1 },
+        { from: 0.5, to: 17, low: 0.7, high: 6.4 },
+        { from: 17, to: 20, low: 0.7, high: 6.4 },
+        { from: 20, to: 54, low: 0.4, high: 4.5 },
+        { from: 54, to: 87, low: 0.4, high: 4.5 },
+      ];
+
+      // Get ranges for each hormone
+      const t3 = findRange(t3Ranges);
+      const t4 = findRange(t4Ranges);
+      const tsh = findRange(tshRanges);
+
+      return {
+        T3: t3,
+        T4: t4,
+        TSH: tsh,
+      };
+    }
+    const thyroid_values = getThyroidRanges(age);
     const Thyroid_metrics = Thyroid.data.values.map((item) => [
       item[2],
       item[1],
@@ -678,49 +749,43 @@ export default async function handler(req, res) {
               name: keys[49],
               value: values[49],
               unit: Lipid_metrics[0][0],
-              range: Lipid_metrics[0][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Lipid_metrics[0][1], Lipid_metrics[0][2]],
+              rangeString: Lipid_metrics[0][3],
             },
             {
               name: keys[50],
               value: values[50],
               unit: Lipid_metrics[1][0],
-              range: Lipid_metrics[1][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Lipid_metrics[1][1], Lipid_metrics[1][2]],
+              rangeString: Lipid_metrics[1][3],
             },
             {
               name: keys[51],
               value: values[51],
               unit: Lipid_metrics[2][0],
-              range: Lipid_metrics[2][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Lipid_metrics[2][1], Lipid_metrics[2][2]],
+              rangeString: Lipid_metrics[2][3],
             },
             {
               name: keys[52],
               value: values[52],
               unit: Lipid_metrics[3][0],
-              range: Lipid_metrics[3][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Lipid_metrics[3][1], Lipid_metrics[3][2]],
+              rangeString: Lipid_metrics[3][3],
             },
             {
               name: keys[53],
               value: values[53],
               unit: Lipid_metrics[4][0],
-              range: Lipid_metrics[4][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Lipid_metrics[4][1], Lipid_metrics[4][2]],
+              rangeString: Lipid_metrics[4][3],
             },
             {
               name: keys[54],
               value: values[54],
               unit: Lipid_metrics[5][0],
-              range: Lipid_metrics[5][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Lipid_metrics[5][1], Lipid_metrics[5][2]],
+              rangeString: Lipid_metrics[5][3],
             },
           ],
 
@@ -793,17 +858,15 @@ export default async function handler(req, res) {
               name: keys[93],
               value: values[93],
               unit: Diabetes_metrics[0][0],
-              range: Diabetes_metrics[0][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Diabetes_metrics[0][1], Diabetes_metrics[0][2]],
+              rangeString: Diabetes_metrics[0][3],
             },
             {
               name: keys[94],
               value: values[94],
               unit: Diabetes_metrics[1][0],
-              range: Diabetes_metrics[1][1]
-                .split("-")
-                .map((num) => Number(num.trim())),
+              range: [Diabetes_metrics[1][1], Diabetes_metrics[1][2]],
+              rangeString: Diabetes_metrics[1][3],
             },
           ],
           static: {
@@ -873,7 +936,7 @@ export default async function handler(req, res) {
             },
           ],
           static: {
-            heading: "Thryroid Profile",
+            heading: "Thyroid Profile",
             why_test_is_important: `
             <div className="mt-6 break-inside-avoid">
               <p className="text-[10px] text-gray-500">

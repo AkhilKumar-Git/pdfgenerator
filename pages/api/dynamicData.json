@@ -532,49 +532,50 @@
           "value": "253",
           "unit": "mg/dl",
           "range": [
-            null,
-            null
-          ]
+            0,
+            200
+          ],
+          "rangeString": "Desirable: <= 200\nBorderline High: 201-239\nHigh: > 239\nRef: The National Cholesterol\nEducation Program (NCEP) Adult\nTreatment Panel III Report.\n                                                                                       ."
         },
         {
           "name": "Cholesterol-HDL Direct",
           "value": "64",
           "unit": "mg/dl",
           "range": [
-            null,
-            null
-          ]
+            40,
+            60
+          ],
+          "rangeString": "High Risk: < 40\nOptimal: 40 - 60\nLow Risk: > 60\n                                                                                       ."
         },
         {
           "name": "LDL Cholesterol",
           "value": "175.6",
           "unit": "mg/dl",
           "range": [
-            null,
-            null,
-            null,
-            null
-          ]
+            0,
+            100
+          ],
+          "rangeString": "Optimal: < 100\nNear optimal/above optimal: 100 - 129\nBorderline high: 130 - 159\nHigh: 160 - 189\nVery High: >= 190\n                                                                                       ."
         },
         {
           "name": "Triglycerides",
           "value": "67",
           "unit": "mg/dl",
           "range": [
-            null,
-            null,
-            null
-          ]
+            0,
+            150
+          ],
+          "rangeString": "Normal: < 150\nBorderline High: 150 - 199\nHigh: 200 - 499\nVery High: >= 500\n                                                                                       ."
         },
         {
           "name": "Non - HDL Cholesterol, Serum",
           "value": "189",
           "unit": "mg/dl",
           "range": [
-            null,
-            null,
-            null
-          ]
+            0,
+            130
+          ],
+          "rangeString": "Desirable: < 130\nBorderline High: 130 - 159\nHigh: 160 - 189\nVery High: >= 190\n                                                                                       ."
         },
         {
           "name": "VLDL Cholesterol",
@@ -583,7 +584,8 @@
           "range": [
             10,
             30
-          ]
+          ],
+          "rangeString": "10 - 30"
         }
       ],
       "static": {
@@ -601,15 +603,18 @@
           "range": [
             70,
             100
-          ]
+          ],
+          "rangeString": "70-100"
         },
         {
           "name": "HbA1c",
           "value": "5.4",
           "unit": "%",
           "range": [
-            null
-          ]
+            0,
+            5.7
+          ],
+          "rangeString": "<5.7"
         }
       ],
       "static": {
