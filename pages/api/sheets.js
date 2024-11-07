@@ -4,7 +4,6 @@ import fs from "fs";
 import path from "path";
 
 export default async function handler(req, res) {
-  res.status(200).json({ message: "API is working!" });
   console.log("API request received at /api/sheets");
   try {
     const auth = new google.auth.GoogleAuth({
