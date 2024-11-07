@@ -100,6 +100,11 @@ const IntegratedReport = () => {
           normalData={dynamicData["Tests"][9]["normalPie"]}
           healthScore={dynamicData["overall_summary"]["body_score"]}
           gutScore={dynamicData["overall_summary"]["biome_score"]}
+          barData={
+            dynamicData["overall_summary"]["microbiome_analysis"][
+              "health_overall_metrics"
+            ]
+          }
         />
       </div>
       <div className="component w-[210mm] bg-white">
