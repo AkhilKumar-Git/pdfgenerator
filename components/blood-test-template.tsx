@@ -86,10 +86,10 @@ export default function BloodTest({ testData }: props) {
         </div>
 
         {/* Footer */}
-        <div className="flex justify-between items-center text-[7px] text-gray-600 mt-8">
+        {/* <div className="flex justify-between items-center text-[7px] text-gray-600 mt-8">
           <p>SONAL CHANDRA | Thursday, August 15, 2024</p>
           <p className="font-bold">24/41</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

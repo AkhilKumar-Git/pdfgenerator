@@ -27,7 +27,7 @@ export default function TestParameters({
   static_text,
 }: TestParameterProps) {
   return (
-    <div className="blood-parameters-container w-[210mm] bg-white px-[48px] pt-[72px]">
+    <div className="blood-parameters-container w-[210mm] bg-white px-[48px] pt-[50px]">
       {/* Remove Card wrapper and use direct styling */}
       <div className="blood-parameters-content">
         {/* Header */}
@@ -62,10 +62,10 @@ export default function TestParameters({
           </div>
 
           {/* Footer */}
-          <div className="flex justify-between items-center text-[7px] text-gray-600 mt-8">
+          {/* <div className="flex justify-between items-center text-[7px] text-gray-600 mt-8">
             <p>SONAL CHANDRA | Thursday, August 15, 2024</p>
             <p className="font-bold">24/41</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -17,13 +17,13 @@ import React from "react";
 
 const cardinal = curveCardinal.tension(0);
 
-const pieData = [
-  { name: "BACTEROIDETES", value: 70, color: "#10D3E4" },
-  { name: "FIRMICUTES", value: 20, color: "#F8F58A" },
-  { name: "PROTEOBACTERIA", value: 5, color: "#A480B1" },
-  { name: "ACTINOBACTERIA", value: 3, color: "#16354B" },
-  { name: "OTHERS", value: 2, color: "#E9AC9C" },
-];
+// const pieData = [
+//   { name: "BACTEROIDETES", value: 70, color: "#10D3E4" },
+//   { name: "FIRMICUTES", value: 20, color: "#F8F58A" },
+//   { name: "PROTEOBACTERIA", value: 5, color: "#A480B1" },
+//   { name: "ACTINOBACTERIA", value: 3, color: "#16354B" },
+//   { name: "OTHERS", value: 2, color: "#E9AC9C" },
+// ];
 
 // interface CustomizedDotProps {
 //   cx: number;
@@ -61,6 +61,8 @@ interface healthProps {
   normalData: pieProps[];
   healthScore: number;
   gutScore: number;
+  name: string;
+  report_date: string;
   barData: barDataProps[];
 }
 
@@ -70,12 +72,14 @@ const HealthReportComponent = ({
   healthScore,
   gutScore,
   barData,
+  report_date,
+  name,
 }: healthProps) => {
   return (
     <div className="bg-white px-[48px] pt-[72px]">
       <div className="mx-6">
         <h2 className="text-[#777777] mb-2 text-xs">Your health snapshot on</h2>
-        <h1 className="text-xl font-bold mb-4">15 Aug 2024</h1>
+        <h1 className="text-xl font-bold mb-4">{report_date}</h1>
         <Card className="mb-4 rounded-xl">
           <CardContent className="p-4">
             <div className="flex items-center align-middle gap-4">
@@ -83,7 +87,7 @@ const HealthReportComponent = ({
 
               <div>
                 <h3 className="font-semibold text-xs">
-                  Overall Summary for Sonal Chandra
+                  Overall Summary for {name}
                 </h3>
 
                 <p className="text-[10px] text-gray-500">
@@ -225,7 +229,7 @@ const HealthReportComponent = ({
                 </h4>
 
                 <div className="grid grid-cols-2 gap-x-4 gap-y-1">
-                  {pieData.map((item, index) => (
+                  {normalData.map((item, index) => (
                     <div key={index} className="flex items-center">
                       <div
                         className="w-3 h-3 mr-2"

@@ -21,11 +21,11 @@ const Microbiome_interpretation = ({ title, image, alt, list }: props) => {
         </div>
       </div>
       {/* Display incoming list here */}
-      <ul className="list-disc pl-5">
+      <ul className="list-disc  text-[11px] pl-5">
         {list.map((item, index) => (
           <li key={index} className="mb-4">
-            <strong className="text-[11px]">{item.name}</strong> &bull;{" "}
-            <span className=" text-[11px] text-gray-600">{item.subtitle}</span>
+            <strong className="text-[11px]">{item.name}</strong> -
+            <span className=" text-[11px] text-gray-600"> {item.subtitle}</span>
             <p className="text-xs text-gray-500">{item.interpretation}</p>
           </li>
         ))}

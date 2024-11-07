@@ -97,6 +97,8 @@ const IntegratedReport = () => {
       <div className="component w-[210mm] bg-white">
         {/* Only Static Component, logic needed for biome score and other things */}
         <HealthReportComponent
+          name={dynamicData["personal_info"]["name"]}
+          report_date={dynamicData["personal_info"]["report_date"]}
           yourData={dynamicData["Tests"][9]["yourPie"]}
           normalData={dynamicData["Tests"][9]["normalPie"]}
           healthScore={dynamicData["overall_summary"]["body_score"]}
@@ -421,7 +423,7 @@ const TotalPDFConverter = () => {
 
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight = pdf.internal.pageSize.getHeight();
-    const margin = { top: 72, right: 0, bottom: 42, left: 0 };
+    const margin = { top: 0, right: 0, bottom: 42, left: 0 };
 
     let shouldStartOnNewPage = false; // Flag for starting a new page
 
@@ -471,7 +473,7 @@ const TotalPDFConverter = () => {
           imgData,
           "PNG",
           withMargin ? margin.left : 0,
-          position + 72,
+          position,
           imgWidth,
           imgHeight
         );
