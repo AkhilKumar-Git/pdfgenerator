@@ -4,7 +4,10 @@ export const integrateReport = async () => {
   try {
     const response = await fetch("/api/sheets");
     if (!response.ok) {
-      throw new Error("Failed to fetch data from /api/sheets");
+      const errorData = await response.json();
+      throw new Error(
+        `Error: ${errorData.error || "Failed to fetch data from /api/sheets"}`
+      );
     }
 
     const { dynamicData } = await response.json();
