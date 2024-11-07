@@ -1928,8 +1928,8 @@ Taxonomic classification is a hierarchical grouping of organisms in ranks of dec
       },
     };
 
-    const filePath = path.join(process.cwd(), "pages/api/dynamicData.json");
-    await fs.promises.writeFile(filePath, JSON.stringify(dynamicData, null, 2));
+    // const filePath = path.join(process.cwd(), "pages/api/dynamicData.json");
+    // await fs.promises.writeFile(filePath, JSON.stringify(dynamicData, null, 2));
 
     // Cache the data and timestamp
     cache = dynamicData;
