@@ -3,8 +3,17 @@ import { google } from "googleapis";
 import fs from "fs";
 import path from "path";
 
+let cache = null;
+let cacheTimestamp = null;
+
 export default async function handler(req, res) {
   console.log("API request received at /api/sheets");
+  const cacheExpiry = 5 * 60 * 1000; // Cache for 5 minutes
+
+  if (cache && Date.now() - cacheTimestamp < cacheExpiry) {
+    return res.status(200).json({ dynamicData: cache });
+  }
+
   try {
     const auth = new google.auth.GoogleAuth({
       credentials: {
@@ -1921,6 +1930,10 @@ Taxonomic classification is a hierarchical grouping of organisms in ranks of dec
 
     const filePath = path.join(process.cwd(), "pages/api/dynamicData.json");
     await fs.promises.writeFile(filePath, JSON.stringify(dynamicData, null, 2));
+
+    // Cache the data and timestamp
+    cache = dynamicData;
+    cacheTimestamp = Date.now();
 
     // Update the response to return dynamicData
     res.status(200).json({ dynamicData }); // Changed from { data } to { dynamicData }
