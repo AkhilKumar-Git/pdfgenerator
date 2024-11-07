@@ -420,7 +420,7 @@ const TotalPDFConverter = () => {
         }`
       );
 
-      const canvas = await html2canvas(element, { scale: 3 });
+      const canvas = await html2canvas(element, { scale: 2 });
       const imgData = canvas.toDataURL("image/png");
       const imgWidth = pdfWidth - (withMargin ? margin.left + margin.right : 0);
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
