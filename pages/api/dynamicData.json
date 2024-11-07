@@ -153,8 +153,8 @@
   ],
   "overall_summary": {
     "page_type": "snapshot",
-    "body_score": 58,
-    "biome_score": 48,
+    "body_score": 85,
+    "biome_score": 100,
     "health_snapshot_date": "15 aug 2023",
     "message": "Your overall assessment seems ok, but would need improvement.",
     "microbiome_analysis": {
@@ -162,27 +162,27 @@
       "yourPie": [
         {
           "name": "Bacteroidetes Total (saliva/stool)",
-          "value": 42.25,
+          "value": null,
           "color": "#10D3E4"
         },
         {
           "name": "Firmicutes total (stool)",
-          "value": 39.24,
+          "value": null,
           "color": "#F8F58A"
         },
         {
           "name": "Proteobacteria Total",
-          "value": 13.98,
+          "value": null,
           "color": "#A480B1"
         },
         {
           "name": "Others Total",
-          "value": 2.24,
+          "value": null,
           "color": "#16354B"
         },
         {
           "name": "Actinobacteria Total (saliva/stool)",
-          "value": 2.29,
+          "value": null,
           "color": "#E9AC9C"
         }
       ],
@@ -1055,27 +1055,27 @@
       "yourPie": [
         {
           "name": "Bacteroidetes Total (saliva/stool)",
-          "value": 42.25,
+          "value": null,
           "color": "#10D3E4"
         },
         {
           "name": "Firmicutes total (stool)",
-          "value": 39.24,
+          "value": null,
           "color": "#F8F58A"
         },
         {
           "name": "Proteobacteria Total",
-          "value": 13.98,
+          "value": null,
           "color": "#A480B1"
         },
         {
           "name": "Others Total",
-          "value": 2.24,
+          "value": null,
           "color": "#16354B"
         },
         {
           "name": "Actinobacteria Total (saliva/stool)",
-          "value": 2.29,
+          "value": null,
           "color": "#E9AC9C"
         }
       ],
