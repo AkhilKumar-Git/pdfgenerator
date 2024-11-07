@@ -3,16 +3,16 @@ import { google } from "googleapis";
 // import fs from "fs";
 // import path from "path";
 
-let cache = null;
-let cacheTimestamp = null;
+// let cache = null;
+// let cacheTimestamp = null;
 
 export default async function handler(req, res) {
   console.log("API request received at /api/sheets");
-  const cacheExpiry = 5 * 60 * 1000; // Cache for 5 minutes
+  // const cacheExpiry = 5 * 60 * 1000; // Cache for 5 minutes
 
-  if (cache && Date.now() - cacheTimestamp < cacheExpiry) {
-    return res.status(200).json({ dynamicData: cache });
-  }
+  // if (cache && Date.now() - cacheTimestamp < cacheExpiry) {
+  //   return res.status(200).json({ dynamicData: cache });
+  // }
 
   try {
     const auth = new google.auth.GoogleAuth({
@@ -274,6 +274,29 @@ export default async function handler(req, res) {
     });
     const Score_metrics = Health.data.values;
 
+    //Health-overall import
+    const Health_overall_grid = "Snapshot!L3:P4";
+    const Health_overall = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: Health_overall_grid,
+    });
+    const Health_overall_metrics = Health_overall.data.values[0].map((item) =>
+      parseFloat(item)
+    );
+
+    //Mb Abnormal Import
+    const Mb_Abnormal_grid = "MB Abnormal Reference!A2:D47";
+    const Mb_Abnormal = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: Mb_Abnormal_grid,
+    });
+    const Mb_Abnormal_metrics = Mb_Abnormal.data.values.map((item) => [
+      item[0],
+      item[1],
+      item[2],
+      item[3],
+    ]);
+
     //Microbiome Import
     const Microbiome_grid = "Microbiome!A2:D47";
     const Microbiome = await sheets.spreadsheets.values.get({
@@ -301,6 +324,24 @@ export default async function handler(req, res) {
     const MB_keys = MB_rows[0];
     const MB_values = MB_rows[1];
 
+    const interpretation_list = [];
+
+    for (let i = 0; i <= 45; i++) {
+      if (MB_values[8 + i] < Microbiome_metrics[i][0]) {
+        interpretation_list.push({
+          name: Mb_Abnormal_metrics[i][1],
+          subtitle: "lower then normal",
+          interpretation: Mb_Abnormal_metrics[i][2],
+        });
+      } else if (MB_values[8 + i] > Microbiome_metrics[i][1]) {
+        interpretation_list.push({
+          name: Mb_Abnormal_metrics[i][1],
+          subtitle: "higher then normal",
+          interpretation: Mb_Abnormal_metrics[i][3],
+        });
+      }
+    }
+
     const dynamicData = {
       personal_info: {
         report_type: "intro",
@@ -315,7 +356,7 @@ export default async function handler(req, res) {
           about: "About your raw data",
         },
       },
-      CUE: CUE_metrics,
+      CUE: Health_overall_metrics,
       // RFT: RFT_metrics,
       // Lipid: Lipid_metrics,
       // Thyroid: Thyroid_metrics,
@@ -347,6 +388,25 @@ export default async function handler(req, res) {
           page_type: "microbiome_analysis",
           yourPie: yourPie_metrics,
           normalPie: normalPie_metrics,
+          health_overall_metrics: [
+            {
+              name: "Gut & Microbiome",
+              value: Health_overall_metrics[0] * 100,
+            },
+            {
+              name: "Metabolic fitness",
+              value: Health_overall_metrics[1] * 100,
+            },
+            { name: "Heart health", value: Health_overall_metrics[2] * 100 },
+            {
+              name: "Detox & Organ fitness",
+              value: Health_overall_metrics[3] * 100,
+            },
+            {
+              name: "Blood and Immunity",
+              value: Health_overall_metrics[4] * 100,
+            },
+          ],
           deviations: {
             Bacteroidetes: "Lower than normal",
             Firmicutes: "Higher than normal",
@@ -1812,6 +1872,7 @@ Taxonomic classification is a hierarchical grouping of organisms in ranks of dec
           note: "Of all the microbial communities in the human body, the gut microbiome is by far the most dense and diverse.",
         },
       },
+      interpretations: interpretation_list,
       disclaimer: {
         items: [
           `Trait Health Pvt. Ltd. (hereinafter referred to as
@@ -1931,9 +1992,9 @@ Taxonomic classification is a hierarchical grouping of organisms in ranks of dec
     // const filePath = path.join(process.cwd(), "pages/api/dynamicData.json");
     // await fs.promises.writeFile(filePath, JSON.stringify(dynamicData, null, 2));
 
-    // Cache the data and timestamp
-    cache = dynamicData;
-    cacheTimestamp = Date.now();
+    // // Cache the data and timestamp
+    // cache = dynamicData;
+    // cacheTimestamp = Date.now();
 
     // Update the response to return dynamicData
     res.status(200).json({ dynamicData }); // Changed from { data } to { dynamicData }

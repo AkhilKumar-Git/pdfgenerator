@@ -17,6 +17,7 @@ import BloodTest from "@/components/blood-test-template";
 import Component from "./pages/5/page";
 import MicrobiomeTemplate from "@/components/microbiome-analysis";
 import Disclaimer from "@/components/disclaimer";
+import Microbiome_interpretation from "@/components/microbiome_interpretation";
 
 const IntegratedReport = () => {
   const [reportData, setReportData] = useState(null);
@@ -100,6 +101,11 @@ const IntegratedReport = () => {
           normalData={dynamicData["Tests"][9]["normalPie"]}
           healthScore={dynamicData["overall_summary"]["body_score"]}
           gutScore={dynamicData["overall_summary"]["biome_score"]}
+          barData={
+            dynamicData["overall_summary"]["microbiome_analysis"][
+              "health_overall_metrics"
+            ]
+          }
         />
       </div>
       <div className="component w-[210mm] bg-white">
@@ -361,6 +367,15 @@ const IntegratedReport = () => {
           testData={dynamicData["Tests"][9]["metrics"]}
           pieData={dynamicData["Tests"][9]["yourPie"]}
           normalData={dynamicData["Tests"][9]["normalPie"]}
+        />
+      </div>
+
+      <div className="component w-[210mm] bg-white">
+        <Microbiome_interpretation
+          image="/zoom-out.svg"
+          alt="interpretation"
+          title="Microbiome Analysis Interpretation"
+          list={dynamicData["interpretations"]}
         />
       </div>
 

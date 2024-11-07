@@ -7,13 +7,13 @@ import Image from "next/image";
 import { curveCardinal } from "d3-shape";
 import React from "react";
 
-const barData = [
-  { name: "Gut & Microbiome", value: 90 },
-  { name: "Metabolic fitness", value: 95 },
-  { name: "Heart health", value: 98 },
-  { name: "Detox & Organ fitness", value: 75 },
-  { name: "Blood and Immunity", value: 80 },
-];
+// const barData = [
+//   { name: "Gut & Microbiome", value: 90 },
+//   { name: "Metabolic fitness", value: 95 },
+//   { name: "Heart health", value: 98 },
+//   { name: "Detox & Organ fitness", value: 75 },
+//   { name: "Blood and Immunity", value: 80 },
+// ];
 
 const cardinal = curveCardinal.tension(0);
 
@@ -51,11 +51,17 @@ interface pieProps {
   color: string;
 }
 
+interface barDataProps {
+  name: string;
+  value: number;
+}
+
 interface healthProps {
   yourData: pieProps[];
   normalData: pieProps[];
   healthScore: number;
   gutScore: number;
+  barData: barDataProps[];
 }
 
 const HealthReportComponent = ({
@@ -63,6 +69,7 @@ const HealthReportComponent = ({
   normalData,
   healthScore,
   gutScore,
+  barData,
 }: healthProps) => {
   return (
     <div className="bg-white px-[48px] pt-[72px]">
