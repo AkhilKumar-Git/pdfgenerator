@@ -4,6 +4,8 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+// import { toPng } from "html-to-image";
+// import * as htmlToImage from "html-to-image";
 
 //Components Import
 import PreReport from "@/components/pre-report";
@@ -413,125 +415,82 @@ const IntegratedReport = () => {
 const TotalPDFConverter = () => {
   const reportRef = useRef(null);
 
-  const generatePDF = async () => {
+  // Function to handle print settings
+  const handlePrint = async () => {
     if (!reportRef.current) return;
-    const report = reportRef.current as HTMLElement;
-    const pdf = new jsPDF({
-      format: "a4",
-      unit: "mm",
-    });
 
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = pdf.internal.pageSize.getHeight();
-    const margin = { top: 0, right: 0, bottom: 42, left: 0 };
+    // Add print-specific styles
+    const style = document.createElement('style');
+    style.textContent = `
+      @media print {
+        @page {
+          size: A4;
+          margin: 10mm;
+        }
+        
+        body {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
 
-    let shouldStartOnNewPage = false; // Flag for starting a new page
+        .component {
+          break-inside: avoid;
+          margin-bottom: 20px;
+          page-break-inside: avoid;
+        }
 
-    const processComponent = async (
-      element: HTMLElement,
-      withMargin = false
-    ) => {
-      console.log(
-        `Processing component, starting on page ${
-          pdf.getCurrentPageInfo().pageNumber
-        }`
-      );
+        .page-break {
+          page-break-before: always;
+        }
 
-      const canvas = await html2canvas(element, { scale: 2 });
-      const imgData = canvas.toDataURL("image/png");
-      const imgWidth = pdfWidth - (withMargin ? margin.left + margin.right : 0);
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        /* Hide the print button during printing */
+        .print-button {
+          display: none;
+        }
 
-      let heightLeft = imgHeight;
-      let position = 0;
-
-      console.log(`Component height: ${imgHeight} | Page height: ${pdfHeight}`);
-
-      // Add image to the current page
-      pdf.addImage(
-        imgData,
-        "PNG",
-        withMargin ? margin.left : 0,
-        position,
-        imgWidth,
-        imgHeight
-      );
-      heightLeft -= pdfHeight;
-
-      console.log(`Height left after first render: ${heightLeft}`);
-
-      // If the content overflows, continue adding new pages
-      while (heightLeft > 0) {
-        pdf.addPage();
-        console.log(
-          `Adding new page for overflow, now on page ${
-            pdf.getCurrentPageInfo().pageNumber
-          }`
-        );
-        position = heightLeft - imgHeight;
-        pdf.addImage(
-          imgData,
-          "PNG",
-          withMargin ? margin.left : 0,
-          position,
-          imgWidth,
-          imgHeight
-        );
-        heightLeft -= pdfHeight;
-
-        console.log(`Remaining height after new page: ${heightLeft}`);
+        /* Skip first page content */
+        @page :first {
+          margin-top: 0;
+        }
       }
+    `;
+    document.head.appendChild(style);
 
-      // Set flag to indicate whether the next component should start on a new page
-      shouldStartOnNewPage = heightLeft < 0;
-      console.log(
-        `Component processed. Will the next component start on a new page? ${shouldStartOnNewPage}`
-      );
+    // Configure print settings
+    const printSettings = {
+      destination: 'Save as PDF',
+      documentTitle: 'Health Report',
+      scale: 1,
+      pageRanges: '2-',  // Print from page 2 onwards
+      printBackground: true,
+      shouldPrintBackgrounds: true,
+      displayHeaderFooter: true,
+      headerTemplate: '<div></div>',
+      footerTemplate: `
+        <div style="font-size: 10px; text-align: center; width: 100%; margin: 0 10mm;">
+          Page <span class="pageNumber"></span> of <span class="totalPages"></span>
+        </div>
+      `,
     };
 
-    const components = report.querySelectorAll(".component");
-    for (let i = 0; i < components.length; i++) {
-      const element = components[i] as HTMLElement;
-
-      // If a previous component overflowed, ensure the next one starts on a new page
-      if (shouldStartOnNewPage || pdf.getCurrentPageInfo().pageNumber > 1) {
-        pdf.addPage();
-        console.log(
-          `Starting new component on a new page: ${
-            pdf.getCurrentPageInfo().pageNumber
-          }`
-        );
-        shouldStartOnNewPage = false;
-      }
-
-      const elementHeight = element.scrollHeight;
-
-      console.log(`Component ${i + 1} height: ${elementHeight}`);
-
-      // Process each component, checking if it fits or overflows
-      if (elementHeight > pdfHeight) {
-        console.log(`Component ${i + 1} is large and may span multiple pages`);
-        await processComponent(element, true); // Handle large components spanning multiple pages
-      } else {
-        console.log(`Component ${i + 1} fits on the page`);
-        await processComponent(element); // Handle smaller components
-      }
-
-      console.log(`Finished processing component ${i + 1}`);
+    try {
+      // Trigger system print with configured settings
+      window.print();
+    } finally {
+      // Cleanup
+      document.head.removeChild(style);
     }
-
-    pdf.save("ihr.pdf");
   };
 
   return (
     <div className="w-[210mm] mx-auto">
       <button
-        onClick={generatePDF}
-        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        onClick={handlePrint}
+        className="print-button mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
       >
         Generate PDF
       </button>
-      <div ref={reportRef}>
+      <div ref={reportRef} className="print-content">
         <IntegratedReport />
       </div>
     </div>
