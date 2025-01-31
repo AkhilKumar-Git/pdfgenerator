@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-pdf/renderer": "^4.1.5",
+    "@react-pdf/renderer": "^4.1.6",
     "aws-amplify": "^6.8.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

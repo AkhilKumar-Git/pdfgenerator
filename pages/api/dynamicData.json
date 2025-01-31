@@ -161,54 +161,54 @@
       "page_type": "microbiome_analysis",
       "yourPie": [
         {
-          "name": "Bacteroidetes Total (saliva/stool)",
+          "name": "Bacteroidetes ",
           "value": null,
           "color": "#10D3E4"
         },
         {
-          "name": "Firmicutes total (stool)",
+          "name": "Firmicutes ",
           "value": null,
           "color": "#F8F58A"
         },
         {
-          "name": "Proteobacteria Total",
+          "name": "Proteobacteria ",
           "value": null,
           "color": "#A480B1"
         },
         {
-          "name": "Others Total",
+          "name": "Actinobacteria",
           "value": null,
           "color": "#16354B"
         },
         {
-          "name": "Actinobacteria Total (saliva/stool)",
+          "name": "Others",
           "value": null,
           "color": "#E9AC9C"
         }
       ],
       "normalPie": [
         {
-          "name": "Bacteroidetes Total (saliva/stool)",
+          "name": "Bacteroidetes",
           "value": 73.13,
           "color": "#10D3E4"
         },
         {
-          "name": "Firmicutes total (stool)",
+          "name": "Firmicutes",
           "value": 22.2,
           "color": "#F8F58A"
         },
         {
-          "name": "Proteobacteria Total",
+          "name": "Proteobacteria",
           "value": 2.15,
           "color": "#A480B1"
         },
         {
-          "name": "Others Total",
+          "name": "Actinobacteria",
           "value": 0.7,
           "color": "#16354B"
         },
         {
-          "name": "Actinobacteria Total (saliva/stool)",
+          "name": "Others",
           "value": 1.82,
           "color": "#E9AC9C"
         }
@@ -1054,54 +1054,54 @@
       "page_type": "microbiome",
       "yourPie": [
         {
-          "name": "Bacteroidetes Total (saliva/stool)",
+          "name": "Bacteroidetes ",
           "value": null,
           "color": "#10D3E4"
         },
         {
-          "name": "Firmicutes total (stool)",
+          "name": "Firmicutes ",
           "value": null,
           "color": "#F8F58A"
         },
         {
-          "name": "Proteobacteria Total",
+          "name": "Proteobacteria ",
           "value": null,
           "color": "#A480B1"
         },
         {
-          "name": "Others Total",
+          "name": "Actinobacteria ",
           "value": null,
           "color": "#16354B"
         },
         {
-          "name": "Actinobacteria Total (saliva/stool)",
+          "name": "Others",
           "value": null,
           "color": "#E9AC9C"
         }
       ],
       "normalPie": [
         {
-          "name": "Bacteroidetes Total (saliva/stool)",
+          "name": "Bacteroidetes ",
           "value": 73.13,
           "color": "#10D3E4"
         },
         {
-          "name": "Firmicutes total (stool)",
+          "name": "Firmicutes ",
           "value": 22.2,
           "color": "#F8F58A"
         },
         {
-          "name": "Proteobacteria Total",
+          "name": "Proteobacteria",
           "value": 2.15,
           "color": "#A480B1"
         },
         {
-          "name": "Others Total",
+          "name": "Actinobacteria ",
           "value": 0.7,
           "color": "#16354B"
         },
         {
-          "name": "Actinobacteria Total (saliva/stool)",
+          "name": "Others",
           "value": 1.82,
           "color": "#E9AC9C"
         }

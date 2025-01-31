@@ -78,15 +78,15 @@ const HealthReportComponent = ({
   return (
     <div className="bg-white px-[48px] pt-[72px]">
       <div className="mx-6">
-        <h2 className="text-[#777777] mb-2 text-xs">Your health snapshot on</h2>
-        <h1 className="text-xl font-bold mb-4">{report_date}</h1>
+        <h2 className="text-[#777777] mb-2 text-sm">Your health snapshot on</h2>
+        <h1 className="text-2xl font-bold mb-4">{report_date}</h1>
         <Card className="mb-4 rounded-xl">
           <CardContent className="p-4">
             <div className="flex items-center align-middle gap-4">
               <FileText className="text-gray-400 w-4 h-4" />
 
               <div>
-                <h3 className="font-semibold text-xs">
+                <h3 className="font-semibold text-md">
                   Overall Summary for {name}
                 </h3>
 
@@ -97,7 +97,7 @@ const HealthReportComponent = ({
             </div>
           </CardContent>
         </Card>
-        <p className="my-6 text-[10px]">
+        <p className="my-6 text-sm">
           Following is your integrated health score, combining microbiome and
           blood analysis.
         </p>
@@ -108,7 +108,7 @@ const HealthReportComponent = ({
                 <div className="flex items-center align-middle mb-4">
                   <img src="/microbe_logo.png" className="mr-[2px]" />
 
-                  <h3 className="font-semibold align-middle text-xs">
+                  <h3 className="font-semibold text-sm">
                     Your evaluation:
                   </h3>
                 </div>
@@ -123,24 +123,21 @@ const HealthReportComponent = ({
                   />
                 </div>
 
-                <div className="flex rounded-xl align-middle text-score border-border2 border-[0.5px]">
-                  <div className="flex-1 bg-score-f1 pl-4 pb-2 border-r">
-                    <div className="text-[8px]">BODY SCORE</div>
-
-                    <div className="text-2xl font-bold ">{healthScore}</div>
+                <div className="flex rounded-xl shadow-sm bg-white overflow-hidden">
+                  <div className="flex-1 py-2 px-4 flex flex-col items-start border-r border-gray-200">
+                    <div className="text-[8px] font-medium text-[#2D5A88]">BODY SCORE</div>
+                    <div className="text-xl font-bold text-[#2D5A88]">{healthScore}</div>
                   </div>
-
-                  <div className="flex-1 bg-score-f2 text-right pr-4 pb-2">
-                    <div className="text-[8px]">BIOME SCORE</div>
-
-                    <div className="text-2xl font-bold ">{gutScore}</div>
+                  <div className="flex-1 py-2 px-4 flex flex-col items-end bg-gray-50">
+                    <div className="text-[8px] font-medium text-[#2D5A88]">BIOME SCORE</div>
+                    <div className="text-xl font-bold text-[#2D5A88]">{gutScore}</div>
                   </div>
                 </div>
               </div>
 
               <div className="w-2/3 pl-3">
                 <div className="text-right px-6">
-                  <span className="text-[8px] font-semibold text-gray-500">
+                  <span className="text-xs font-semibold text-gray-500">
                     IDEAL
                   </span>
                 </div>
@@ -148,7 +145,7 @@ const HealthReportComponent = ({
                 <div className="space-y-1 mb-2 px-6">
                   {barData.map((item, index) => (
                     <div key={index} className="flex flex-col">
-                      <div className="text-[9px] text-gray-600 mb-1">
+                      <div className="text-xs text-gray-600 mb-4">
                         {item.name}
                       </div>
 
@@ -171,44 +168,22 @@ const HealthReportComponent = ({
             </div>
           </CardContent>
         </Card>
-        <h2 className="text-xs font-bold mb-2">Microbiome Analysis</h2>
+        <h2 className="text-sm font-bold mb-2">MICROBIOME ANALYSIS</h2>
         <Card className="mb-8 rounded-xl shadow-lg">
           <CardContent className="p-4">
             <div className="flex">
               <div className="flex-1 mr-6">
                 <div className="flex justify-around">
                   <div>
-                    <h3 className="text-center mb-1 text-[8px]">NORMAL</h3>
+                    <h3 className="text-center mb-2 text-[10px]">NORMAL</h3>
 
-                    <PieChart width={75} height={75}>
-                      <Pie
-                        data={yourData}
-                        cx={35}
-                        cy={35}
-                        innerRadius={0}
-                        outerRadius={35}
-                        fill="#8884d8"
-                        paddingAngle={0}
-                        dataKey="value"
-                        isAnimationActive={false}
-                      >
-                        {yourData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={entry.color} />
-                        ))}
-                      </Pie>
-                    </PieChart>
-                  </div>
-
-                  <div>
-                    <h3 className="text-center mb-1 text-[8px]">YOURS</h3>
-
-                    <PieChart width={75} height={75}>
+                    <PieChart width={150} height={150}>
                       <Pie
                         data={normalData}
-                        cx={35}
-                        cy={35}
+                        cx={75}
+                        cy={75}
                         innerRadius={0}
-                        outerRadius={35}
+                        outerRadius={70}
                         fill="#8884d8"
                         paddingAngle={0}
                         dataKey="value"
@@ -220,11 +195,33 @@ const HealthReportComponent = ({
                       </Pie>
                     </PieChart>
                   </div>
+
+                  <div>
+                    <h3 className="text-center mb-2 text-[10px]">YOURS</h3>
+
+                    <PieChart width={150} height={150}>
+                      <Pie
+                        data={yourData}
+                        cx={75}
+                        cy={75}
+                        innerRadius={0}
+                        outerRadius={70}
+                        fill="#8884d8"
+                        paddingAngle={0}
+                        dataKey="value"
+                        isAnimationActive={false}
+                      >
+                        {yourData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                    </PieChart>
+                  </div>
                 </div>
               </div>
 
-              <div className="w-1/2 ml-6">
-                <h4 className="text-[6px] text-black/50 font-semibold mb-2">
+              <div className="w-1/2 ml-4 mt-6">
+                <h4 className="text-[12px] text-black/50 font-semibold mb-2">
                   BACTERIAL PHYLA KEY
                 </h4>
 
@@ -232,11 +229,11 @@ const HealthReportComponent = ({
                   {normalData.map((item, index) => (
                     <div key={index} className="flex items-center">
                       <div
-                        className="w-3 h-3 mr-2"
+                        className="w-2 h-2 mr-2"
                         style={{ backgroundColor: item.color }}
                       />
 
-                      <span className="text-[6px] text-black/50">
+                      <span className="text-[12px] text-black/50">
                         {item.name}
                       </span>
                     </div>
@@ -246,10 +243,10 @@ const HealthReportComponent = ({
             </div>
           </CardContent>
         </Card>
-        <h2 className="text-[8px] font-bold mb-2">ASSESSMENT</h2>
+        <h2 className="text-sm font-bold mb-2">ASSESSMENT</h2>
         <Card className="rounded-xl shadow-lg">
           <CardContent className="p-4">
-            <p className="mb-3 text-[10px]">
+            <p className="mb-3 text-sm">
               You are in the top <span className="font-bold">50%</span> of the
               users for your Biome score.
             </p>
@@ -297,7 +294,7 @@ const HealthReportComponent = ({
               </AreaChart>
             </div>
 
-            <p className="text-[7px] text-gray-500 mt-2">
+            <p className="text-xs text-gray-500 mt-2">
               Compared with the users of same age and gender
             </p>
           </CardContent>

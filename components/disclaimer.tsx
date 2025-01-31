@@ -11,13 +11,13 @@ export default function Disclaimer({ title, items }: listProps) {
       <h1 className="mb-12 text-black text-2xl font-semibold font-['Montserrat'] leading-normal tracking-tight">
         {title}
       </h1>
-      <ol className="list-disc list-inside text-[10px]">
+      <ol className="list-disc list-inside text-base">
         {items.map(
           (
             item,
             index // Dynamic rendering of list items
           ) => (
-            <li key={index}>{item}</li>
+            <li className="mb-4" key={index}>{item}</li>
           )
         )}
       </ol>
