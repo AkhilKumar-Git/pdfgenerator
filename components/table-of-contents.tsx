@@ -25,7 +25,7 @@ const TableOfContents = ({
           {contentList.map((item, index) => (
             <li
               key={index}
-              className="pl-2 mb-4 text-black text-base leading-normal tracking-tight"
+              className="pl-2 mb-4 text-black text-xl leading-normal tracking-tight"
             >
               <span>
                 {index + 1}. {item}

@@ -15,18 +15,18 @@ const Microbiome_interpretation = ({ title, image, alt, list }: props) => {
   return (
     <div className="bg-white px-[48px] pt-[72px]">
       <div className="section-blood-picture mb-12 break-inside-avoid-page">
-        <h2 className="text-sm font-semibold mb-4">{title}</h2>
+        <h2 className="text-xl font-semibold mb-4">{title}</h2>
         <div className="mb-6 flex items-center">
-          <img src={image} alt={alt} className="w-6 h-6 mr-2" />
+          <img src={image} alt={alt} className="w-8 h-8 mr-2" />
         </div>
       </div>
       {/* Display incoming list here */}
-      <ul className="list-disc  text-[11px] pl-5">
+      <ul className="list-disc  text-base pl-5">
         {list.map((item, index) => (
           <li key={index} className="mb-4">
-            <strong className="text-[11px]">{item.name}</strong> -
-            <span className=" text-[11px] text-gray-600"> {item.subtitle}</span>
-            <p className="text-xs text-gray-500">{item.interpretation}</p>
+            <strong className="text-base">{item.name}</strong> -
+            <span className=" text-base text-gray-600"> {item.subtitle}</span>
+            <p className="text-sm text-gray-500">{item.interpretation}</p>
           </li>
         ))}
       </ul>

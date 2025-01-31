@@ -239,30 +239,42 @@ export default async function handler(req, res) {
       spreadsheetId,
       range: Snapshot_grid,
     });
-    const colors = ["#10D3E4", "#F8F58A", "#A480B1", "#16354B", "#E9AC9C"];
-    let colorIndex = 0;
+    const bacteriaTypes = [
+      {
+        name: "BACTERIODETES",
+        color: "#10D3E4"  // Light blue
+      },
+      {
+        name: "FIRMICUTES",
+        color: "#F8F58A"  // Light yellow
+      },
+      {
+        name: "PROTEOBACTERIA",
+        color: "#A480B1"  // Purple
+      },
+      {
+        name: "ACTINOBACTERIA",
+        color: "#16354B"  // Dark blue
+      },
+      {
+        name: "OTHERS",
+        color: "#E9AC9C"  // Pink/salmon
+      }
+    ];
 
-    const yourPie_metrics = Snapshot.data.values.map((item) => {
-      const color = colors[colorIndex % colors.length];
-      colorIndex++;
-
+    const yourPie_metrics = Snapshot.data.values.map((item, index) => {
       return {
-        name: item[0],
+        name: bacteriaTypes[index].name,
         value: parseFloat(item[1]),
-        color: color,
+        color: bacteriaTypes[index].color
       };
     });
 
-    colorIndex = 0;
-
-    const normalPie_metrics = Snapshot.data.values.map((item) => {
-      const color = colors[colorIndex % colors.length];
-      colorIndex++;
-
+    const normalPie_metrics = Snapshot.data.values.map((item, index) => {
       return {
-        name: item[0],
+        name: bacteriaTypes[index].name,
         value: parseFloat(item[2]),
-        color: color,
+        color: bacteriaTypes[index].color
       };
     });
 
@@ -1436,7 +1448,7 @@ export default async function handler(req, res) {
             heading: "Urine Examination",
             why_test_is_important: `
             <div className="mt-6 break-inside-avoid">
-              <p className="text-[10px] text-gray-500">
+              <p className="text-base text-gray-500">
                 The Complete Urine Examination (CUE) panel is a set of tests that provide
                 valuable insights into the health of the urinary system and overall
                 well-being. Collectively, these tests assess various aspects of urine
@@ -1532,12 +1544,15 @@ export default async function handler(req, res) {
               range: [Microbiome_metrics[4][0], Microbiome_metrics[4][1]],
               rangeString: Microbiome_metrics[4][2],
             },
+          ],
+          balance_ratios:[
             {
               name: MB_keys[13],
               value: MB_values[13],
               unit: "%",
               range: [Microbiome_metrics[5][0], Microbiome_metrics[5][1]],
               rangeString: Microbiome_metrics[5][2],
+              static: "Firmicutes & Bacteroidetes are the two most abundant phyla in the human microbiome. High ratio was linked in several studies to overweight and obese individuals (however, this ratio is still debatable in the scientific community)."
             },
             {
               name: MB_keys[14],
@@ -1545,7 +1560,10 @@ export default async function handler(req, res) {
               unit: "%",
               range: [Microbiome_metrics[6][0], Microbiome_metrics[6][1]],
               rangeString: Microbiome_metrics[6][2],
+              static: "The Proteobacteria-to-Actinobacteria (P/A) ratio serves as a microbial metric in evaluating gut health and potential dysbiosis. Elevated Proteobacteria levels are often associated with gut imbalances and certain inflammatory conditions, whereas Actinobacteria, especially members like Bifidobacteria, are considered beneficial for gut health."
             },
+          ],
+          strain_distribution:[
             {
               name: MB_keys[15],
               value: MB_values[15],
@@ -1574,6 +1592,8 @@ export default async function handler(req, res) {
               range: [Microbiome_metrics[10][0], Microbiome_metrics[10][1]],
               rangeString: Microbiome_metrics[10][2],
             },
+          ],
+          fermicutes_strains:[
             {
               name: MB_keys[19],
               value: MB_values[19],
@@ -1643,7 +1663,10 @@ export default async function handler(req, res) {
               unit: "%",
               range: [Microbiome_metrics[20][0], Microbiome_metrics[20][1]],
               rangeString: Microbiome_metrics[20][2],
+              static : "Firmicutes is one of the most abundant bacterial phyla in the human gut microbiota, comprising a diverse range of species. These bacteria play pivotal roles in the digestion of dietary fibers, production of short-chain fatty acids (SCFAs), and maintaining gut health. Some studies suggest a link between the Firmicutes-to-Bacteroidetes ratio and obesity, although the connection and its implications are still under research. Strains within the Firmicutes phylum, such as Lactobacillus and Clostridium, have both beneficial and pathogenic members, highlighting the complex and multifaceted roles of these bacteria in human health"
             },
+          ],
+          bacteriodetes_strains:[
             {
               name: MB_keys[29],
               value: MB_values[29],
@@ -1707,6 +1730,8 @@ export default async function handler(req, res) {
               range: [Microbiome_metrics[29][0], Microbiome_metrics[29][1]],
               rangeString: Microbiome_metrics[29][2],
             },
+          ],
+          proteobacteria_strains:[
             {
               name: MB_keys[38],
               value: MB_values[38],
@@ -1728,6 +1753,8 @@ export default async function handler(req, res) {
               range: [Microbiome_metrics[32][0], Microbiome_metrics[32][1]],
               rangeString: Microbiome_metrics[32][2],
             },
+          ],
+          yeast_strains:[
             {
               name: MB_keys[41],
               value: MB_values[41],
@@ -1749,7 +1776,9 @@ export default async function handler(req, res) {
               range: [Microbiome_metrics[35][0], Microbiome_metrics[35][1]],
               rangeString: Microbiome_metrics[35][2],
             },
-            {
+          ],
+          opportunistic_strains:[
+              {
               name: MB_keys[44],
               value: MB_values[44],
               unit: "%",

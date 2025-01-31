@@ -12,22 +12,7 @@
 //     { name: "ACTINOBACTERIA", value: 1.66, color: "#16354B" },
 //     { name: "OTHERS", value: 1.86, color: "#E9AC9C" },
 //   ],
-//   metrics: [
-//     {
-//       name: "Bacteroidetes Total (saliva/stool)",
-//       value: 56.77,
-//       range: [73.13, 22.16],
-//     },
-//     { name: "Firmicutes total (stool)", value: 35.21, range: [22.2, 18.66] },
-//     { name: "Proteobacteria Total", value: 4.49, range: [2.15, 10.39] },
-//     { name: "Others Total", value: 1.86, range: [0.07, 4.6] },
-//     {
-//       name: "Actinobacteria Total (saliva/stool)",
-//       value: 1.66,
-//       range: [1.82, 3],
-//     },
-//   ],
-// };
+
 
 // export default function MicrobiomeAnalysis() {
 //   return (
