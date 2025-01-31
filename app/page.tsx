@@ -60,7 +60,7 @@ const IntegratedReport = () => {
 
   const generatePDF = async () => {
     const report = reportRef.current;
-    if (!report) return;
+    if (!report) return console.error("Report not found");
 
     setIsGenerating(true);
     setProgress(0);
@@ -68,7 +68,7 @@ const IntegratedReport = () => {
     try {
       // A4 dimensions in mm
       const pageWidth = 210;
-      const pageHeight = 297;
+      // const pageHeight = 297;
 
       const pdf = new jsPDF({
         format: 'a4',
@@ -77,7 +77,7 @@ const IntegratedReport = () => {
         compress: true
       });
 
-      const components = report.getElementsByClassName('page');
+      const components = reportRef.current?.getElementsByClassName('page') ?? [];
       const totalComponents = components.length;
 
       for (let i = 0; i < totalComponents; i++) {
