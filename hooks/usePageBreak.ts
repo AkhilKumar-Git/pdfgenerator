@@ -4,6 +4,7 @@ export const usePageBreak = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const [pages, setPages] = useState<HTMLElement[]>([]);
   const pageHeight = 297; // A4 height in mm
+  const pixelRatio = 3.779527559; // 1mm to px conversion
 
   useEffect(() => {
     const handleContentOverflow = () => {
@@ -11,7 +12,7 @@ export const usePageBreak = () => {
 
       const content = contentRef.current;
       const contentHeight = content.scrollHeight;
-      const numPages = Math.ceil(contentHeight / (pageHeight * 3.779527559)); // Convert mm to px
+      const pageHeightPx = pageHeight * pixelRatio;
 
       // Reset existing content
       while (content.firstChild) {
@@ -30,20 +31,18 @@ export const usePageBreak = () => {
 
       Array.from(tempContainer.children).forEach((child) => {
         const clone = child.cloneNode(true) as HTMLElement;
+        
+        // Check if adding this component would exceed page height
         currentPage.appendChild(clone);
-
-        // Check if current page exceeds A4 height
-        if (currentPage.scrollHeight > pageHeight * 3.779527559) {
-          // Remove the overflowing element
+        if (currentPage.scrollHeight > pageHeightPx) {
+          // If component is too big for a single page, keep it on its own page
           currentPage.removeChild(clone);
-
-          // Create new page
+          
+          // Create new page for this component
           currentPage = document.createElement('div');
           currentPage.className = 'page';
           content.appendChild(currentPage);
           newPages.push(currentPage);
-
-          // Add the element to the new page
           currentPage.appendChild(clone);
         }
       });
@@ -52,18 +51,11 @@ export const usePageBreak = () => {
     };
 
     handleContentOverflow();
+    window.addEventListener('resize', handleContentOverflow);
 
-    // Re-run on content changes
-    const observer = new MutationObserver(handleContentOverflow);
-    if (contentRef.current) {
-      observer.observe(contentRef.current, {
-        childList: true,
-        subtree: true,
-        characterData: true,
-      });
-    }
-
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener('resize', handleContentOverflow);
+    };
   }, []);
 
   return { contentRef, pages };

@@ -82,48 +82,39 @@ const IntegratedReport = () => {
 
       for (let i = 0; i < totalComponents; i++) {
         const component = components[i];
-        const componentHeight = component.scrollHeight;
-        const numPages = Math.ceil(componentHeight / (pageHeight * 3.779527559)); // Convert mm to pixels (1mm = 3.779527559px)
+        
+        // Add new page for all pages except first
+        if (i > 0) pdf.addPage();
 
-        // Split component into pages if it exceeds A4 height
-        for (let pageNum = 0; pageNum < numPages; pageNum++) {
-          const canvas = await html2canvas(component, {
-            scale: 3,
-            useCORS: true,
-            logging: false,
-            allowTaint: true,
-            backgroundColor: '#FFFFFF',
-            windowWidth: component.scrollWidth,
-            windowHeight: component.scrollHeight,
-            y: pageNum * pageHeight * 3.779527559,
-            height: Math.min(pageHeight * 3.779527559, componentHeight - (pageNum * pageHeight * 3.779527559)),
-            onclone: (clonedDoc) => {
-              const clonedComponent = clonedDoc.getElementsByClassName('component')[i];
-              if (clonedComponent) {
-                clonedComponent.style.transform = '';
-                clonedComponent.style.border = 'none';
-              }
+        const canvas = await html2canvas(component, {
+          scale: 3,
+          useCORS: true,
+          logging: false,
+          allowTaint: true,
+          backgroundColor: '#FFFFFF',
+          windowWidth: component.scrollWidth,
+          windowHeight: component.scrollHeight,
+          onclone: (clonedDoc) => {
+            const clonedComponent = clonedDoc.getElementsByClassName('component')[i];
+            if (clonedComponent) {
+              clonedComponent.style.transform = '';
+              clonedComponent.style.border = 'none';
             }
-          });
+          }
+        });
 
-          // Add new page for all pages except first
-          if (i > 0 || pageNum > 0) pdf.addPage();
+        // Calculate dimensions to fit A4
+        const imgWidth = pageWidth;
+        const imgHeight = (canvas.height * pageWidth) / canvas.width;
 
-          // Calculate dimensions to fit A4
-          const imgWidth = pageWidth;
-          const imgHeight = (canvas.height * pageWidth) / canvas.width;
-
-          pdf.addImage(
-            canvas.toDataURL('image/jpeg', 1.0),
-            'JPEG',
-            0,
-            0,
-            imgWidth,
-            imgHeight,
-            undefined,
-            'FAST'
-          );
-        }
+        pdf.addImage(
+          canvas.toDataURL('image/jpeg', 1.0),
+          'JPEG',
+          0,
+          0,
+          imgWidth,
+          imgHeight
+        );
 
         setProgress(Math.floor((i + 1) / totalComponents * 100));
       }
