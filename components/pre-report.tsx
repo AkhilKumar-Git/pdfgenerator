@@ -22,7 +22,7 @@ const PreReport = ({
       </h1>
 
       <div className="bg-gray-200 mb-8 rounded">
-        <p className="text-[11px] font-medium p-4">
+        <p className="text-sm font-medium p-4">
           This report is provided to you for informational and educational
           purposes only, and does not replace a visit to a physician, nor does
           it replace the advice or services of a physician.
@@ -82,7 +82,7 @@ const PreReport = ({
       </div>
       <hr className="my-4" />
 
-      <div className="text-[8px]">
+      <div className="text-[10px]">
         <p className="mb-2">
           It should be taken into consideration that the result of a microbiome
           test and its interpretation may be incomplete. The amount of detected
